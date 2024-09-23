@@ -3,11 +3,11 @@ Contributors: wclovers
 Tags: woocommerce marketplace, multivendor marketplace, multi vendor, product vendors, wp user frontend, product vendor dashboard, ecommerce, vendor shop manager, woocommerce frontend shop manager, wcvendors, woocommerce frontend manager, wc frontend manager, woocommerce frontend shop manager, shop manager, ecommerce, e-commerce, woocommerce live manager
 Donate link: https://www.paypal.me/wclovers/25usd
 Requires at least: 4.4
-Tested up to: 6.5
+Tested up to: 6.6
 WC requires at least: 3.0
-WC tested up to: 9.0.0
+WC tested up to: 9.3.0
 Requires PHP: 5.6
-Stable tag: 6.7.12
+Stable tag: 6.7.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -221,14 +221,21 @@ Fully compatible with all major multi-vendor marketplace plugins - <strong>WCFM 
 
 == Changelog ==
 
-= 6.7.12 =
-*Updated - 26/06/2024*
+= 6.7.13 =
+*Updated - 23/09/2024*
 
-* Enhanced – WooCommerce 9.0+ compatibility added
-* Enhanced – wcfm_get_customers_orders_stat() function to accurately calculate the total amount spent by vendors. This update resolves previous inaccuracies in displaying vendor-specific order statistics.
+* Enhanced – Stripe Split Payment connect settings now use the store location address as prefilled data.
+* Fixed    – Vulnerability in the Customer Manage Section: An unauthorized user can change a customer's email, as reported by Wesley (Wcraft). Credit goes to Wesley for identifying this issue.
+* Fixed    – Stripe Split Payment Issue with Cross-Border Payments: If the platform account and connected account(s) are not from the same country, Stripe payments fail when using "direct charge" mode.
+* Fixed    – Issue related to report section Out of stock database query
+* Fixed    – Minor typo fix, language pot file updated
+
+= 6.7.12 =
+*Updated - 23/06/2024*
+
 * Fixed    – PHP Notice: Function ID was called incorrectly. Order properties should not be accessed directly.
 * Fixed    - Replaced strlen() with mb_strlen() to support UTF-8 characters for menu labels in store-manager dashboard.
-
+* Enhanced – wcfm_get_customers_orders_stat() function to accurately calculate the total amount spent by vendors. This update resolves previous inaccuracies in displaying vendor-specific order statistics.
 
 = 6.7.11 =
 *Updated - 07/06/2024*
@@ -2662,8 +2669,9 @@ Fully compatible with all major multi-vendor marketplace plugins - <strong>WCFM 
 
 == Upgrade Notice ==
 
-= 6.7.12 =
-* Enhanced – WooCommerce 9.0+ compatibility added
-* Enhanced – wcfm_get_customers_orders_stat() function to accurately calculate the total amount spent by vendors. This update resolves previous inaccuracies in displaying vendor-specific order statistics.
-* Fixed    – PHP Notice: Function ID was called incorrectly. Order properties should not be accessed directly.
-* Fixed    - Replaced strlen() with mb_strlen() to support UTF-8 characters for menu labels in store-manager dashboard.
+= 6.7.13 =
+* Enhanced – Stripe Split Payment connect settings now use the store location address as prefilled data.
+* Fixed    – Vulnerability in the Customer Manage Section: An unauthorized user can change a customer's email, as reported by Wesley (Wcraft). Credit goes to Wesley for identifying this issue.
+* Fixed    – Stripe Split Payment Issue with Cross-Border Payments: If the platform account and connected account(s) are not from the same country, Stripe payments fail when using "direct charge" mode.
+* Fixed    – Issue related to report section Out of stock database query
+* Fixed    – Minor typo fix, language pot file updated

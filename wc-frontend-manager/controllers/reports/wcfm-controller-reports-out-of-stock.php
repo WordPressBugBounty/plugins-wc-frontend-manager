@@ -39,8 +39,8 @@ class WCFM_Reports_Out_Of_Stock_Controller {
 			AND postmeta.meta_key = '_stock' AND CAST(postmeta.meta_value AS SIGNED) <= '{$stock}'
 		" ), $stock );
 
-		$items     = $wpdb->get_results( $wpdb->prepare( "SELECT posts.ID as id, posts.post_status, posts.post_parent as parent %s GROUP BY posts.ID ORDER BY posts.post_title DESC LIMIT %d, %d;", $query_from, $offset, $length ) );
-		$max_items = $wpdb->get_results( $wpdb->prepare( "SELECT posts.ID as id, posts.post_parent as parent %s GROUP BY posts.ID ORDER BY posts.post_title DESC", $query_from ) );
+		$items     = $wpdb->get_results( $wpdb->prepare( "SELECT posts.ID as id, posts.post_status, posts.post_parent as parent {$query_from} GROUP BY posts.ID ORDER BY posts.post_title DESC LIMIT %d, %d;", $offset, $length ) );
+        $max_items = $wpdb->get_results( $wpdb->prepare( "SELECT posts.ID as id, posts.post_parent as parent {$query_from} GROUP BY posts.ID ORDER BY posts.post_title DESC" ) );
 		
 		// Get Product Count
 		$out_of_stock_count = 0;

@@ -1276,19 +1276,20 @@ if(!function_exists('get_wcfm_vendors_new_messages')) {
 	}
 }
 
-if(!function_exists('get_wcfm_customers_manage_messages')) {
+if (!function_exists('get_wcfm_customers_manage_messages')) {
 	function get_wcfm_customers_manage_messages() {
 		global $WCFMu;
-		
+
 		$messages = array(
-											'no_username' => __( 'Please insert Customer Username before submit.', 'wc-frontend-manager' ),
-											'no_email' => __( 'Please insert Customer Email before submit.', 'wc-frontend-manager' ),
-											'username_exists' => __( 'This Username already exists.', 'wc-frontend-manager' ),
-											'email_exists' => __( 'This Email already exists.', 'wc-frontend-manager' ),
-											'customer_failed' => __( 'Customer Saving Failed.', 'wc-frontend-manager' ),
-											'customer_saved' => __( 'Customer Successfully Saved.', 'wc-frontend-manager' ),
-											);
-		
+			'no_username' => __('Please insert Customer Username before submit.', 'wc-frontend-manager'),
+			'no_email' => __('Please insert Customer Email before submit.', 'wc-frontend-manager'),
+			'username_exists' => __('This Username already exists.', 'wc-frontend-manager'),
+			'email_exists' => __('This Email already exists.', 'wc-frontend-manager'),
+			'customer_failed' => __('Customer Saving Failed.', 'wc-frontend-manager'),
+			'customer_saved' => __('Customer Successfully Saved.', 'wc-frontend-manager'),
+			'invalid_customer' => __('Invalid Customer.', 'wc-frontend-manager'),
+		);
+
 		return $messages;
 	}
 }

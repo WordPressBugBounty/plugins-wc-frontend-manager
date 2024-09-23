@@ -1409,7 +1409,7 @@ class WCFM_Integrations {
 				}
 				$defaultmonth 	=	get_date_from_gmt(gmdate('Y-m-d H:i:s',$ts),'m');
 				$defaultday 	=	get_date_from_gmt(gmdate('Y-m-d H:i:s',$ts),'d');
-				$defaultyear 	=	get_date_from_gmt(gmdate('Y-m-d H:i:s',$ts),'Y');;
+				$defaultyear 	=	get_date_from_gmt(gmdate('Y-m-d H:i:s',$ts),'Y');
 				$defaulthour 	=	get_date_from_gmt(gmdate('Y-m-d H:i:s',$ts),'H');
 				$defaultminute 	=	get_date_from_gmt(gmdate('Y-m-d H:i:s',$ts),'i');
 			}

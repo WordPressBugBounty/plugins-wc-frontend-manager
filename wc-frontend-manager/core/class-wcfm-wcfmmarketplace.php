@@ -673,23 +673,36 @@ class WCFM_Marketplace {
   	$order_status = sanitize_title( $order->get_status() );
   	
   	$td_style = '';
-  	
-  	$sql = "
-  	SELECT GROUP_CONCAT(ID) as commission_ids,
-  	   GROUP_CONCAT(item_id) as order_item_ids,
-  	   SUM(commission_amount) as line_total,
-  	   SUM(total_commission) as total_commission,
-  	   SUM(item_total) as item_total,
-  	   SUM(item_sub_total) as item_sub_total,
-	     SUM(shipping) as shipping,
-       SUM(tax) as tax,
-       SUM(	shipping_tax_amount) as shipping_tax_amount,
-       SUM(	refunded_amount) as refunded_amount,
-       SUM(	discount_amount) as discount_amount
-       FROM {$wpdb->prefix}wcfm_marketplace_orders
-       WHERE order_id = %d
-       AND `vendor_id` = %d
-       AND `is_refunded` != 1";
+
+	/**
+	 * 	Issue: Aggregate functions with no input tend to produce output nonetheless
+	 * 
+	 * 	so we added order_id column to the SELECT query & also GROUP BY clause
+	 * 	this helps in returning false from $wpdb->get_results()
+	 * 	instead of a blank row with null values
+	 */
+	$sql = "
+		SELECT 
+			order_id,
+			GROUP_CONCAT(ID) as commission_ids,
+			GROUP_CONCAT(item_id) as order_item_ids,
+			SUM(commission_amount) as line_total,
+			SUM(total_commission) as total_commission,
+			SUM(item_total) as item_total,
+			SUM(item_sub_total) as item_sub_total,
+			SUM(shipping) as shipping,
+			SUM(tax) as tax,
+			SUM(shipping_tax_amount) as shipping_tax_amount,
+			SUM(refunded_amount) as refunded_amount,
+			SUM(discount_amount) as discount_amount
+		FROM 
+			{$wpdb->prefix}wcfm_marketplace_orders
+		WHERE 
+			order_id = %d
+			AND `vendor_id` = %d
+			AND `is_refunded` != 1
+		GROUP BY order_id";
+			
     $order_due = $wpdb->get_results( $wpdb->prepare( $sql, $order_id, $this->vendor_id ) );
     if( !$order_due || !isset( $order_due[0] ) ) return;
     

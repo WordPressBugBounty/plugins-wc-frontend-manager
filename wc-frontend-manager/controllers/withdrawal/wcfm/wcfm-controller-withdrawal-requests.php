@@ -151,7 +151,7 @@ class WCFM_Withdrawal_Requests_Controller {
 					foreach( $withdrawal_order_ids as $withdrawal_order_id ) {
 						if( $withdrawal_order_id ) {
 							if( $withdrawal_orders ) $withdrawal_orders .= ', ';
-							$withdrawal_orders .= '<a class="wcfm_dashboard_item_title transaction_order_ids" target="_blank" href="'. get_wcfm_view_order_url( $withdrawal_order_id ) .'">#'.  wcfm_get_order_number( $withdrawal_order_id ) . '</a>';;
+							$withdrawal_orders .= '<a class="wcfm_dashboard_item_title transaction_order_ids" target="_blank" href="'. get_wcfm_view_order_url( $withdrawal_order_id ) .'">#'.  wcfm_get_order_number( $withdrawal_order_id ) . '</a>';
 						}
 					}
 				}

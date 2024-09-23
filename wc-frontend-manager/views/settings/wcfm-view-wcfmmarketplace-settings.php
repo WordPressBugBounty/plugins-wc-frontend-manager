@@ -643,11 +643,17 @@ $is_marketplace = wcfm_is_marketplace();
 	
 											if (empty($stripe_user_id)) {
 												$account = $stripe_client->create_account($stripe_client->get_stripe_accounts_args());
-												$stripe_user_id = $account->id;
+												
+												if (isset($account->id)) {
+													$stripe_user_id = $account->id;
+												}
 											}
 	
 											// create account_url & redirect
-											$link = $stripe_client->create_account_link($stripe_client->get_stripe_account_links_args($stripe_user_id));
+											$link = '';
+											if ($stripe_user_id) {
+												$link = $stripe_client->create_account_link($stripe_client->get_stripe_account_links_args($stripe_user_id));
+											}
 	
 											if ($link) {
 												?>
