@@ -7,7 +7,7 @@ Tested up to: 6.6
 WC requires at least: 3.0
 WC tested up to: 9.3.0
 Requires PHP: 5.6
-Stable tag: 6.7.13
+Stable tag: 6.7.14
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -220,6 +220,11 @@ Fully compatible with all major multi-vendor marketplace plugins - <strong>WCFM 
 25. WCFM Dashboard - Mobile view
 
 == Changelog ==
+
+= 6.7.14 =
+*Updated - 02/10/2024*
+
+* Fixed    – Stripe Connect Issue for vendors where platform country is CANADA
 
 = 6.7.13 =
 *Updated - 23/09/2024*
@@ -2669,9 +2674,5 @@ Fully compatible with all major multi-vendor marketplace plugins - <strong>WCFM 
 
 == Upgrade Notice ==
 
-= 6.7.13 =
-* Enhanced – Stripe Split Payment connect settings now use the store location address as prefilled data.
-* Fixed    – Vulnerability in the Customer Manage Section: An unauthorized user can change a customer's email, as reported by Wesley (Wcraft). Credit goes to Wesley for identifying this issue.
-* Fixed    – Stripe Split Payment Issue with Cross-Border Payments: If the platform account and connected account(s) are not from the same country, Stripe payments fail when using "direct charge" mode.
-* Fixed    – Issue related to report section Out of stock database query
-* Fixed    – Minor typo fix, language pot file updated
+= 6.7.14 =
+* Fixed    – Stripe Connect Issue for vendors where platform country is CANADA
