@@ -3,11 +3,11 @@ Contributors: wclovers
 Tags: woocommerce marketplace, multivendor marketplace, multi vendor, product vendors, wp user frontend, product vendor dashboard, ecommerce, vendor shop manager, woocommerce frontend shop manager, wcvendors, woocommerce frontend manager, wc frontend manager, woocommerce frontend shop manager, shop manager, ecommerce, e-commerce, woocommerce live manager
 Donate link: https://www.paypal.me/wclovers/25usd
 Requires at least: 4.4
-Tested up to: 6.6
+Tested up to: 6.7
 WC requires at least: 3.0
-WC tested up to: 9.3.0
+WC tested up to: 9.5.0
 Requires PHP: 5.6
-Stable tag: 6.7.14
+Stable tag: 6.7.15
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -220,6 +220,12 @@ Fully compatible with all major multi-vendor marketplace plugins - <strong>WCFM 
 25. WCFM Dashboard - Mobile view
 
 == Changelog ==
+
+= 6.7.15 =
+*Updated - 12/01/2025*
+
+* Enhance - WordPress 6.7+ compatibility check added
+* Enhance - WooCommerce 9.5+ compatibility check added
 
 = 6.7.14 =
 *Updated - 02/10/2024*
@@ -2674,5 +2680,6 @@ Fully compatible with all major multi-vendor marketplace plugins - <strong>WCFM 
 
 == Upgrade Notice ==
 
-= 6.7.14 =
-* Fixed    – Stripe Connect Issue for vendors where platform country is CANADA
+= 6.7.15 =
+* Enhance - WordPress 6.7+ compatibility check added
+* Enhance - WooCommerce 9.5+ compatibility check added
