@@ -5,9 +5,9 @@ Donate link: https://www.paypal.me/wclovers/25usd
 Requires at least: 4.4
 Tested up to: 6.7
 WC requires at least: 3.0
-WC tested up to: 9.5.0
+WC tested up to: 9.7.0
 Requires PHP: 5.6
-Stable tag: 6.7.15
+Stable tag: 6.7.16
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -220,6 +220,13 @@ Fully compatible with all major multi-vendor marketplace plugins - <strong>WCFM 
 25. WCFM Dashboard - Mobile view
 
 == Changelog ==
+
+= 6.7.16 =
+*Updated - 09/03/2025*
+
+* Enhance - WooCommerce 9.7+ compatibility check added
+* Fixed   - Stripe vendor connect issue for cross border countries. Now vendor needs to choose from a list of supported countries.
+* Fixed   - Minor bug fixes
 
 = 6.7.15 =
 *Updated - 12/01/2025*
@@ -2680,6 +2687,7 @@ Fully compatible with all major multi-vendor marketplace plugins - <strong>WCFM 
 
 == Upgrade Notice ==
 
-= 6.7.15 =
-* Enhance - WordPress 6.7+ compatibility check added
-* Enhance - WooCommerce 9.5+ compatibility check added
+= 6.7.16 =
+* Enhance - WooCommerce 9.7+ compatibility check added
+* Fixed   - Stripe vendor connect issue for cross border countries. Now vendor needs to choose from a list of supported countries.
+* Fixed   - Minor bug fixes

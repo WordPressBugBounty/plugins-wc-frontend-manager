@@ -624,7 +624,7 @@ $is_marketplace = wcfm_is_marketplace();
 									$client_id = sanitize_text_field($testmode ? $WCFMmp->wcfmmp_withdrawal_options['stripe_test_client_id'] : $WCFMmp->wcfmmp_withdrawal_options['stripe_client_id']);
 									$secret_key = sanitize_text_field($testmode ? $WCFMmp->wcfmmp_withdrawal_options['stripe_test_secret_key'] : $WCFMmp->wcfmmp_withdrawal_options['stripe_secret_key']);
 
-									if ( $client_id && $secret_key ) {
+									if ($client_id && $secret_key) {
 										if (!class_exists('WCFM_Stripe_Connect_Client')) {
 											include_once $WCFM->plugin_path . "helpers/class-wcfm-stripe-connect-client.php";
 										}
@@ -680,7 +680,10 @@ $is_marketplace = wcfm_is_marketplace();
 											$btn_class = "stripe-connect light-blue";
 										} else {
 											$message = __('You are not connected with stripe.', 'wc-frontend-manager');
-											$url = add_query_arg('stripe_action', 'connect', get_wcfm_settings_url());
+											$url = add_query_arg([
+												'stripe_action'		=> 'connect',
+												'vendor_country'	=> $stripe_client->get_platform_country()
+											], get_wcfm_settings_url());
 											$btn_text = __('Connect with Stripe', 'wc-frontend-manager');
 											$btn_class = "stripe-connect";
 										}
@@ -704,9 +707,61 @@ $is_marketplace = wcfm_is_marketplace();
 														<tr>
 															<th></th>
 															<td>
-																<a class="<?php echo $btn_class; ?>" style="float:none;" href=<?php echo $url; ?> target="_self"><span><?php echo $btn_text; ?></span></a>
+																<a id="stripe-connect-btn" class="<?php echo $btn_class; ?>" style="float:none;" href=<?php echo $url; ?> target="_self"><span><?php echo $btn_text; ?></span></a>
 															</td>
 														</tr>
+														<?php if (!$stripe_client->is_connected_to_stripe()) { ?>
+															<tr>
+																<td></td>
+																<td>
+																<?php
+																	$country_codes = $stripe_client->get_supported_transfer_countries();
+
+																	if (!empty($country_codes)) {
+																		$countries = WC()->countries->get_countries();
+																		$supported_transfer_countries = [];
+
+																		foreach ($country_codes as $country_code) {
+																			if (isset($countries[$country_code])) {
+																				$supported_transfer_countries[$country_code] = $countries[$country_code];
+																			}
+																		}
+
+																		// Sort the array by country name (values)
+																		asort($supported_transfer_countries);
+
+																		?>
+																		<select id="stripe_vendor_country" name="stripe_vendor_country" class="wcfm-select wcfm_ele">
+																			<?php	
+																			foreach ($supported_transfer_countries as $country_code => $country_name) {
+																				?>
+																				<option value="<?php echo $country_code; ?>" <?php selected($stripe_client->get_platform_country(), $country_code); ?>><?php echo $country_name; ?></option>
+																				<?php
+																			}
+																			?>
+																		</select>
+																		<p class="description"><?php _e('Please select your country, as this will be used to configure your Stripe payment settings.', 'wc-frontend-manager'); ?></p>
+																		<script>
+																			jQuery('#stripe_vendor_country').on('change', (e) => {
+																				e.preventDefault();
+
+																				const $connectBtn = jQuery('#stripe-connect-btn');
+
+																				const countryCode = jQuery(e.currentTarget).val();
+
+																				const url = new URL($connectBtn.attr('href'));
+
+																				url.searchParams.set('vendor_country', countryCode);
+
+																				$connectBtn.attr('href', url);
+																			});
+																		</script>
+																		<?php
+																	}
+																	?>
+																</td>
+															</tr>
+														<?php } ?>
 													</tbody>
 												</table>
 											</div>
@@ -767,11 +822,11 @@ $is_marketplace = wcfm_is_marketplace();
 														update_user_meta($user_id, 'stripe_user_id', $resp['stripe_user_id']);
 														$vendor_data['payment']['method'] = 'stripe';
 														update_user_meta($user_id, 'wcfmmp_profile_settings', $vendor_data);
-														?>
+										?>
 														<script>
 															window.location = '<?php echo get_wcfm_settings_url() . '#wcfm_settings_form_payment_head'; ?>';
 														</script>
-														<?php
+													<?php
 													}
 												}
 												if (isset($resp['access_token']) || get_user_meta($user_id, 'vendor_connected', true) == 1) {
@@ -798,10 +853,10 @@ $is_marketplace = wcfm_is_marketplace();
 															</tbody>
 														</table>
 													</div>
-													<?php
+												<?php
 												} else {
 													update_user_meta($user_id, 'vendor_connected', 0);
-													?>
+												?>
 													<div class="clear"></div>
 													<div class="wcfmmp_stripe_connect">
 														<table class="form-table">
@@ -817,7 +872,7 @@ $is_marketplace = wcfm_is_marketplace();
 															</tbody>
 														</table>
 													</div>
-													<?php
+												<?php
 												}
 											} else if (!isset($_GET['marketplace_wirecard']) && isset($_GET['error'])) { // Error
 												update_user_meta($user_id, 'vendor_connected', 0);
@@ -877,11 +932,11 @@ $is_marketplace = wcfm_is_marketplace();
 															delete_user_meta($user_id, 'stripe_user_id');
 															$vendor_data['payment']['method'] = '';
 															update_user_meta($user_id, 'wcfmmp_profile_settings', $vendor_data);
-															?>
+												?>
 															<script>
 																window.location = '<?php echo get_wcfm_settings_url() . '#wcfm_settings_form_payment_head'; ?>';
 															</script>
-															<?php
+														<?php
 														} else {
 															_e('Unable to disconnect your account pleease try again', 'wc-frontend-manager');
 														}
@@ -961,7 +1016,7 @@ $is_marketplace = wcfm_is_marketplace();
 													$stripe_connect_url = esc_url($WCFM->plugin_url . 'assets/images/blue-on-light.png');
 
 													if (!$status) {
-														?>
+													?>
 														<div class="clear"></div>
 														<div class="wcfmmp_stripe_connect">
 															<table class="form-table">
@@ -981,9 +1036,9 @@ $is_marketplace = wcfm_is_marketplace();
 																</tbody>
 															</table>
 														</div>
-														<?php
+													<?php
 													} else {
-														?>
+													?>
 														<div class="clear"></div>
 														<div class="wcfmmp_stripe_connect">
 															<table class="form-table">
@@ -1003,7 +1058,7 @@ $is_marketplace = wcfm_is_marketplace();
 																</tbody>
 															</table>
 														</div>
-														<?php
+										<?php
 													}
 												}
 											}

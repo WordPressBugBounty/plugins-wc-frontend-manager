@@ -62,31 +62,10 @@ class WCFM_Stripe_Connect_Client {
         $user       = get_user_by('id', $this->user_id);
         $store_name = wcfm_get_vendor_store_name($this->user_id);
         $store_name = empty($store_name) ? $user->display_name : $store_name;
-        $store_info = get_user_meta( $this->user_id, 'wcfmmp_profile_settings', true );
-
-        $shop_description   = isset($store_info['shop_description']) ? $store_info['shop_description'] : '';
 
         // Address
-        $phone      = isset($store_info['phone']) ? $store_info['phone'] : '';
-        $email      = isset($store_info['store_email']) ? $store_info['store_email'] : '';
-        $address    = isset($store_info['address']) ? $store_info['address'] : [];
-        $street_1   = isset($address['street_1']) ? $address['street_1'] : '';
-        $street_2   = isset($address['street_2']) ? $address['street_2'] : '';
-        $city       = isset($address['city']) ? $address['city'] : '';
-        $zip        = isset($address['zip']) ? $address['zip'] : '';
-        $country    = isset($address['country']) ? $address['country'] : '';
-        $state      = isset($address['state']) ? $address['state'] : '';
-
-        // Customer Support
-        $customer_support               = isset($store_info['customer_support']) ? $store_info['customer_support'] : [];
-        $customer_supporty_phone        = isset($customer_support['phone']) ? $customer_support['phone'] : '';
-        $customer_supporty_email        = isset($customer_support['email']) ? $customer_support['email'] : '';
-        $customer_supporty_address1     = isset($customer_support['address1']) ? $customer_support['address1'] : '';
-        $customer_supporty_address2     = isset($customer_support['address2']) ? $customer_support['address2'] : '';
-        $customer_supporty_country      = isset($customer_support['country']) ? $customer_support['country'] : '';
-        $customer_supporty_city         = isset($customer_support['city']) ? $customer_support['city'] : '';
-        $customer_supporty_state        = isset($customer_support['state']) ? $customer_support['state'] : '';
-        $customer_supporty_zip          = isset($customer_support['zip']) ? $customer_support['zip'] : '';
+        $country    = isset($_GET['vendor_country']) ? wc_clean($_GET['vendor_country']) : '';
+        $countries = WC()->countries->get_countries();
 
         $stripe_connect_args = [];
         if (apply_filters('wcfm_is_allow_stripe_express_api', true)) {
@@ -111,101 +90,39 @@ class WCFM_Stripe_Connect_Client {
          */
         if (
             ! empty($country) &&
-            (in_array($country, $this->get_supported_transfer_countries()) ||
-            $this->needs_cross_border_payment($country))
+            in_array($country, $this->get_supported_transfer_countries())
         ) {
             $stripe_connect_args['country'] = $country;
+        } else {
+            wcfm_stripe_log(sprintf("Vendor[id:%s] country %s doesn't support transfer. Fallback to platform country %s", $this->user_id, $countries[$country], $countries[$this->get_platform_country()]), 'info');
         }
 
         $stripe_connect_args['capabilities'] = [
             'card_payments'       => [
                 'requested' => true,
             ],
-            // 'ideal_payments'      => [
-            //     'requested' => true,
-            // ],
-            // 'sepa_debit_payments' => [
-            //     'requested' => true,
-            // ],
             'transfers'           => [
                 'requested' => true,
             ],
         ];
 
-        if(!empty($stripe_connect_args['country']) && $this->needs_cross_border_payment($stripe_connect_args['country'])) {
+        if (
+            !empty($stripe_connect_args['country']) && 
+            !$this->support_stripe_card_payments($stripe_connect_args['country'])
+        ) {
+            if (!$this->cross_border_payment_supported($stripe_connect_args['country'])) {
+                wcfm_stripe_log(sprintf('Cross-border payment required, but country %s doesn\'t support transfers.', $countries[$stripe_connect_args['country']]), 'info');
+            } 
+
             // Unset all payments capabilities.
             unset(
                 $stripe_connect_args['capabilities']['card_payments'],
-                $stripe_connect_args['capabilities']['ideal_payments'],
-                $stripe_connect_args['capabilities']['sepa_debit_payments']
             );
-            // Set the `transfers` ability to `requested`.
+            // Set the `service_agreement` to `recipient` for cross border payment.
             $stripe_connect_args['tos_acceptance'] = [
                 'service_agreement' => 'recipient',
             ];
         }
-
-        /**
-         *  @link https://docs.stripe.com/api/accounts/create#create_account-business_type
-         */
-        $stripe_connect_args['business_type'] = \Stripe\Account::BUSINESS_TYPE_INDIVIDUAL;
-
-        /**
-         *  @link https://docs.stripe.com/api/accounts/create#create_account-individual
-         */
-        $stripe_connect_args['individual'] = [
-            'email'         => $email,
-            'first_name'    => $user->first_name,
-            'last_name'     => $user->last_name,
-            'phone'         => $phone,
-            'address'   => [
-                'line1'         => $street_1,
-                'line2'         => $street_2,
-                'city'          => $city,
-                'state'         => $state,
-                'country'       => $country,
-                'postal_code'   => $zip,
-            ],
-        ];
-
-        /**
-         *  @link https://docs.stripe.com/api/accounts/create#create_account-business_profile
-         */
-        $stripe_connect_args['business_profile'] = [
-            'name'  => $store_name,
-            /** 
-             *  Will not work for localhost
-             *  Stripe throws an error for invalid_url
-             *  Try in live site
-             */
-            // 'url' => wcfmmp_get_store_url($this->user_id),
-            'product_description'   => wp_strip_all_tags($shop_description),
-            'support_address' => [
-                'line1'         => $customer_supporty_address1,
-                'line2'         => $customer_supporty_address2,
-                'city'          => $customer_supporty_city,
-                'state'         => $customer_supporty_state,
-                'country'       => $customer_supporty_country,
-                'postal_code'   => $customer_supporty_zip,
-            ],
-            'support_email' => $customer_supporty_email,
-            'support_phone' => $customer_supporty_phone,
-        ];
-
-        /**
-         *  @link https://docs.stripe.com/api/accounts/create#create_account-settings
-         */
-        $stripe_connect_args['settings'] = [
-            'payments' => [
-                // @TODO between 5-22 chars
-                // The statement descriptor must be at most 22 characters.
-                'statement_descriptor' => substr(trim($store_name), 0, 22),
-            ]
-        ];
-
-        unset($stripe_connect_args['individual']);
-        unset($stripe_connect_args['business_profile']);
-        unset($stripe_connect_args['settings']);
 
         return apply_filters('wcfm_stripe_accounts_args', $stripe_connect_args);
     }
@@ -348,98 +265,6 @@ class WCFM_Stripe_Connect_Client {
     }
 
     /**
-     *  List of countries, does not support stripe card_payments 
-     * 
-     *  i.e. accounts can receive funds from admin business [Transfer Charge]
-     *  but accounts can not accept payments from their own customers [Direct Charge, Destination Charge]
-     * 
-     *  @return array $countries
-     * 
-     *  @link https://dashboard.stripe.com/test/settings/connect/onboarding-options/countries
-     */
-    public function wcfm_stripe_card_payments_restricted_countries() {
-
-        return apply_filters('wcfm_stripe_card_payments_restricted_countries', [
-            'AL' => __( 'Albania', 'woocommerce' ),
-            'DZ' => __( 'Algeria', 'woocommerce' ),
-            'AO' => __( 'Angola', 'woocommerce' ),
-            'AG' => __( 'Antigua and Barbuda', 'woocommerce' ),
-            'AR' => __( 'Argentina', 'woocommerce' ),
-            'AM' => __( 'Armenia', 'woocommerce' ),
-            'AZ' => __( 'Azerbaijan', 'woocommerce' ),
-            'BS' => __( 'Bahamas', 'woocommerce' ),
-            'BH' => __( 'Bahrain', 'woocommerce' ),
-            'BD' => __( 'Bangladesh', 'woocommerce' ),
-            'BJ' => __( 'Benin', 'woocommerce' ),
-            'BT' => __( 'Bhutan', 'woocommerce' ),
-            'BO' => __( 'Bolivia', 'woocommerce' ),
-            'BA' => __( 'Bosnia and Herzegovina', 'woocommerce' ),
-            'BW' => __( 'Botswana', 'woocommerce' ),
-            'BN' => __( 'Brunei', 'woocommerce' ),
-            'KH' => __( 'Cambodia', 'woocommerce' ),
-            'CL' => __( 'Chile', 'woocommerce' ),
-            'CO' => __( 'Colombia', 'woocommerce' ),
-            'CR' => __( 'Costa Rica', 'woocommerce' ),
-            'DO' => __( 'Dominican Republic', 'woocommerce' ),
-            'EC' => __( 'Ecuador', 'woocommerce' ),
-            'EG' => __( 'Egypt', 'woocommerce' ),
-            'SV' => __( 'El Salvador', 'woocommerce' ),
-            'ET' => __( 'Ethiopia', 'woocommerce' ),
-            'GA' => __( 'Gabon', 'woocommerce' ),
-            'GM' => __( 'Gambia', 'woocommerce' ),
-            'GH' => __( 'Ghana', 'woocommerce' ),
-            'GT' => __( 'Guatemala', 'woocommerce' ),
-            'GY' => __( 'Guyana', 'woocommerce' ),
-            'IS' => __( 'Iceland', 'woocommerce' ),
-            'IN' => __( 'India', 'woocommerce' ),
-            'ID' => __( 'Indonesia', 'woocommerce' ),
-            'IL' => __( 'Israel', 'woocommerce' ),
-            'JM' => __( 'Jamaica', 'woocommerce' ),
-            'JO' => __( 'Jordan', 'woocommerce' ),
-            'KZ' => __( 'Kazakhstan', 'woocommerce' ),
-            'KE' => __( 'Kenya', 'woocommerce' ),
-            'KW' => __( 'Kuwait', 'woocommerce' ),
-            'LA' => __( 'Laos', 'woocommerce' ),
-            'MO' => __( 'Macao', 'woocommerce' ),
-            'MG' => __( 'Madagascar', 'woocommerce' ),
-            'MY' => __( 'Malaysia', 'woocommerce' ),
-            'MU' => __( 'Mauritius', 'woocommerce' ),
-            'MD' => __( 'Moldova', 'woocommerce' ),
-            'MC' => __( 'Monaco', 'woocommerce' ),
-            'MN' => __( 'Mongolia', 'woocommerce' ),
-            'MA' => __( 'Morocco', 'woocommerce' ),
-            'MZ' => __( 'Mozambique', 'woocommerce' ),
-            'NA' => __( 'Namibia', 'woocommerce' ),
-            'NE' => __( 'Niger', 'woocommerce' ),
-            'NG' => __( 'Nigeria', 'woocommerce' ),
-            'OM' => __( 'Oman', 'woocommerce' ),
-            'PK' => __( 'Pakistan', 'woocommerce' ),
-            'PA' => __( 'Panama', 'woocommerce' ),
-            'PY' => __( 'Paraguay', 'woocommerce' ),
-            'PE' => __( 'Peru', 'woocommerce' ),
-            'PH' => __( 'Philippines', 'woocommerce' ),
-            'QA' => __( 'Qatar', 'woocommerce' ),
-            'RW' => __( 'Rwanda', 'woocommerce' ),
-            'SM' => __( 'San Marino', 'woocommerce' ),
-            'SA' => __( 'Saudi Arabia', 'woocommerce' ),
-            'SN' => __( 'Senegal', 'woocommerce' ),
-            'RS' => __( 'Serbia', 'woocommerce' ),
-            'ZA' => __( 'South Africa', 'woocommerce' ),
-            'KR' => __( 'South Korea', 'woocommerce' ),
-            'LK' => __( 'Sri Lanka', 'woocommerce' ),
-            'TW' => __( 'Taiwan', 'woocommerce' ),
-            'TZ' => __( 'Tanzania', 'woocommerce' ),
-            'TT' => __( 'Trinidad and Tobago', 'woocommerce' ),
-            'TN' => __( 'Tunisia', 'woocommerce' ),
-            'TR' => __( 'Turkey', 'woocommerce' ),
-            'UY' => __( 'Uruguay', 'woocommerce' ),
-            'UZ' => __( 'Uzbekistan', 'woocommerce' ),
-            'VN' => __( 'Vietnam', 'woocommerce' ),
-        ]);
-
-    }
-
-    /**
      * Retrives account data of the platform.
      *
      * @return \Stripe\Account|false
@@ -449,7 +274,7 @@ class WCFM_Stripe_Connect_Client {
             $cache_key   = "stripe_express_get_platform_data";
             $platform    = get_transient( $cache_key );
 
-            if ( false === $platform || apply_filters('wcfm_stripe_force_reload_transients', true) ) {
+            if ( false === $platform || apply_filters('wcfm_stripe_force_reload_transients', false) ) {
                 $platform = $this->stripe->accounts->retrieve();
                 set_transient( $cache_key, $platform, WEEK_IN_SECONDS );
             }
@@ -494,7 +319,10 @@ class WCFM_Stripe_Connect_Client {
             // Get the list of EU countries.
             $eu_countries = $this->get_european_countries();
 
-            // Apply the feature for EU countries and US only.
+            /**
+             *  Apply the feature for EU countries and the US only.
+             *  For other platform countries, there will be no list as they only support transfers from the platform country.
+             */
             if ( ! ( 'US' === $country_code || in_array( $country_code, $eu_countries, true )) ) {
                 return [];
             }
@@ -502,7 +330,7 @@ class WCFM_Stripe_Connect_Client {
             $cache_key     = "stripe_express_get_specs_for_$country_code";
             $country_specs = get_transient( $cache_key );
 
-            if ( false === $country_specs || apply_filters('wcfm_stripe_force_reload_transients', true) ) {
+            if ( false === $country_specs || apply_filters('wcfm_stripe_force_reload_transients', false) ) {
                 $country_specs = $this->stripe->countrySpecs->retrieve($country_code);
                 set_transient( $cache_key, $country_specs );
             }
@@ -563,12 +391,16 @@ class WCFM_Stripe_Connect_Client {
         delete_user_meta($this->user_id, 'stripe_account_capabilities');
     }
 
-    public function needs_cross_border_payment($country) {
+    public function cross_border_payment_supported($country) {
         $platform_country = $this->get_platform_country();
         $cross_border_supported_countries = array_keys($this->get_cross_border_supported_countries());
         $allow_cross_border_payment = ($platform_country === 'US') && in_array($country, $cross_border_supported_countries);
 
         return apply_filters('wcfmmp_stripe_is_allow_cross_border_payment', $allow_cross_border_payment, $country, $platform_country);
+    }
+
+    public function support_stripe_card_payments($country) {
+        return in_array($country, array_keys($this->get_stripe_supported_direct_charge_countries()));
     }
 
     /**
@@ -694,6 +526,65 @@ class WCFM_Stripe_Connect_Client {
             'UY' => __( 'Uruguay', 'woocommerce' ),
             'UZ' => __( 'Uzbekistan', 'woocommerce' ),
             'VN' => __( 'Vietnam', 'woocommerce' ),
+        ]);
+    }
+
+    /**
+     *  List of countries, does not support stripe card_payments 
+     * 
+     *  i.e. accounts can receive funds from admin business [Transfer Charge]
+     *  but accounts can not accept payments from their own customers [Direct Charge, Destination Charge]
+     * 
+     *  Didn't find any API endpoint to get this data, so this list may not be accurate or may change later
+     *  Stripe support suggest to use only standard accounts for direct_charge API, but we also need express account
+     * 
+     *  @link https://dashboard.stripe.com/test/settings/connect/onboarding-options/countries > Add the products they need > Payments - Let accounts accept payments from their own customers
+     *  @return array $countries
+     */
+    public function get_stripe_supported_direct_charge_countries() {
+        return apply_filters('wcfm_stripe_supported_direct_charge_countries', [
+            'AU' => __( 'Australia', 'woocommerce' ),
+            'AT' => __( 'Austria', 'woocommerce' ),
+            'BE' => __( 'Belgium', 'woocommerce' ),
+            'BG' => __( 'Bulgaria', 'woocommerce' ),
+            'CA' => __( 'Canada', 'woocommerce' ),
+            'HR' => __( 'Croatia', 'woocommerce' ),
+            'CY' => __( 'Cyprus', 'woocommerce' ),
+            'CZ' => __( 'Czech Republic', 'woocommerce' ),
+            'DK' => __( 'Denmark', 'woocommerce' ),
+            'EE' => __( 'Estonia', 'woocommerce' ),
+            'FI' => __( 'Finland', 'woocommerce' ),
+            'FR' => __( 'France', 'woocommerce' ),
+            'DE' => __( 'Germany', 'woocommerce' ),
+            'GI' => __( 'Gibraltar', 'woocommerce' ),
+            'GR' => __( 'Greece', 'woocommerce' ),
+            'HK' => __( 'Hong Kong SAR China', 'woocommerce' ),
+            'HU' => __( 'Hungary', 'woocommerce' ),
+            'IE' => __( 'Ireland', 'woocommerce' ),
+            'IT' => __( 'Italy', 'woocommerce' ),
+            'JP' => __( 'Japan', 'woocommerce' ),
+            'LV' => __( 'Latvia', 'woocommerce' ),
+            'LI' => __( 'Liechtenstein', 'woocommerce' ),
+            'LT' => __( 'Lithuania', 'woocommerce' ),
+            'LU' => __( 'Luxembourg', 'woocommerce' ),
+            'MT' => __( 'Malta', 'woocommerce' ),
+            'MX' => __( 'Mexico', 'woocommerce' ),
+            'NL' => __( 'Netherlands', 'woocommerce' ),
+            'NZ' => __( 'New Zealand', 'woocommerce' ),
+            'NO' => __( 'Norway', 'woocommerce' ),
+            'PL' => __( 'Poland', 'woocommerce' ),
+            'PT' => __( 'Portugal', 'woocommerce' ),
+            'RO' => __( 'Romania', 'woocommerce' ),
+            'SG' => __( 'Singapore', 'woocommerce' ),
+            'SK' => __( 'Slovakia', 'woocommerce' ),
+            'SI' => __( 'Slovenia', 'woocommerce' ),
+            'ES' => __( 'Spain', 'woocommerce' ),
+            'SE' => __( 'Sweden', 'woocommerce' ),
+            'CH' => __( 'Switzerland', 'woocommerce' ),
+            'TH' => __( 'Thailand', 'woocommerce' ),
+            'AE' => __( 'United Arab Emirates', 'woocommerce' ),
+            'GB' => __( 'United Kingdom', 'woocommerce' ),
+            'US' => __( 'United States', 'woocommerce' )
         ]);
     }
 }

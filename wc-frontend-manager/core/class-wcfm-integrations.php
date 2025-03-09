@@ -1,7 +1,5 @@
 <?php
 
-use Phan\Language\Element\Func;
-
 /**
  * WCFM plugin core
  *
@@ -11,7 +9,7 @@ use Phan\Language\Element\Func;
  * @package 	wcfm/core
  * @version   2.2.2
  */
- 
+
 class WCFM_Integrations {
 
 	public function __construct() {

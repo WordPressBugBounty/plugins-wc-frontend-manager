@@ -626,7 +626,7 @@ if ( ! function_exists( 'is_wcfm_endpoint_url' ) ) {
 		$wcfm_endpoints = $WCFM_Query->get_query_vars();
 
 		if ( $endpoint !== false ) {
-			if ( ! isset( $wc_endpoints[ $endpoint ] ) ) {
+			if ( ! isset( $wcfm_endpoints[ $endpoint ] ) ) {
 				return false;
 			} else {
 				$endpoint_var = $wcfm_endpoints[ $endpoint ];
