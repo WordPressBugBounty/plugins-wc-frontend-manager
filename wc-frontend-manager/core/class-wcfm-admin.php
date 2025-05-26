@@ -72,16 +72,34 @@ class WCFM_Admin {
 	 * WCFM activation redirect transient
 	 */
 	function wcfm_redirect_to_setup(){
+		$is_allowed = apply_filters( 'wcfm_allow_setup_page_access', current_user_can( 'administrator' ) );
+
+		if (!$is_allowed) {
+			wp_die(
+				__( "You don't have permission to access this page. Please contact the site administrator for assistance.", 'wc-frontend-manager' ),
+				__( 'Access Denied', 'wc-frontend-manager' )
+			);
+		}
+
 		if ( get_transient( '_wc_activation_redirect' ) ) {
 			delete_transient( '_wc_activation_redirect' );
 			return;
 		}
 		if ( get_transient( '_wcfm_activation_redirect' ) ) {
 			delete_transient( '_wcfm_activation_redirect' );
+			
 			if ( ( ! empty( $_GET['page'] ) && in_array( $_GET['page'], array( 'wcfm-setup' ) ) ) || is_network_admin() || isset( $_GET['activate-multi'] ) || apply_filters( 'wcfm_prevent_automatic_setup_redirect', false ) ) {
 			  return;
 			}
-			wp_safe_redirect( admin_url( 'index.php?page=wcfm-setup' ) );
+
+			wp_safe_redirect( 
+				wp_nonce_url(
+					admin_url( 'index.php?page=wcfm-setup' ),
+					'wcfm-setup-page-nonce',
+					'security'
+				) 
+			);
+
 			exit;
 		}
 	}

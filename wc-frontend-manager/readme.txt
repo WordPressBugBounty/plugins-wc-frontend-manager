@@ -3,11 +3,11 @@ Contributors: wclovers
 Tags: woocommerce marketplace, multivendor marketplace, multi vendor, product vendors, wp user frontend, product vendor dashboard, ecommerce, vendor shop manager, woocommerce frontend shop manager, wcvendors, woocommerce frontend manager, wc frontend manager, woocommerce frontend shop manager, shop manager, ecommerce, e-commerce, woocommerce live manager
 Donate link: https://www.paypal.me/wclovers/25usd
 Requires at least: 4.4
-Tested up to: 6.7
+Tested up to: 6.8
 WC requires at least: 3.0
-WC tested up to: 9.7.0
+WC tested up to: 9.8.0
 Requires PHP: 5.6
-Stable tag: 6.7.16
+Stable tag: 6.7.17
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -220,6 +220,12 @@ Fully compatible with all major multi-vendor marketplace plugins - <strong>WCFM 
 25. WCFM Dashboard - Mobile view
 
 == Changelog ==
+
+= 6.7.17 =
+*Updated - 26/05/2025*
+
+* Enhance - WooCommerce 9.8+ compatibility check added
+* Fixed   - Add 'wcfm_allow_setup_page_access' filter and nonce check to fix missing authorization vulnerability in setup page (reported by Brian Sans-Souci (liardom) - Wordfence)
 
 = 6.7.16 =
 *Updated - 09/03/2025*
@@ -2687,7 +2693,6 @@ Fully compatible with all major multi-vendor marketplace plugins - <strong>WCFM 
 
 == Upgrade Notice ==
 
-= 6.7.16 =
-* Enhance - WooCommerce 9.7+ compatibility check added
-* Fixed   - Stripe vendor connect issue for cross border countries. Now vendor needs to choose from a list of supported countries.
-* Fixed   - Minor bug fixes
+= 6.7.17 =
+* Enhance - WooCommerce 9.8+ compatibility check added
+* Fixed   - Add 'wcfm_allow_setup_page_access' filter and nonce check to fix missing authorization vulnerability in setup page (reported by Brian Sans-Souci (liardom) - Wordfence)

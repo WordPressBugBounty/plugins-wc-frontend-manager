@@ -39,6 +39,13 @@ class WCFM_Dashboard_Setup {
 			return;
 		}
 
+		if ( ! check_ajax_referer( 'wcfm-setup-page-nonce', 'security', false ) ) {
+			wp_die(
+				__( "Security check failed. You don't have permission to access this page. Please contact the site administrator for assistance.", 'wc-frontend-manager' ),
+				__( 'Access Denied', 'wc-frontend-manager' )
+			);
+		}
+
 		if ( isset($_POST['wcfm_install_wcfmmp']) ) {
 			$this->install_wcfmmp();
 			exit();
