@@ -7,7 +7,7 @@ Tested up to: 6.8
 WC requires at least: 3.0
 WC tested up to: 9.8.0
 Requires PHP: 5.6
-Stable tag: 6.7.17
+Stable tag: 6.7.18
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -220,6 +220,11 @@ Fully compatible with all major multi-vendor marketplace plugins - <strong>WCFM 
 25. WCFM Dashboard - Mobile view
 
 == Changelog ==
+
+= 6.7.18 =
+*Updated - 28/05/2025*
+
+* Fixed - DataTables warning: table id=wcfm-* - invalid JSON response issue fixed
 
 = 6.7.17 =
 *Updated - 26/05/2025*
@@ -2693,6 +2698,5 @@ Fully compatible with all major multi-vendor marketplace plugins - <strong>WCFM 
 
 == Upgrade Notice ==
 
-= 6.7.17 =
-* Enhance - WooCommerce 9.8+ compatibility check added
-* Fixed   - Add 'wcfm_allow_setup_page_access' filter and nonce check to fix missing authorization vulnerability in setup page (reported by Brian Sans-Souci (liardom) - Wordfence)
+= 6.7.18 =
+* Fixed - DataTables warning: table id=wcfm-* - invalid JSON response issue fixed

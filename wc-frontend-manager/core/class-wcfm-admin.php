@@ -74,7 +74,7 @@ class WCFM_Admin {
 	function wcfm_redirect_to_setup(){
 		$is_allowed = apply_filters( 'wcfm_allow_setup_page_access', current_user_can( 'administrator' ) );
 
-		if (!$is_allowed) {
+		if (!$is_allowed && !( defined('DOING_AJAX') && DOING_AJAX ) ) {
 			wp_die(
 				__( "You don't have permission to access this page. Please contact the site administrator for assistance.", 'wc-frontend-manager' ),
 				__( 'Access Denied', 'wc-frontend-manager' )
