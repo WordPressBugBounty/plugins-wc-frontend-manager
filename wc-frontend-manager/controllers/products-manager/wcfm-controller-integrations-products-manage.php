@@ -110,6 +110,8 @@ class WCFM_Integrations_Products_Manage_Controller {
 
 				// Woocommerce Germanized Variation Pricing & Shipping DataSave
 				add_action('wcfm_product_variation_data_factory', array(&$this, 'wcfm_wc_german_market_variations_product_meta_save'), 100, 5);
+
+				add_action('after_wcfm_products_manage', array(&$this, 'wcfm_output_gpsr_warning_editor_sync_script'));
 			}
 		}
 
@@ -1011,8 +1013,6 @@ class WCFM_Integrations_Products_Manage_Controller {
 	 * WooCommerce German Marketplace Product Meta Save
 	 */
 	function wcfm_wc_german_market_product_meta_save($new_product_id, $wcfm_products_manage_form_data) {
-		global $wpdb, $WCFM, $_POST;
-
 		if (isset($wcfm_products_manage_form_data['_lieferzeit'])) {
 			update_post_meta($new_product_id, '_lieferzeit', $wcfm_products_manage_form_data['_lieferzeit']);
 		}
@@ -1050,6 +1050,24 @@ class WCFM_Integrations_Products_Manage_Controller {
 		if (isset($wcfm_products_manage_form_data['_age_rating_age'])) {
 			update_post_meta($new_product_id, '_age_rating_age', $wcfm_products_manage_form_data['_age_rating_age']);
 		}
+
+		if (isset($wcfm_products_manage_form_data['_german_market_gpsr_ignore_defaults'])) {
+			update_post_meta($new_product_id, '_german_market_gpsr_ignore_defaults', 'on');
+		} else {
+			delete_post_meta($new_product_id, '_german_market_gpsr_ignore_defaults');
+		}
+
+        if (isset($wcfm_products_manage_form_data['_german_market_gpsr_manufacturer'])) {
+			update_post_meta($new_product_id, '_german_market_gpsr_manufacturer', $wcfm_products_manage_form_data['_german_market_gpsr_manufacturer']);
+		}
+
+        if (isset($wcfm_products_manage_form_data['_german_market_gpsr_responsible_person'])) {
+			update_post_meta($new_product_id, '_german_market_gpsr_responsible_person', $wcfm_products_manage_form_data['_german_market_gpsr_responsible_person']);
+		}
+
+        if (isset($wcfm_products_manage_form_data['_german_market_gpsr_warnings_and_safety_information'])) {
+			update_post_meta($new_product_id, '_german_market_gpsr_warnings_and_safety_information', $wcfm_products_manage_form_data['_german_market_gpsr_warnings_and_safety_information']);
+		}
 	}
 
 	/**
@@ -1083,6 +1101,22 @@ class WCFM_Integrations_Products_Manage_Controller {
 		}
 
 		return $wcfm_variation_data;
+	}
+
+	function wcfm_output_gpsr_warning_editor_sync_script() {
+		?>
+		<script>
+		jQuery(function($) {
+			$(document.body).on('wcfm_form_validate', function(event, form) {
+				$form = $(form);
+				if($form && $form.attr('id') == 'wcfm_products_manage_form') {
+					var warningContent = getWCFMEditorContent( '_german_market_gpsr_warnings_and_safety_information' );
+					$form.find('#_german_market_gpsr_warnings_and_safety_information').val(warningContent);
+				}
+			});
+		});
+		</script>
+		<?php
 	}
 
 	/**

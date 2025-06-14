@@ -39,9 +39,13 @@ class WCFM_Dashboard_Setup {
 			return;
 		}
 
-		if ( ! check_ajax_referer( 'wcfm-setup-page-nonce', 'security', false ) ) {
+		$current_user = is_user_logged_in() ? wp_get_current_user() : false;
+		$allowed_roles = apply_filters( 'wcfm_setup_page_allowed_roles', ['administrator'] );
+		$is_allowed = $current_user && array_intersect( $allowed_roles, $current_user->roles );
+
+		if (!apply_filters( 'wcfm_allow_setup_page_access', $is_allowed )) {
 			wp_die(
-				__( "Security check failed. You don't have permission to access this page. Please contact the site administrator for assistance.", 'wc-frontend-manager' ),
+				__( "You don't have permission to access this page. Please contact the site administrator for assistance.", 'wc-frontend-manager' ),
 				__( 'Access Denied', 'wc-frontend-manager' )
 			);
 		}
