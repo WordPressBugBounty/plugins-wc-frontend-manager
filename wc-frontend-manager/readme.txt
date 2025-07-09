@@ -7,7 +7,7 @@ Tested up to: 6.8
 WC requires at least: 3.0
 WC tested up to: 9.9.0
 Requires PHP: 5.6
-Stable tag: 6.7.19
+Stable tag: 6.7.20
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -220,6 +220,12 @@ Fully compatible with all major multi-vendor marketplace plugins - <strong>WCFM 
 25. WCFM Dashboard - Mobile view
 
 == Changelog ==
+
+= 6.7.20 =
+*Updated - 09/07/2025*
+
+* Fixed   - Setup page access is now controlled via user capabilities. Added filter wcfm_setup_page_required_capability to customize required capability.
+* Modify  - Removed deprecated filter wcfm_allow_setup_page_access
 
 = 6.7.19 =
 *Updated - 14/06/2025*
@@ -2705,7 +2711,6 @@ Fully compatible with all major multi-vendor marketplace plugins - <strong>WCFM 
 
 == Upgrade Notice ==
 
-= 6.7.19 =
-* Enhance - WooCommerce 9.7+ compatibility check added
-* Enhance - Compatibility with German Market version 3.47
-* Fixed   - Store Manager dashboard settings update issue for vendors
+= 6.7.20 =
+* Fixed   - Setup page access is now controlled via user capabilities. Added filter wcfm_setup_page_required_capability to customize required capability.
+* Modify  - Removed deprecated filter wcfm_allow_setup_page_access

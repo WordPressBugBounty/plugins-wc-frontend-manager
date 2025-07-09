@@ -27,7 +27,13 @@ class WCFM_Dashboard_Setup {
 	 * Add admin menus/screens.
 	 */
 	public function wcfm_admin_menus() {
-		add_dashboard_page( '', '', 'manage_options', 'wcfm-setup', '' );
+		add_dashboard_page( 
+			'', 
+			'', 
+			apply_filters( 'wcfm_setup_page_required_capability', 'activate_plugins' ), 
+			'wcfm-setup', 
+			'' 
+		);
 	}
 
 	/**
@@ -37,17 +43,6 @@ class WCFM_Dashboard_Setup {
 		global $WCFM;
 		if ( filter_input(INPUT_GET, 'page') != 'wcfm-setup') {
 			return;
-		}
-
-		$current_user = is_user_logged_in() ? wp_get_current_user() : false;
-		$allowed_roles = apply_filters( 'wcfm_setup_page_allowed_roles', ['administrator'] );
-		$is_allowed = $current_user && array_intersect( $allowed_roles, $current_user->roles );
-
-		if (!apply_filters( 'wcfm_allow_setup_page_access', $is_allowed )) {
-			wp_die(
-				__( "You don't have permission to access this page. Please contact the site administrator for assistance.", 'wc-frontend-manager' ),
-				__( 'Access Denied', 'wc-frontend-manager' )
-			);
 		}
 
 		if ( isset($_POST['wcfm_install_wcfmmp']) ) {
