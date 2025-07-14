@@ -529,6 +529,13 @@ class WCFM {
 		require_once($WCFM->plugin_path . 'helpers/class-wcfm-install.php');
 		$WCFM_Install = new WCFM_Install();
 
+		// Get the administrator role
+		$role = get_role( 'administrator' );
+		// Custom capability for admin users for Setup Wizard
+		if ( $role ) {
+			$role->add_cap( 'access_wcfm_site_setup' );
+		}
+
 		// Disable Vendor role - 4.0.2
 		add_role('disable_vendor', __('Disable Vendor', 'wc-frontend-manager'), array('level_0' => true));
 
@@ -690,14 +697,15 @@ class WCFM {
 	 * @return void
 	 */
 	static function deactivate_wcfm() {
-		global $WCFM;
-
+		$role = get_role( 'administrator' );
+		if ( $role ) {
+			$role->remove_cap( 'access_wcfm_site_setup' );
+		}
 		wcfm_check_php_mail(false);
 		delete_option('wcfm_installed');
 	}
 
 	function get_wcfm_menus() {
-		global $WCFM;
 		$wcfm_menus = apply_filters(
 			'wcfm_menus',
 			array(

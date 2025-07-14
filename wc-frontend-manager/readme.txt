@@ -7,7 +7,7 @@ Tested up to: 6.8
 WC requires at least: 3.0
 WC tested up to: 9.9.0
 Requires PHP: 5.6
-Stable tag: 6.7.20
+Stable tag: 6.7.21
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -221,11 +221,16 @@ Fully compatible with all major multi-vendor marketplace plugins - <strong>WCFM 
 
 == Changelog ==
 
+= 6.7.21 =
+*Updated - 14/07/2025*
+
+* Fixed   - Added a new custom capability for site Setup page access
+
 = 6.7.20 =
-*Updated - 09/07/2025*
+*Updated - 02/07/2025*
 
 * Fixed   - Setup page access is now controlled via user capabilities. Added filter wcfm_setup_page_required_capability to customize required capability.
-* Modify  - Removed deprecated filter wcfm_allow_setup_page_access
+Removed deprecated filter wcfm_allow_setup_page_access
 
 = 6.7.19 =
 *Updated - 14/06/2025*
@@ -2711,6 +2716,5 @@ Fully compatible with all major multi-vendor marketplace plugins - <strong>WCFM 
 
 == Upgrade Notice ==
 
-= 6.7.20 =
-* Fixed   - Setup page access is now controlled via user capabilities. Added filter wcfm_setup_page_required_capability to customize required capability.
-* Modify  - Removed deprecated filter wcfm_allow_setup_page_access
+= 6.7.21 =
+* Fixed   - Added a new custom capability for site Setup page access

@@ -30,7 +30,7 @@ class WCFM_Dashboard_Setup {
 		add_dashboard_page( 
 			'', 
 			'', 
-			apply_filters( 'wcfm_setup_page_required_capability', 'activate_plugins' ), 
+			apply_filters( 'wcfm_setup_page_required_capability', 'access_wcfm_site_setup' ), 
 			'wcfm-setup', 
 			'' 
 		);
@@ -43,6 +43,13 @@ class WCFM_Dashboard_Setup {
 		global $WCFM;
 		if ( filter_input(INPUT_GET, 'page') != 'wcfm-setup') {
 			return;
+		}
+
+		if ( ! current_user_can( apply_filters( 'wcfm_setup_page_required_capability', 'access_wcfm_site_setup' ) ) ) {
+			wp_die(
+				__( "You don't have permission to access this page. Please contact the site administrator for assistance.", 'wc-frontend-manager' ),
+				__( 'Access Denied', 'wc-frontend-manager' )
+			);
 		}
 
 		if ( isset($_POST['wcfm_install_wcfmmp']) ) {
