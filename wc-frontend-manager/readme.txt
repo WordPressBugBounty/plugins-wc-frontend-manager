@@ -3,11 +3,11 @@ Contributors: wclovers
 Tags: woocommerce marketplace, multivendor marketplace, multi vendor, product vendors, wp user frontend, product vendor dashboard, ecommerce, vendor shop manager, woocommerce frontend shop manager, wcvendors, woocommerce frontend manager, wc frontend manager, woocommerce frontend shop manager, shop manager, ecommerce, e-commerce, woocommerce live manager
 Donate link: https://www.paypal.me/wclovers/25usd
 Requires at least: 4.4
-Tested up to: 6.8
+Tested up to: 6.9
 WC requires at least: 3.0
-WC tested up to: 9.9.0
+WC tested up to: 10.4
 Requires PHP: 5.6
-Stable tag: 6.7.21
+Stable tag: 6.7.24
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -221,8 +221,28 @@ Fully compatible with all major multi-vendor marketplace plugins - <strong>WCFM 
 
 == Changelog ==
 
+= 6.7.24 =
+*Updated - 20/12/2025*
+
+* Fixed   - PHP 'Undefined index' notice fixed in wcfm_save_page_analytics_data().
+* Enhance - WordPress 6.9+ compatibility check added
+* Enhance - WooCommerce 10.4+ compatibility check added
+
+= 6.7.23 =
+*Updated - 07/12/2025*
+
+* Fixed   - Allow access to wcfm pages for super admins in multisite setup.
+* Fixed   - PHP Deprecated warnings & minor fixes.
+
+= 6.7.22 =
+*Updated - 12/11/2025*
+
+* Fixed   - Prevent custom taxonomy terms from persisting if their values are not submitted (i.e., all terms are deselected) upon product save.
+* Enhance - WordPress 6.8+ compatibility check added
+* Enhance - WooCommerce 10.3+ compatibility check added
+
 = 6.7.21 =
-*Updated - 14/07/2025*
+*Updated - 13/07/2025*
 
 * Fixed   - Added a new custom capability for site Setup page access
 
@@ -2716,5 +2736,8 @@ Removed deprecated filter wcfm_allow_setup_page_access
 
 == Upgrade Notice ==
 
-= 6.7.21 =
-* Fixed   - Added a new custom capability for site Setup page access
+= 6.7.24 =
+
+* Fixed   - PHP 'Undefined index' notice fixed in wcfm_save_page_analytics_data().
+* Enhance - WordPress 6.9+ compatibility check added
+* Enhance - WooCommerce 10.4+ compatibility check added

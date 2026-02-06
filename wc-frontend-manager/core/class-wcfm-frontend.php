@@ -166,7 +166,7 @@ class WCFM_Frontend {
 	 * @return void
 	 */
 	function wcfm_template_redirect() {
-		global $WCFM, $wp, $WCFM_Query;
+		global $wp, $WCFM_Query;
 
 		// WCfM old log permalink slug support 
 		if (apply_filters('wcfm_is_allow_old_urls_redirect', true)) {
@@ -181,6 +181,11 @@ class WCFM_Frontend {
 		if (!is_user_logged_in() && is_wcfm_page()) {
 			wp_safe_redirect(apply_filters('wcfm_restrict_redirect_url', get_permalink(wc_get_page_id('myaccount'))));
 			exit();
+		}
+
+		// Allow wcfm pages for super admins in multisite setup
+		if (is_super_admin() && is_wcfm_page()) {
+			return;
 		}
 
 		// If user loggedin and applied for vendor
@@ -419,6 +424,14 @@ class WCFM_Frontend {
 	function wcfm_save_page_analytics_data() {
 		global $WCFM, $_SERVER, $post, $wpdb, $_SESSION, $wp;
 
+		if($_SESSION === null) {
+			$_SESSION = array();
+			$_SESSION['location'] = array(
+				'country' => '',
+				'state'   => '',
+				'city'    => '',
+			);
+		}
 		//$_SESSION['wcfm_pages'] = array( 'shop' => 'no', 'stores' => array(), 'products' => array() );
 		//if( !session_id() ) session_start();
 		$todate = date('Y-m-d', current_time('timestamp', 0));

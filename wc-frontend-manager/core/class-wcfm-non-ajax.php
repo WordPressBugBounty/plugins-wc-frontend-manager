@@ -231,13 +231,12 @@ class WCFM_Non_Ajax {
 	public function wcfm_plugin_row_meta( $links, $file ) {
 		global $WCFM;
 		if ( $WCFM->plugin_base_name == $file ) {
-			$row_meta = array(
-				'docs'          => '<a target="_blank" href="' . esc_url( apply_filters( 'wcfm_docs_url', 'https://wclovers.com/knowledgebase/' ) ) . '" aria-label="' . esc_attr__( 'View WCFM documentation', 'wc-frontend-manager' ) . '">' . esc_html__( 'Documentation', 'wc-frontend-manager' ) . '</a>',
-				//'faq'           => '<a target="_blank" href="' . esc_url( apply_filters( 'wcfm_faq_url', 'https://wclovers.com/faq/' ) ) . '" aria-label="' . esc_attr__( 'View WCFM FAQ', 'wc-frontend-manager' ) . '">' . esc_html__( 'FAQ', 'wc-frontend-manager' ) . '</a>',
-				'videotutorial' => '<a target="_blank" href="' . esc_url( apply_filters( 'wcfm_vtutorial_url', 'https://wclovers.com/wcfm-tutorials/' ) ) . '" aria-label="' . esc_attr__( 'View WCFM Video Tutorial', 'wc-frontend-manager' ) . '">' . esc_html__( 'Video Tutorial', 'wc-frontend-manager' ) . '</a>',
-				'support'       => '<a target="_blank" href="' . esc_url( apply_filters( 'wcfm_support_url', 'https://wclovers.com/forums' ) ) . '" aria-label="' . esc_attr__( 'Visit premium customer support', 'woocommerce' ) . '">' . esc_html__( 'Support', 'woocommerce' ) . '</a>',
-				'customization' => '<a target="_blank" href="' . esc_url( apply_filters( 'wcfm_customization_url', 'https://wclovers.com/woocommerce-multivendor-customization/' ) ) . '" aria-label="' . esc_attr__( 'Any WC help feel free to contact us', 'wc-frontend-manager' ) . '">' . esc_html__( 'Customization Help', 'wc-frontend-manager' ) . '</a>'
-			);
+            $row_meta = array(
+                'docs'          => '<a target="_blank" href="' . esc_url(apply_filters('wcfm_docs_url', 'https://wclovers.com/knowledgebase/')) . '" aria-label="' . esc_attr__('View WCFM documentation', 'wc-frontend-manager') . '">' . esc_html__('Documentation', 'wc-frontend-manager') . '</a>',
+                'videotutorial' => '<a target="_blank" href="' . esc_url(apply_filters('wcfm_vtutorial_url', 'https://wclovers.com/wcfm-tutorials/')) . '" aria-label="' . esc_attr__('View WCFM Video Tutorial', 'wc-frontend-manager') . '">' . esc_html__('Video Tutorial', 'wc-frontend-manager') . '</a>',
+                'go-premium'    => '<a target="_blank" href="' . esc_url(apply_filters('wcfm_go_premium_url', 'https://wclovers.com/addons/')) . '" aria-label="' . esc_attr__('Go Premium', WCFM_TEXT_DOMAIN) . '">' . esc_html__('Go Premium', WCFM_TEXT_DOMAIN) . '</a>',
+                'customization' => '<a target="_blank" href="' . esc_url(apply_filters('wcfm_customization_url', 'https://wclovers.com/woocommerce-multivendor-customization/')) . '" aria-label="' . esc_attr__('Any WC help feel free to contact us', 'wc-frontend-manager') . '">' . esc_html__('Customization Help', 'wc-frontend-manager') . '</a>'
+            );
 			
 			$ultimate_meta = array();
 			if(!WCFM_Dependencies::wcfmu_plugin_active_check()) {

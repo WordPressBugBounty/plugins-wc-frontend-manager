@@ -471,7 +471,7 @@ $is_marketplace = wcfm_is_marketplace();
 										$wcfm_menu['custom'] = 'no';
 										$wcfm_menu['menu_for'] = 'both';
 										$wcfm_menu['new_tab'] = 'no';
-										$wcfm_formeted_menus[$wcfm_menu['priority']] = $wcfm_menu;
+										$wcfm_formeted_menus[(string)$wcfm_menu['priority']] = $wcfm_menu;
 									}
 								}
 							}

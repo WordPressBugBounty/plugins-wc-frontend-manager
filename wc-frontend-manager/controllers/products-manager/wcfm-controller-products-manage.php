@@ -354,6 +354,29 @@ class WCFM_Products_Manage_Controller {
 							}
 						}
 					}
+					/* 
+					 * Handle taxonomies that were assigned before but isn't submitted this time (all unchecked) 
+					 * Internal ref: 618685
+					*/
+					$product_taxonomies = get_object_taxonomies( 'product', 'objects' );
+					if( !empty( $product_taxonomies ) ) {
+						foreach( $product_taxonomies as $product_taxonomy ) {
+							// Skip standard taxonomies and check if this taxonomy wasn't in the submitted data
+							if( !in_array( $product_taxonomy->name, array( 'product_cat', 'product_tag', 'wcpv_product_vendors' ) ) 
+								&& apply_filters( 'wcfm_is_allow_product_taxonomy', true, $product_taxonomy->name ) 
+								&& apply_filters( 'wcfm_is_allow_taxonomy_'.$product_taxonomy->name, true ) 
+								&& ( !isset($wcfm_products_manage_form_data['product_custom_taxonomies'][$product_taxonomy->name]) 
+									|| empty($wcfm_products_manage_form_data['product_custom_taxonomies'][$product_taxonomy->name]) ) ) {
+								
+								if( $product_taxonomy->public && $product_taxonomy->show_ui && $product_taxonomy->meta_box_cb && $product_taxonomy->hierarchical ) {
+									if( apply_filters( 'wcfm_is_allow_custom_taxonomy_'.$product_taxonomy->name, true ) 
+										&& apply_filters( 'wcfm_is_allow_reset_'.$product_taxonomy->name, true ) ) {
+										wp_set_object_terms( $new_product_id, array(), $product_taxonomy->name );
+									}
+								}
+							}
+						}
+					}
 				}
 				
 				// Set Product Tags
