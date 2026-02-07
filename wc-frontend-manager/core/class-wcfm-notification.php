@@ -1070,8 +1070,45 @@ class WCFM_Notification {
   		wp_send_json_error( esc_html__( 'You don&#8217;t have permission to do this.', 'woocommerce' ) );
 			wp_die();
 		}
+
+	if( (!apply_filters( 'wcfm_is_pref_notification', true ) || !apply_filters( 'wcfm_is_allow_notifications', true ) ) && ( !apply_filters( 'wcfm_is_allow_direct_message', true ) || !apply_filters( 'wcfm_is_pref_direct_message', true ) ) ) {
+		wp_send_json_error( esc_html__( 'You don&#8217;t have permission to do this.', 'woocommerce' ) );
+		wp_die();
+	}
   	
-  	$messageid = absint( $_POST['messageid'] );
+  	$messageid = isset( $_POST['messageid'] ) ? absint( $_POST['messageid'] ) : 0;
+
+	if ( !$messageid ) {
+		wp_send_json_error( esc_html__( 'You don&#8217;t have permission to do this.', 'woocommerce' ) );
+		wp_die();
+	}
+
+	$message_data = $wpdb->get_row( $wpdb->prepare( 
+		"SELECT author_id, message_to, author_is_admin, author_is_vendor FROM {$wpdb->prefix}wcfm_messages WHERE ID = %d", 
+		$messageid 
+	) );
+
+	if ( !$message_data ) {
+		wp_send_json_error( esc_html__( 'You don&#8217;t have permission to do this.', 'woocommerce' ) );
+		wp_die();
+	}
+
+	$resource_owner_id = $message_data->author_id;
+	if($message_data->message_to > 0) {
+		$resource_owner_id = $message_data->message_to;
+	}
+	if($resource_owner_id < 0) $resource_owner_id = 0;
+
+	$is_allowed = wcfm_user_can_perform_request( 
+		(int) $resource_owner_id, 
+		'message_delete' 
+	);
+
+	if ( ! $is_allowed ) {
+		wp_send_json_error( esc_html__( 'You don&#8217;t have permission to do this.', 'woocommerce' ) );
+		wp_die();
+	}
+
   	$wpdb->query( $wpdb->prepare( "DELETE FROM {$wpdb->prefix}wcfm_messages WHERE `ID` = %d", $messageid ) );
   	$wpdb->query( $wpdb->prepare( "DELETE FROM {$wpdb->prefix}wcfm_messages_modifier WHERE `message` = %d", $messageid ) );
   	

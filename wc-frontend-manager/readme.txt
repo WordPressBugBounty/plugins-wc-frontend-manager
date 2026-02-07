@@ -5,9 +5,9 @@ Donate link: https://www.paypal.me/wclovers/25usd
 Requires at least: 4.4
 Tested up to: 6.9
 WC requires at least: 3.0
-WC tested up to: 10.4
+WC tested up to: 10.5
 Requires PHP: 5.6
-Stable tag: 6.7.24
+Stable tag: 6.7.25
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -220,6 +220,14 @@ Fully compatible with all major multi-vendor marketplace plugins - <strong>WCFM 
 25. WCFM Dashboard - Mobile view
 
 == Changelog ==
+
+= 6.7.25 =
+*Updated - 07/02/2026*
+
+* Fixed   - Authenticated (Shop Manager+) Arbitrary Options Update vulnerability reported by Osvaldo Noe Gonzalez Del Rio, Credit goes to Osvaldo Noe Gonzalez Del Rio for identifying this issue.
+* Fixed   - Broken Access Control vulnerability reported by benzdeus, Credit goes to benzdeus for identifying this issue.
+* Enhance - Hardened Access Control (IDOR Protection) by introducing wcfm_user_can_perform_request() to validate resource ownership across the dashboard.
+* Enhance - Secured notification message deletion.
 
 = 6.7.24 =
 *Updated - 20/12/2025*
@@ -2736,8 +2744,9 @@ Removed deprecated filter wcfm_allow_setup_page_access
 
 == Upgrade Notice ==
 
-= 6.7.24 =
+= 6.7.25 =
 
-* Fixed   - PHP 'Undefined index' notice fixed in wcfm_save_page_analytics_data().
-* Enhance - WordPress 6.9+ compatibility check added
-* Enhance - WooCommerce 10.4+ compatibility check added
+* Fixed   - Authenticated (Shop Manager+) Arbitrary Options Update vulnerability reported by Osvaldo Noe Gonzalez Del Rio, Credit goes to Osvaldo Noe Gonzalez Del Rio for identifying this issue.
+* Fixed   - Broken Access Control vulnerability reported by benzdeus, Credit goes to benzdeus for identifying this issue.
+* Enhance - Hardened Access Control (IDOR Protection) by introducing wcfm_user_can_perform_request() to validate resource ownership across the dashboard.
+* Enhance - Secured notification message deletion.

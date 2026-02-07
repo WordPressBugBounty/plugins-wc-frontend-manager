@@ -2391,4 +2391,33 @@ if(!function_exists('wcfm_log')) {
 	}
 	return $locale;
 });*/
-?>
+if(!function_exists('wcfm_user_can_perform_request')) {
+	function wcfm_user_can_perform_request( $resource_vendor_id, $resource_type='', $resource_subtype='' ) {
+		$user_id = apply_filters('wcfm_current_vendor_id', get_current_user_id());
+		$has_capability = apply_filters( 'wcfm_current_user_can', true, $user_id, $resource_vendor_id, $resource_type, $resource_subtype );
+		if ( ! $has_capability ) {
+			return false;
+		}
+		if ( user_can( $user_id, 'administrator' ) ) {
+			return true;
+		}
+		if ( wcfm_is_vendor( $user_id ) && (int) $user_id === (int) $resource_vendor_id ) {
+			return true;
+		}
+		if ( function_exists('wcfm_is_manager') && wcfm_is_manager( $user_id ) ) {
+			if ( function_exists('wcfm_is_group_manager') && !wcfm_is_group_manager( $user_id ) ) {
+				return true;
+			}
+			if($resource_vendor_id) {
+				$group_list = array_filter((array) get_user_meta( $user_id, '_wcfm_vendor_group', true ));
+				foreach ( $group_list as $group_id ) {
+					$group_vendors = (array) get_post_meta( $group_id, '_group_vendors', true );
+					if ( in_array( $resource_vendor_id, $group_vendors ) ) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+}

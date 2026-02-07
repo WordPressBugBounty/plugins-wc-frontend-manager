@@ -296,6 +296,10 @@ class WCFM_Ajax {
 						elseif( $WCFM->is_marketplace == 'dokan' ) new WCFM_Settings_Dokan_Controller();
 						elseif( $WCFM->is_marketplace == 'wcfmmarketplace' ) new WCFM_Settings_Marketplace_Controller();
 					} else {
+						if(!current_user_can( apply_filters( 'wcfm_setup_page_required_capability', 'access_wcfm_site_setup' ) ) && !( function_exists('wcfm_is_manager') && wcfm_is_manager() && function_exists('wcfm_is_group_manager') && ! wcfm_is_group_manager() )) {
+							wp_send_json_error( esc_html__( 'You don&#8217;t have permission to do this.', 'woocommerce' ) );
+							wp_die();
+						}
 						include_once( $this->controllers_path . 'settings/wcfm-controller-settings.php' );
 						new WCFM_Settings_Controller();
 					}

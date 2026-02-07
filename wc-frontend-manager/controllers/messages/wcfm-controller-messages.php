@@ -233,11 +233,26 @@ class WCFM_Messages_Controller {
 				}
 				
 				if( $message_status != 'unread' ) { $actions = ''; }
-				if( !wcfm_is_vendor() && ( $message_status == 'unread' ) && ( in_array( $wcfm_message->message_type, array( 'verification', 'vendor_approval', 'affiliate_approval' ) ) ) ) {
-					
-				} else {
+
+				$resource_owner_id = $wcfm_message->author_id;
+				if($wcfm_message->message_to > 0) {
+					$resource_owner_id = $wcfm_message->message_to;
+				}
+				if($resource_owner_id < 0) $resource_owner_id = 0;
+
+				$is_allowed = wcfm_user_can_perform_request( 
+					(int) $resource_owner_id, 
+					'message_delete' 
+				);
+				if( $is_allowed ) {
 					$actions .= '<a class="wcfm_messages_delete wcfm-action-icon" href="#" data-messageid="' . $wcfm_message->ID . '"><span class="wcfmfa fa-trash-alt text_tip" data-tip="' . esc_attr__( 'Delete', 'wc-frontend-manager' ) . '"></span></a>';
 				}
+
+				// if( !wcfm_is_vendor() && ( $message_status == 'unread' ) && ( in_array( $wcfm_message->message_type, array( 'verification', 'vendor_approval', 'affiliate_approval' ) ) ) ) {
+					
+				// } else {
+				// 	$actions .= '<a class="wcfm_messages_delete wcfm-action-icon" href="#" data-messageid="' . $wcfm_message->ID . '"><span class="wcfmfa fa-trash-alt text_tip" data-tip="' . esc_attr__( 'Delete', 'wc-frontend-manager' ) . '"></span></a>';
+				// }
 				
 				/*if( $wcfm_is_allow_pdf_invoice = apply_filters( 'wcfm_is_allow_pdf_invoice', true ) ) {
 					if( WCFM_Dependencies::wcfmu_plugin_active_check() && WCFM_Dependencies::wcfm_wc_pdf_invoices_packing_slips_plugin_active_check() ) {

@@ -150,6 +150,8 @@ class WCFM_Settings_Controller {
 		if( isset( $wcfm_settings_form['wcfm_page_options'] ) ) {
 			$wcfm_page_options = get_option("wcfm_page_options", array());
 			$wcfm_page_options = array_merge( $wcfm_page_options, $wcfm_settings_form['wcfm_page_options'] );
+			$wcfm_allowed_page_keys = apply_filters( 'wcfm_allowed_page_keys', array('wc_frontend_manager_page_id', 'wcfm_vendor_membership_page_id', 'wcfm_vendor_registration_page_id', 'wcfm_affiliate_registration_page_id') );
+			$wcfm_page_options = array_intersect_key( $wcfm_page_options, array_flip( $wcfm_allowed_page_keys ) );
 			foreach( $wcfm_page_options as $wcfm_page_option_key => $wcfm_page_option_val ) {
 				update_option( $wcfm_page_option_key, $wcfm_page_option_val );
 			}
