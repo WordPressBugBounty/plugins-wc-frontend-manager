@@ -5,9 +5,9 @@ Donate link: https://www.paypal.me/wclovers/25usd
 Requires at least: 4.4
 Tested up to: 6.9
 WC requires at least: 3.0
-WC tested up to: 10.6
+WC tested up to: 10.7
 Requires PHP: 5.6
-Stable tag: 6.7.26
+Stable tag: 6.7.27
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -192,6 +192,10 @@ We are working hard to add support of all major WC-extensions. If you are lookin
 
 Fully compatible with all major multi-vendor marketplace plugins - **WCFM Marketplace**, **WC Product Vendors**, **Dokan Lite & Dokan Pro** and **WC Vendors**.
 
+= Where do I report security bugs found in this plugin? =
+
+Please report security bugs found in the source code of the WCFM – Frontend Manager for WooCommerce plugin through the [Patchstack Vulnerability Disclosure  Program](https://patchstack.com/database/vdp/9e5fb66e-e9e8-4fd9-bf41-f952c6c2d55c). The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin.
+
 == Screenshots ==
 
 1. WCFM Dashboard
@@ -221,6 +225,11 @@ Fully compatible with all major multi-vendor marketplace plugins - **WCFM Market
 25. WCFM Dashboard - Mobile view
 
 == Changelog ==
+
+= 6.7.27 =
+*Updated - 25/04/2026*
+
+* Enhance - PHP compatibility expanded: now supports versions 7.2–8.4
 
 = 6.7.26 =
 *Updated - 16/03/2026*
@@ -2753,9 +2762,6 @@ Removed deprecated filter wcfm_allow_setup_page_access
 
 == Upgrade Notice ==
 
-= 6.7.26 =
+= 6.7.27 =
 
-* Security - Fixed an Authenticated IDOR vulnerability allowing unauthorized user deletion. Reported by Supakiad S. (m3ez).
-* Security - Fixed an Authenticated IDOR vulnerability allowing unauthorized post/product manipulation. Reported by Osvaldo Noe Gonzalez Del Rio.
-* Fixed   - Replaced deprecated `$order->ID` with `$order->get_id()` in order controllers to ensure compatibility with HPOS. [Credit: roeller]
-* Enhance - WooCommerce 10.6+ compatibility check added
+* Enhance - PHP compatibility expanded: now supports versions 7.2–8.4

@@ -116,7 +116,7 @@ class WCFM_Stripe_Connect_Client {
 
             // Unset all payments capabilities.
             unset(
-                $stripe_connect_args['capabilities']['card_payments'],
+                $stripe_connect_args['capabilities']['card_payments']
             );
             // Set the `service_agreement` to `recipient` for cross border payment.
             $stripe_connect_args['tos_acceptance'] = [
