@@ -1146,6 +1146,15 @@ class WCFM_Notification {
 			$selected_messages = wc_clean( $_POST['selected_messages'] );
 			if( is_array( $selected_messages ) && !empty( $selected_messages ) ) {
 				foreach( $selected_messages as $messageid ) {
+					$messageid = absint( $messageid );
+					// IDOR guard: resolve each message's owner and skip any the current user may not delete.
+					$message_data = $wpdb->get_row( $wpdb->prepare( "SELECT `author_id`, `message_to` FROM {$wpdb->prefix}wcfm_messages WHERE `ID` = %d", $messageid ) );
+					if ( ! $message_data ) { continue; }
+					$resource_owner_id = $message_data->author_id;
+					if ( $message_data->message_to > 0 ) { $resource_owner_id = $message_data->message_to; }
+					if ( $resource_owner_id < 0 ) { $resource_owner_id = 0; }
+					if ( ! wcfm_user_can_perform_request( (int) $resource_owner_id, 'message_delete' ) ) { continue; }
+
 					$wpdb->query( $wpdb->prepare( "DELETE FROM {$wpdb->prefix}wcfm_messages WHERE `ID` = %d", $messageid ) );
 					$wpdb->query( $wpdb->prepare( "DELETE FROM {$wpdb->prefix}wcfm_messages_modifier WHERE `message` = %d", $messageid ) );
 				}

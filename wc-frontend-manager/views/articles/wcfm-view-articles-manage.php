@@ -147,6 +147,8 @@ if( $wpeditor && $rich_editor ) {
 					echo '</a>';
 				}
 			}
+
+			do_action( 'before_wcfm_article_manage_action' );
 			
 			if( $allow_wp_admin_view = apply_filters( 'wcfm_allow_wp_admin_view', true ) ) {
 				?>
@@ -157,8 +159,9 @@ if( $wpeditor && $rich_editor ) {
 			if( $has_new = apply_filters( 'wcfm_add_new_article_sub_menu', true ) ) {
 				echo '<a id="add_new_article_dashboard" class="add_new_wcfm_ele_dashboard text_tip" href="'.get_wcfm_articles_manage_url().'" data-tip="' . __('Add New Article', 'wc-frontend-manager') . '"><span class="wcfmfa fa-file-pdf"></span><span class="text">' . __( 'Add New', 'wc-frontend-manager') . '</span></a>';
 			}
+
+			do_action( 'after_wcfm_article_manage_action' );
 			?>
-			
 			<div class="wcfm-clearfix"></div>
 		</div>
 		<div class="wcfm-clearfix"></div><br />
@@ -275,6 +278,9 @@ if( $wpeditor && $rich_editor ) {
 							$WCFM->wcfm_fields->wcfm_generate_form_field( apply_filters( 'wcfm_article_manage_fields_gallery', array(  "featured_img" => array( 'type' => 'upload', 'class' => 'wcfm-article-feature-upload wcfm_ele', 'label_class' => 'wcfm_title', 'prwidth' => 250, 'value' => $featured_img)
 																																													), $article_id ) );
 						}
+
+                        do_action( 'wcfm_article_manager_featured_image_field_end', $article_id );
+
 						?>
 					
 						<?php if( $wcfm_is_category_checklist = apply_filters( 'wcfm_is_category_checklist', true ) ) { ?>

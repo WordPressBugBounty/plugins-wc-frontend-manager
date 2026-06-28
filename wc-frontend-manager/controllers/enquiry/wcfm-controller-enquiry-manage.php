@@ -262,6 +262,16 @@ class WCFM_My_Account_Enquiry_Manage_Controller {
 	  	$inquiry_customer_id     = absint( $wcfm_enquiry_reply_form_data['inquiry_customer_id'] );
 	  	$inquiry_customer_name   = esc_sql( wc_clean( $wcfm_enquiry_reply_form_data['inquiry_customer_name'] ) );
 	  	$inquiry_customer_email  = sanitize_email( $wcfm_enquiry_reply_form_data['inquiry_customer_email'] );
+
+	  	// Security hardening: never trust the request for routing/identity fields - re-read them from the stored inquiry row.
+	  	$wcfm_enquiry_row = $wpdb->get_row( $wpdb->prepare( "SELECT `product_id`, `vendor_id`, `customer_id`, `customer_name`, `customer_email` FROM {$wpdb->prefix}wcfm_enquiries WHERE `ID` = %d", $inquiry_id ) );
+	  	if ( $wcfm_enquiry_row ) {
+	  		$inquiry_product_id     = absint( $wcfm_enquiry_row->product_id );
+	  		$inquiry_vendor_id      = absint( $wcfm_enquiry_row->vendor_id );
+	  		$inquiry_customer_id    = absint( $wcfm_enquiry_row->customer_id );
+	  		$inquiry_customer_name  = esc_sql( wc_clean( $wcfm_enquiry_row->customer_name ) );
+	  		$inquiry_customer_email = sanitize_email( $wcfm_enquiry_row->customer_email );
+	  	}
 	  	
 	  	$inquiry_reply           = apply_filters( 'wcfm_enquiry_reply_content', $inquiry_reply, $inquiry_product_id, $inquiry_vendor_id, $inquiry_customer_id );
 	  	$inquiry_reply_mail      = $inquiry_reply;

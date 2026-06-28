@@ -2,12 +2,12 @@
 Contributors: wclovers
 Tags: woocommerce marketplace, multivendor marketplace, multi vendor, product vendors, wp user frontend, product vendor dashboard, ecommerce, vendor shop manager, woocommerce frontend shop manager, wcvendors, woocommerce frontend manager, wc frontend manager, woocommerce frontend shop manager, shop manager, ecommerce, e-commerce, woocommerce live manager
 Donate link: https://www.paypal.me/wclovers/25usd
-Requires at least: 4.4
-Tested up to: 6.9
-WC requires at least: 3.0
-WC tested up to: 10.7
-Requires PHP: 5.6
-Stable tag: 6.7.27
+Requires at least: 5.5
+Tested up to: 7.0
+WC requires at least: 7.0
+WC tested up to: 10.9
+Requires PHP: 7.4
+Stable tag: 6.7.28
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,70 +15,114 @@ Professional frontend dashboard for WooCommerce and multivendor marketplaces. Su
 
 == Description ==
 
-### A complete frontend vendor dashboard for your WooCommerce marketplace
+= The Smart Frontend Dashboard for WooCommerce =
 
-WCFM provides a dedicated frontend dashboard for your multi-vendor marketplace. It allows your vendors to manage their products, orders, and customers directly from the front of your website—keeping your WordPress admin area secure and completely hidden from users.
+Stop wrestling with the cluttered WordPress backend. **WCFM - Frontend Manager** provides a stunning, comprehensive, and secure frontend dashboard to manage your entire eCommerce operation. 
 
-Whether you are building a new marketplace or enhancing an existing one, WCFM works seamlessly alongside popular marketplace engines like WCFM Marketplace, Dokan, WC Product Vendors, and WC Vendors.
+Whether you are a single-store owner who wants to hide `wp-admin` from your staff, or you are scaling a massive multi-vendor empire, WCFM is the powerful engine that drives your daily operations. It works flawlessly as a standalone Store Manager dashboard, and seamlessly transforms into a robust Vendor Dashboard when paired with marketplace plugins like **WCFM Marketplace, Dokan, WC Vendors, and WC Product Vendors**.
 
-#### Why Marketplace Owners Choose WCFM
-* **Zero Backend Access:** Vendors control their entire store from a customized frontend interface, ensuring your backend remains secure.
-* **Extensive Compatibility:** Built to work with the tools you already use. WCFM integrates with over 70 popular WooCommerce extensions.
-* **Complex Product Support:** Vendors can easily manage Simple, Variable, Grouped, Bookable, Auction, Rental, and Subscription products among a notable few.
-* **Streamlined Operations:** Automate daily tasks with integrated modules for PDF Invoicing, Shipment Tracking, and Vendor Verification.
-* **Direct Customer Support:** Reduce your own support ticket volume by empowering vendors with built-in Live Chat, direct messaging, and product enquiry systems.
+= 🚀 Supercharge Your Dashboard: WCFM AI Suite (New Addon!) =
 
-#### Fast, No-Code Setup for Entrepreneurs
-You do not need to be a developer to build a thriving multi-vendor platform. WCFM ecosystem is designed to be fully functional right out of the box, allowing non-technical founders to launch quickly and focus on growing their business.
-* **Code-Free Configuration:** Customize your vendor dashboards, commission structures, and store policies using intuitive settings panels—no PHP or CSS required.
-* **Rapid Marketplace Launch:** Transform a standard WooCommerce site into a fully operational multi-vendor marketplace in minutes.
-* **Ready-to-Use Interfaces:** Vendors get a professional, frontend experience immediately upon activation, eliminating the need to build custom vendor pages from scratch. 
-* **Modular Architecture:** Choose only the modules your business needs and turn off the rest to optimize performance.
+Ready to bring the power of artificial intelligence to your marketplace beyond a basic text generator? The **WCFM AI Suite** is our newest addon that unlocks a fully integrated **AI Commerce & Content Studio** right inside your frontend dashboard.
 
-#### Built for Developers and Agencies
-If you are building a custom marketplace for a client, WCFM provides the flexible architecture you need:
+With the WCFM AI Suite addon, you can:
+
+* **Visual AI Copywriting:** Don't just type a prompt. Let the AI analyze raw product photos to automatically generate highly converting, SEO-optimized titles, short descriptions, and long descriptions.
+* **Studio-Grade Image Enhancement:** Turn amateur smartphone photos into premium storefront assets. Remove backgrounds, generate professional lifestyle scenes, upscale resolution 2x, and auto-brighten/sharpen images directly inside the Product, Article, or Media editors.
+* **AI Article & Blog Writer:** Capture organic search traffic by generating high-quality, niche-specific blog posts with precise tone, format, and length controls.
+* **The AI Credit Economy (Turn AI into Profit):** Worried about unpredictable API costs? WCFM includes a built-in credit management system. Set monthly free allowances for specific staff roles or vendor groups. Better yet, **sell AI credit packs** directly through automated WooCommerce checkout. 
+* **AI Insights & ROI Dashboard:** Stop guessing. Track platform-wide AI adoption, monitor revenue generated from credit pack sales, and weigh it against your API costs to know exactly how much profit your AI integration is generating.
+
+= 🛡️ Why Store Owners & Marketplace Admins Choose WCFM =
+
+* **Zero Backend Access (Iron-Clad Security):** Keep your staff and vendors completely out of the WordPress `wp-admin`. WCFM provides a customized, role-based frontend interface that protects your core site settings from accidental changes or unauthorized access.
+* **Universal Architecture:** Use it as a standalone frontend manager for your eCommerce store, or activate it alongside your favorite multi-vendor engine to instantly deploy a world-class vendor dashboard.
+* **Complex Product Mastery:** Effortlessly manage Simple, Variable, Grouped, Bookable, Auction, Rental, and Subscription products from a single, unified interface.
+* **Streamlined Operations:** Automate daily tasks with integrated modules for PDF Invoicing, Shipment Tracking, Store Policies, and Customer Support Tickets.
+* **Direct Communication:** Reduce administrative bottlenecks with built-in Live Chat, direct messaging boards, and product enquiry systems.
+
+= ⚡ Fast, No-Code Setup for Entrepreneurs =
+
+You do not need to be a developer to build a thriving eCommerce platform. The WCFM ecosystem is designed to be fully functional right out of the box.
+
+* **Code-Free Configuration:** Customize dashboard layouts, capability controllers, and store policies using intuitive settings panels—no PHP or CSS required.
+* **Ready-to-Use Interfaces:** Get a professional, mobile-responsive frontend experience immediately upon activation.
+* **Modular Architecture:** Choose only the modules your business needs from our ecosystem of free and premium addons, and turn off the rest to optimize performance and keep the interface clean.
+* **Rapid Marketplace Launch:** Transform a standard WooCommerce store into a fully operational multi-vendor marketplace in minutes by pairing WCFM with your preferred marketplace engine.
+
+= 🛠️ Built for Developers and Agencies =
+
+If you are building a custom eCommerce solution or marketplace for a client, WCFM provides the flexible architecture you need:
+
 * **Developer-Ready:** Highly customizable with extensive hooks, filters, and a comprehensive Developer's Guide.
-* **Advanced Integrations:** Out-of-the-box support for WPML for multilingual marketplaces.
+* **Advanced Integrations:** Out-of-the-box support for WPML for multilingual stores and marketplaces.
 * **Theme Agnostic:** Designed to inherit your existing theme's styling, with dedicated appearance settings to ensure the dashboard matches your brand perfectly.
 
-> Explore WCFM -
-> [WCFM Demo](http://wcfmmp.wcfmdemos.com/my-account/) - [Overview](https://www.youtube.com/watch?v=Nozi3VHVD6U) - [Guidelines](https://wclovers.com/blog/woocommerce-frontend-manager/)
+= 🌍 Ecosystem & Plugin Compatibility =
+
+👉 **Official demo link:** [WCFM Live Demo](http://wcfmmp.wcfmdemos.com/my-account/)
+
+👉 **Comprehensive feature list:** [Learn More About WCFM](https://wclovers.com/blog/woocommerce-frontend-manager/)
+
+👉 **Easy to follow step-by-step guides:** [Documentation](https://docs.wclovers.com/)
+
+👉 **First-look:** [Overview Video](https://www.youtube.com/watch?v=Nozi3VHVD6U)
+
+👉 **Exclusive plugin support:** [Compatible Plugins](https://wclovers.com/wcfm-compatible-plugins/)
+
+> **FREE Core Modules**
 >
-> FREE Modules -
-> [WCFM - Marketplace](https://wordpress.org/plugins/wc-multivendor-marketplace/) - [Demo](http://wcfmmp.wcfmdemos.com/my-account/) - [Documentation](https://wclovers.com/knowledgebase_category/wcfm-marketplace/)
-> [WCFM - Membership](https://wordpress.org/plugins/wc-multivendor-membership/) - [Demo](http://wcfmmp.wcfmdemos.com/vendor-membership/) - [Documentation](https://wclovers.com/knowledgebase/wcfm-membership/)
+> [WCFM - Marketplace](https://wordpress.org/plugins/wc-multivendor-marketplace/) | [WCFM - Membership](https://wordpress.org/plugins/wc-multivendor-membership/)
 >
-> Premium addons also add many more feathers into the frontend wing - 
+> **Premium Addons for Ultimate Power**
+>
 > [WCFM - Ultimate](https://wclovers.com/product/woocommerce-frontend-manager-ultimate/)
-> [WCFM - Groups & Staffs](https://wclovers.com/product/woocommerce-frontend-manager-groups-staffs/)
+> [WCFM - AI Suite](https://wclovers.com/product/woocommerce-frontend-manager-ai-suite/)
+> [WCFM - Groups & Staff](https://wclovers.com/product/woocommerce-frontend-manager-groups-staffs/)
 > [WCFM - Delivery](https://wclovers.com/product/woocommerce-frontend-manager-delivery/)
 > [WCFM - Affiliate](https://wclovers.com/product/woocommerce-frontend-manager-affiliate/)
 > [WCFM - Analytics](https://wclovers.com/product/woocommerce-frontend-manager-analytics/)
 > [WCFM - Product HUB](https://wclovers.com/product/woocommerce-frontend-manager-product-hub/)
 
-https://www.youtube.com/watch?v=sw4RTICctTc
+[youtube https://www.youtube.com/watch?v=sw4RTICctTc]
 
-= Marketplace Compatibility =
+**Marketplace Compatibility**
 
-- WCFM has own multi-vendor module - <strong>WooCommerce Multivendor Marketplace</strong>
+WCFM has own multi-vendor module - **WooCommerce Multivendor Marketplace**
 
 Beside this, the frontend manager is compatible with other popular multivendor marketplace plugins, e.g., Dokan, WC Product Vendors, and WC Vendors.
 
-= Booking Compatibility =
+**Booking Compatibility**
 
-Exclusively compatible with **WooCommerce Bookings** -
+Exclusively compatible with **WooCommerce Bookings**
 
-[Overview](https://youtu.be/PqSm6jO6bPY) - [Documentation](https://wclovers.com/documentation/wcfm-wc-booking/)
+[Overview](https://youtu.be/PqSm6jO6bPY) | [Documentation](https://wclovers.com/documentation/wcfm-wc-booking/)
 
-> Read full feature list here -
->
-> [WCFM - how this will going to change your marketplace?](https://wclovers.com/blog/woocommerce-frontend-manager/)
+= 🎯 Quick View: What Will Be on Your Dashboard? =
 
-= Exclusive Plugin Support =
+**Product & Inventory Mastery**
 
-🔖 WCFM is compatible with most popular WooCommerce plugins. Check the [compatible plugins](https://wclovers.com/wcfm-compatible-plugins/) list.
+* Create and Manage Simple, Variable, Grouped, External, Subscription, Bookable, Auction, and Rental Products.
+* Product **Featured image** and image gallery management (with AI Enhancement!).
+* Product **Category**, **Tag**, and **Custom Taxonomy** (e.g., Brand) management.
+* Bulk Stock Manager, Product Import/Export, and Quick Edit capabilities.
+* Product Enquiry, Support Ticket, and Knowledgebase modules.
 
-= Quick view - what will be on your dashboard? =
+**Orders, Reports & Financials**
+
+* View and Manage **Orders** with full tax and shipping details.
+* Update **Order Status**, add **Order Notes**, and generate **PDF Invoices & Packing Slips**.
+* Full-featured **WC Reports**: Sales by Date, Out of Stock, Low Stock, and Sales by Product.
+* Shipment Tracking and Verification modules.
+
+**Customer & Community Engagement**
+
+* **Pre-sale channels** - Chat, and Inquery module
+* **Post-sale channels** - Support Ticksts module
+* Customer Module (CRM) to track buyer history and spending.
+* Direct messaging system between staff, vendors, and admin.
+
+= ⭐ Advanced features & modules =
 
 - Create and Manage Simple, Variable, Grouped, External, Subscription, Bookable, Accommodation, Auction, Rental, Job Package and Resume Package Products
 - Product Enquiry Module
@@ -99,33 +143,33 @@ Exclusively compatible with **WooCommerce Bookings** -
 - Category restriction
 - Featured and Duplicate Product
 - Vendor - Store Admin Direct messaging (Chat) system (Ultimate)
-- Product <strong>Featured image</strong> and image gallery
-- Product <strong>Category</strong> and <strong>Tag</strong> manage
-- Product <strong>Custom Taxonomy</strong> (e.g. Brand) manage
-- Product <strong>Stock</strong> manage
-- Product <strong>Sale price</strong> control and scheduling
-- Product <strong>Shipping</strong> manage
-- Product <strong>Tax</strong> manage
-- Product <strong>Attributes</strong>
-- Product <strong>Advanced</strong> options
+- Product **Featured image** and image gallery
+- Product **Category** and **Tag** manage
+- Product **Custom Taxonomy** (e.g. Brand) manage
+- Product **Stock** manage
+- Product **Sale price** control and scheduling
+- Product **Shipping** manage
+- Product **Tax** manage
+- Product **Attributes**
+- Product **Advanced** options
 - Downloadable and Virtual product (Ultimate)
 - Download limit restriction (Ultimate)
-- View and manage <strong>Coupons</strong>
-- Create and Edit <strong>Coupons</strong> 
-- Coupon <strong>Usage Restriction</strong> (Ultimate)
-- Coupon <strong>User limit restrictions</strong> (Ultimate)
-- View and Manage <strong>Orders</strong>
-- View full <strong>Order Details</strong> with tax and shipping info
-- Update <strong>Order Status</strong> (Ultimate)
-- Add <strong>Order Note</strong> (Ultimate)
-- Full featured <strong>WC Reports</strong>
-- Reports by <strong>Sales Date</strong>
-- Reports of <strong>Out of Stock</strong> product
-- Reports by <strong>Product</strong> (Ultimate)
-- Reports by <strong>Coupon Usage</strong> (Ultimate)
-- Reports of <strong>Low Stock</strong> Product (Ultimate)
+- View and manage **Coupons**
+- Create and Edit **Coupons** 
+- Coupon **Usage Restriction** (Ultimate)
+- Coupon **User limit restrictions** (Ultimate)
+- View and Manage **Orders**
+- View full **Order Details** with tax and shipping info
+- Update **Order Status** (Ultimate)
+- Add **Order Note** (Ultimate)
+- Full featured **WC Reports**
+- Reports by **Sales Date**
+- Reports of **Out of Stock** product
+- Reports by **Product** (Ultimate)
+- Reports by **Coupon Usage** (Ultimate)
+- Reports of **Low Stock** Product (Ultimate)
 - Delete Product, Coupon and Order (Ultimate)
-- Manage product from anywhere of your Store using <strong>Quick Edit</strong> (Ultimate)
+- Manage product from anywhere of your Store using **Quick Edit** (Ultimate)
 
 = Translations =
 
@@ -147,12 +191,14 @@ Be with us ... Team [WC Lovers](https://wclovers.com)
 
 == Installation ==
 
+Follow the instructions below to install and set up WCFM on your WooCommerce store.
+
 = Minimum Requirements =
 
-* WordPress 4.7 or greater
-* WooCommerce 3.0 or greater
-* PHP version 5.2.4 or greater
-* MySQL version 5.0 or greater
+* WordPress 5.5 or greater
+* WooCommerce 7.0 or greater
+* PHP version 7.4 or greater
+* MySQL version 5.6 or greater
 
 = Automatic installation =
 
@@ -166,7 +212,9 @@ The manual installation method involves downloading our eCommerce plugin and upl
 
 == Frequently Asked Questions ==
 
-= WooCommerce Frontend Manager pages are not found, 404 error ?
+Find answers to the most common questions about configuring and using WCFM.
+
+= WooCommerce Frontend Manager pages are not found, 404 error? =
 
 Login to your WP dashboard and navigate to Settings -> Permalink, click on "Save Changes". Now everything alright.
 
@@ -184,7 +232,7 @@ For help with WCFM Ultimate from wclovers.com, use [our helpdesk](https://wclove
 
 Yes; WooCommerce Frontend Manager will work with any theme, but may require some styling to make it match nicely.
 
-= Does it compatible with other WooCommerce extensions? =
+= Is it compatible with other WooCommerce extensions? =
 
 We are working hard to add support of all major WC-extensions. If you are looking for anything right now then feel free to contact us at 'wclovers.contact@gmail.com' or [our helpdesk](https://wclovers.com/forums)
 
@@ -197,6 +245,8 @@ Fully compatible with all major multi-vendor marketplace plugins - **WCFM Market
 Please report security bugs found in the source code of the WCFM – Frontend Manager for WooCommerce plugin through the [Patchstack Vulnerability Disclosure  Program](https://patchstack.com/database/vdp/9e5fb66e-e9e8-4fd9-bf41-f952c6c2d55c). The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin.
 
 == Screenshots ==
+
+Explore the frontend interfaces and management screens included in WCFM.
 
 1. WCFM Dashboard
 2. WCFM Products Dashboard
@@ -225,6 +275,19 @@ Please report security bugs found in the source code of the WCFM – Frontend Ma
 25. WCFM Dashboard - Mobile view
 
 == Changelog ==
+
+Below is a record of updates, features, and fixes across all releases.
+
+= 6.7.28 =
+*Updated - 28/06/2026*
+
+* Security - Fixed an Unauthenticated Authorization Bypass vulnerability that allowed arbitrary reply injection into store inquiries and unsolicited notification emails.
+* Security - Fixed an Insecure Direct Object Reference (IDOR) vulnerability that allowed authenticated vendors to archive products, toggle featured listings, mark orders complete, and delete inquiries and messages belonging to other vendors.
+* Enhance - Added developer hooks to add a custom column to the Vendors list (`wcfm_vendors_custom_column_header`, `wcfm_vendors_custom_column_data_after`, plus filterable DataTable column config).
+* Enhance - Added action hooks to the Article manager view (`before_wcfm_article_manage_action`, `after_wcfm_article_manage_action`, `wcfm_article_manager_featured_image_field_end`).
+* Enhance - Added the `wcfm_dashboard_after_limit_stats` hook and refreshed the Dashboard welcome box to a responsive layout.
+* Enhance - WooCommerce 10.9+ compatibility check added
+* Enhance - WordPress 7.0+ compatibility check added
 
 = 6.7.27 =
 *Updated - 25/04/2026*
@@ -2762,6 +2825,12 @@ Removed deprecated filter wcfm_allow_setup_page_access
 
 == Upgrade Notice ==
 
-= 6.7.27 =
+= 6.7.28 =
 
-* Enhance - PHP compatibility expanded: now supports versions 7.2–8.4
+* Security - Fixed an Unauthenticated Authorization Bypass vulnerability that allowed arbitrary reply injection into store inquiries and unsolicited notification emails.
+* Security - Fixed an Insecure Direct Object Reference (IDOR) vulnerability that allowed authenticated vendors to archive products, toggle featured listings, mark orders complete, and delete inquiries and messages belonging to other vendors.
+* Enhance - Added developer hooks to add a custom column to the Vendors list (`wcfm_vendors_custom_column_header`, `wcfm_vendors_custom_column_data_after`, plus filterable DataTable column config).
+* Enhance - Added action hooks to the Article manager view (`before_wcfm_article_manage_action`, `after_wcfm_article_manage_action`, `wcfm_article_manager_featured_image_field_end`).
+* Enhance - Added the `wcfm_dashboard_after_limit_stats` hook and refreshed the Dashboard welcome box to a responsive layout.
+* Enhance - WooCommerce 10.9+ compatibility check added
+* Enhance - WordPress 7.0+ compatibility check added

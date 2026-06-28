@@ -208,7 +208,10 @@ class WCFM_Vendors_Controller {
 				
 				// Disak Space Usage Stat
 				$wcfm_vendors_json_arr[$index][] = $WCFM->wcfm_vendor_support->wcfm_vendor_space_limit_stat( $wcfm_vendors_id );
-				
+
+                // Custom Column Support After
+				$wcfm_vendors_json_arr[$index] = apply_filters('wcfm_vendors_custom_column_data_after', $wcfm_vendors_json_arr[$index], $wcfm_vendors_id );
+
 				// Gross Sales
 				$gross_sales = $WCFM->wcfm_vendor_support->wcfm_get_gross_sales_by_vendor( $wcfm_vendors_id, $report_for, false, 0, $filter_date_form, $filter_date_to );
 				$wcfm_vendors_json_arr[$index][] = apply_filters( 'wcfm_vendors_gross_sales_data', wc_price( $gross_sales ), $wcfm_vendors_id );

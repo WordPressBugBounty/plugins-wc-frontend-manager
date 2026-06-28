@@ -79,7 +79,8 @@ $admin_fee_mode = apply_filters( 'wcfm_is_admin_fee_mode', false );
 							<th><?php _e( 'Membership', 'wc-frontend-manager' ); ?></th>
 							<th><span class="wcfmfa fa-cube text_tip" data-tip="<?php _e( 'Product Limit Stats', 'wc-frontend-manager' ); ?>"></span></th>
 							<th><span class="wcfmfa fa-hdd text_tip" data-tip="<?php _e( 'Disk Space Usage Stats', 'wc-frontend-manager' ); ?>"></span></th>
-							<th><?php printf( apply_filters( 'wcfm_vendors_gross_sales_label', __( 'Gross Sales', 'wc-frontend-manager' ) ) ); ?></th>
+							<?php do_action( 'wcfm_vendors_custom_column_header' ); ?>
+                            <th><?php printf( apply_filters( 'wcfm_vendors_gross_sales_label', __( 'Gross Sales', 'wc-frontend-manager' ) ) ); ?></th>
 							<?php if( $admin_fee_mode ) { ?>
 								<th><?php printf( apply_filters( 'wcfm_vendors_total_fees_label', __( 'Total Fees', 'wc-frontend-manager' ) ) ); ?></th>
 								<th><?php printf( apply_filters( 'wcfm_vendors_paid_fees_label', __( 'Paid Fees', 'wc-frontend-manager' ) ) ); ?></th>
@@ -100,7 +101,8 @@ $admin_fee_mode = apply_filters( 'wcfm_is_admin_fee_mode', false );
 							<th><?php _e( 'Membership', 'wc-frontend-manager' ); ?></th>
 							<th><span class="wcfmfa fa-cube text_tip" data-tip="<?php _e( 'Product Limit Stats', 'wc-frontend-manager' ); ?>"></span></th>
 							<th><span class="wcfmfa fa-hdd text_tip" data-tip="<?php _e( 'Disk Space Usage Stats', 'wc-frontend-manager' ); ?>"></span></th>
-							<th><?php printf( apply_filters( 'wcfm_vendors_gross_sales_label', __( 'Gross Sales', 'wc-frontend-manager' ) ) ); ?></th>
+							<?php do_action( 'wcfm_vendors_custom_column_header' ); ?>
+                            <th><?php printf( apply_filters( 'wcfm_vendors_gross_sales_label', __( 'Gross Sales', 'wc-frontend-manager' ) ) ); ?></th>
 							<?php if( $admin_fee_mode ) { ?>
 								<th><?php printf( apply_filters( 'wcfm_vendors_total_fees_label', __( 'Total Fees', 'wc-frontend-manager' ) ) ); ?></th>
 								<th><?php printf( apply_filters( 'wcfm_vendors_paid_fees_label', __( 'Paid Fees', 'wc-frontend-manager' ) ) ); ?></th>

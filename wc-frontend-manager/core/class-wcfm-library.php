@@ -582,7 +582,18 @@ class WCFM_Library {
       	$this->load_daterangepicker_lib();
       	$this->load_datatable_download_lib();
       	wp_enqueue_script( 'wcfm_vendors_js', $this->js_lib_url . 'vendors/wcfm-script-vendors.js', array('jquery'), $WCFM->version, true );
-      	
+
+      	// Vendor DataTable Columns (mirrors the orders pattern) - filterable so a WCFM addon can inject a custom column.
+      	// Keep in sync with header hook 'wcfm_vendors_custom_column_header' (views/vendors/wcfm-view-vendors.php)
+      	// and row-data filter 'wcfm_vendors_custom_column_data_after' (controllers/vendors/wcfm-controller-vendors.php).
+      	$wcfm_datatable_column_defs = '[{ "targets": 0, "orderable" : false }, { "targets": 1, "orderable" : false }, { "targets": 2, "orderable" : false }, { "targets": 3, "orderable" : false }, { "targets": 4, "orderable" : false }, { "targets": 5, "orderable" : false }, { "targets": 6, "orderable" : false }, { "targets": 7, "orderable" : false }, { "targets": 8, "orderable" : false }, { "targets": 9, "orderable" : false }, { "targets": 10, "orderable" : false }, { "targets": 11, "orderable" : false }]';
+      	$wcfm_datatable_column_defs = apply_filters( 'wcfm_vendors_custom_column_defs', $wcfm_datatable_column_defs );
+
+      	$wcfm_datatable_column_priority = '[{ "responsivePriority": 1 },{ "responsivePriority": 1 },{ "responsivePriority": 1 },{ "responsivePriority": 4 },{ "responsivePriority": 4 },{ "responsivePriority": 3 },{ "responsivePriority": 2 },{ "responsivePriority": 1 },{ "responsivePriority": 2 },{ "responsivePriority": 3 },{ "responsivePriority": 4 },{ "responsivePriority": 2 }]';
+      	$wcfm_datatable_column_priority = apply_filters( 'wcfm_vendors_custom_column_priority', $wcfm_datatable_column_priority );
+
+      	wp_localize_script( 'wcfm_vendors_js', 'wcfm_datatable_columns', array( 'defs' => $wcfm_datatable_column_defs, 'priority' => $wcfm_datatable_column_priority ) );
+
       	// Screen manager
 	    	$wcfm_screen_manager_data = array();
 	    	if( !WCFM_Dependencies::wcfmvm_plugin_active_check() || !apply_filters( 'wcfm_is_pref_membership', true ) ) {

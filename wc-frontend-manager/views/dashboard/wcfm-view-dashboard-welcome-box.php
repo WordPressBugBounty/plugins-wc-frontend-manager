@@ -78,9 +78,9 @@ $previous_login = get_user_meta( $user_id, '_previous_login', true );
 			  	<div class="wcfm_welcomebox_user_right_box"><span class="wcfmfa fa-cube img_tip" data-tip="<?php _e( 'Product Limit Stats', 'wc-frontend-manager' ); ?>"></span><span><mark><?php echo wp_kses_post($WCFM->wcfm_vendor_support->wcfm_vendor_product_limit_stat( $user_id ) ); ?></mark></span></div>
 			  <?php } ?>
 				<div class="wcfm_welcomebox_user_right_box"><span class="wcfmfa fa-hdd img_tip" data-tip="<?php _e('Disk Space Usage Stats', 'wc-frontend-manager' ); ?>"></span><span><mark><?php echo wp_kses_post($WCFM->wcfm_vendor_support->wcfm_vendor_space_limit_stat( $user_id ) ); ?></mark></span></div>
+                <?php do_action( 'wcfm_dashboard_after_limit_stats', $user_id ); ?>
 			</div>
 		<?php } ?>			
-	  <div class="spacer"></div>    
 	</div>
 	<div class="wcfm-clearfix"></div>
 <?php } ?>

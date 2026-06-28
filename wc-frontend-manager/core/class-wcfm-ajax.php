@@ -758,6 +758,14 @@ class WCFM_Ajax {
 
         if (isset($_POST['proid']) && !empty($_POST['proid'])) {
             $product_id = absint($_POST['proid']);
+
+            // IDOR guard: only the product's owner (vendor/staff), a managing manager, or an admin may archive it.
+            $resource_owner_id = get_post_field('post_author', $product_id);
+            if (!wcfm_user_can_perform_request($resource_owner_id, 'product_archive')) {
+                wp_send_json_error(esc_html__('You don&#8217;t have permission to do this.', 'woocommerce'));
+                wp_die();
+            }
+
             do_action('wcfm_before_product_archived', $product_id);
             $update_product = apply_filters('wcfm_product_content_before_update', array(
                 'ID'           => $product_id,
@@ -791,6 +799,14 @@ class WCFM_Ajax {
 
         if (isset($_POST['listid']) && !empty($_POST['listid'])) {
             $listing_id = absint($_POST['listid']);
+
+            // IDOR guard: only the listing's owner (vendor/staff), a managing manager, or an admin may toggle featured.
+            $resource_owner_id = get_post_field('post_author', $listing_id);
+            if (!wcfm_user_can_perform_request($resource_owner_id, 'listing_featured')) {
+                wp_send_json_error(esc_html__('You don&#8217;t have permission to do this.', 'woocommerce'));
+                wp_die();
+            }
+
             $is_featured = wc_clean($_POST['featured']);
 
             if ($is_featured == 'featured') {
@@ -821,6 +837,12 @@ class WCFM_Ajax {
         }
 
         $order_id = absint($_POST['orderid']);
+
+        // IDOR guard: an admin/manager may complete any order, but a vendor only an order that belongs to them.
+        $order = wc_get_order($order_id);
+        if (!is_a($order, 'WC_Order') || !$WCFM->wcfm_vendor_support->wcfm_is_order_for_vendor($order_id)) {
+            wp_send_json_error(__('Invalid Order', 'wc-frontend-manager'));
+        }
 
         do_action('before_wcfm_order_status_update', $order_id, 'wc-completed');
 

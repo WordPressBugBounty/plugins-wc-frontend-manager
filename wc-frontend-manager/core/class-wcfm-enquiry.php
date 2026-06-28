@@ -260,6 +260,47 @@ class WCFM_Enquiry {
 	}
 	
 	/**
+   * Authorize a "my account" inquiry reply request.
+   *
+   * The wcfm-my-account-enquiry-manage AJAX branch was previously unguarded (only a public nonce),
+   * which allowed unauthenticated reply injection into any inquiry. This verifies the request against
+   * the stored inquiry row (never the attacker-supplied form values) and reuses the WCFM guard helper
+   * wcfm_user_can_perform_request() for the vendor / manager / administrator path.
+   *
+   * @return bool True when the current user may reply to the posted inquiry.
+   */
+  public function wcfm_can_manage_my_account_enquiry() {
+  	global $wpdb;
+
+  	if ( ! is_user_logged_in() || empty( $_POST['wcfm_inquiry_reply_form'] ) ) {
+  		return false;
+  	}
+
+  	$wcfm_enquiry_reply_form_data = array();
+  	parse_str( wp_unslash( $_POST['wcfm_inquiry_reply_form'] ), $wcfm_enquiry_reply_form_data );
+  	$inquiry_id = isset( $wcfm_enquiry_reply_form_data['inquiry_id'] ) ? absint( $wcfm_enquiry_reply_form_data['inquiry_id'] ) : 0;
+  	if ( ! $inquiry_id ) {
+  		return false;
+  	}
+
+  	// Authoritative owners come from the stored row, not from the request payload.
+  	$enquiry = $wpdb->get_row( $wpdb->prepare( "SELECT `author_id`, `customer_id`, `vendor_id` FROM {$wpdb->prefix}wcfm_enquiries WHERE `ID` = %d", $inquiry_id ) );
+  	if ( ! $enquiry ) {
+  		return false;
+  	}
+
+  	$current_user_id = (int) get_current_user_id();
+
+  	// The inquiry's own customer (author) may reply to it...
+  	if ( $current_user_id && ( $current_user_id === (int) $enquiry->customer_id || $current_user_id === (int) $enquiry->author_id ) ) {
+  		return true;
+  	}
+
+  	// ...as may the inquiry's vendor, an authorized WCFM manager, or an administrator.
+  	return wcfm_user_can_perform_request( $enquiry->vendor_id, 'enquiry' );
+  }
+
+	/**
    * Enquiry Ajax Controllers
    */
   public function ajax_controller() {
@@ -319,6 +360,12 @@ class WCFM_Enquiry {
 				break;
 				
 				case 'wcfm-my-account-enquiry-manage':
+					// Security: this customer-facing My Account branch was previously unguarded (only the public
+					// nonce), allowing unauthenticated reply injection. Authorize against the stored inquiry row.
+					if ( ! $this->wcfm_can_manage_my_account_enquiry() ) {
+						wp_send_json_error( esc_html__( 'You don&#8217;t have permission to do this.', 'woocommerce' ) );
+						wp_die();
+					}
 					include_once( $controllers_path . 'wcfm-controller-enquiry-manage.php' );
 					new WCFM_My_Account_Enquiry_Manage_Controller();
 				break;
@@ -407,6 +454,13 @@ class WCFM_Enquiry {
   	
   	if( isset( $_POST['enquiryid'] ) && !empty( $_POST['enquiryid'] ) ) {
   		$enquiryid = absint( $_POST['enquiryid'] );
+
+  		// IDOR guard: load the enquiry's owning vendor from the stored row and reject cross-vendor deletes.
+  		$enquiry = $wpdb->get_row( $wpdb->prepare( "SELECT `vendor_id` FROM {$wpdb->prefix}wcfm_enquiries WHERE `ID` = %d", $enquiryid ) );
+  		if ( ! $enquiry || ! wcfm_user_can_perform_request( $enquiry->vendor_id, 'enquiry_delete' ) ) {
+  			wp_send_json_error( esc_html__( 'You don&#8217;t have permission to do this.', 'woocommerce' ) );
+  			wp_die();
+  		}
   		$wpdb->query( $wpdb->prepare("DELETE FROM {$wpdb->prefix}wcfm_enquiries WHERE ID = %d", $enquiryid ) );
   		$wpdb->query( $wpdb->prepare("DELETE FROM {$wpdb->prefix}wcfm_enquiries_meta WHERE enquiry_id = %d", $enquiryid ) );
   		$wpdb->query( $wpdb->prepare("DELETE FROM {$wpdb->prefix}wcfm_enquiries_response WHERE enquiry_id = %d", $enquiryid ) );
@@ -434,6 +488,13 @@ class WCFM_Enquiry {
   	
   	if( isset( $_POST['responseid'] ) && !empty( $_POST['responseid'] ) ) {
   		$responseid = absint( $_POST['responseid'] );
+
+  		// IDOR guard: resolve the parent enquiry's vendor and reject cross-vendor response deletes.
+  		$enquiry_vendor_id = $wpdb->get_var( $wpdb->prepare( "SELECT e.`vendor_id` FROM {$wpdb->prefix}wcfm_enquiries AS e INNER JOIN {$wpdb->prefix}wcfm_enquiries_response AS r ON r.`enquiry_id` = e.`ID` WHERE r.`ID` = %d", $responseid ) );
+  		if ( is_null( $enquiry_vendor_id ) || ! wcfm_user_can_perform_request( $enquiry_vendor_id, 'enquiry_delete' ) ) {
+  			wp_send_json_error( esc_html__( 'You don&#8217;t have permission to do this.', 'woocommerce' ) );
+  			wp_die();
+  		}
   		$wpdb->query( $wpdb->prepare( "DELETE FROM {$wpdb->prefix}wcfm_enquiries_response WHERE ID = %d", $responseid ) );
   		$wpdb->query( $wpdb->prepare( "DELETE FROM {$wpdb->prefix}wcfm_enquiries_response_meta WHERE `enquiry_response_id` = %d", $responseid ) );
   	}
@@ -461,6 +522,20 @@ class WCFM_Enquiry {
 		if (isset($_POST['enquiry_ids'])) {
 			$enquiry_ids = wc_clean($_POST['enquiry_ids']);
 			if (is_array($enquiry_ids) && !empty($enquiry_ids)) {
+				// IDOR guard: keep only enquiries the current user is authorised to delete.
+				$enquiry_ids = array_values( array_filter( array_map( 'absint', (array) $enquiry_ids ) ) );
+				$allowed_enquiry_ids = array();
+				foreach ( $enquiry_ids as $enquiry_id ) {
+					$enquiry_vendor_id = $wpdb->get_var( $wpdb->prepare( "SELECT `vendor_id` FROM {$wpdb->prefix}wcfm_enquiries WHERE `ID` = %d", $enquiry_id ) );
+					if ( ! is_null( $enquiry_vendor_id ) && wcfm_user_can_perform_request( $enquiry_vendor_id, 'enquiry_delete' ) ) {
+						$allowed_enquiry_ids[] = $enquiry_id;
+					}
+				}
+				if ( empty( $allowed_enquiry_ids ) ) {
+					wp_send_json_error( [ 'message' => __( 'You don&#8217;t have permission to do this.', 'wc-frontend-manager' ) ] );
+				}
+				$enquiry_ids = $allowed_enquiry_ids;
+
 				$enquiry_ids_placeholder	= implode(', ', array_fill(0, count($enquiry_ids), '%d'));
 
 				$deleted = $wpdb->query( $wpdb->prepare( "DELETE FROM {$wpdb->prefix}wcfm_enquiries WHERE ID IN ({$enquiry_ids_placeholder})", $enquiry_ids ) );
