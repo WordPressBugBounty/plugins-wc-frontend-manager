@@ -1,28 +1,28 @@
 <?php
-/**
- * WCFMu plugin view
- *
- * WCFM Listings view
- *
- * @author 		WC Lovers
- * @package 	wcfm/views
- * @version   2.4.6
- */
- 
+
+
+
+
+
+
+
+
+
+
 global $WCFM;
 
 $wcfm_is_allow_listings = apply_filters( 'wcfm_is_allow_listings', true );
-if( !$wcfm_is_allow_listings ) {
-	wcfm_restriction_message_show( "Listings" );
+if ( ! $wcfm_is_allow_listings ) {
+	wcfm_restriction_message_show( 'Listings' );
 	return;
 }
 
-$post_a_job = get_permalink ( get_option( 'job_manager_submit_job_form_page_id' ) );
+$post_a_job = get_permalink( get_option( 'job_manager_submit_job_form_page_id' ) );
 ?>
 
 <div class="collapse wcfm-collapse" id="wcfm_listings_listing">
 
-  <div class="wcfm-page-headig">
+	<div class="wcfm-page-headig">
 		<span class="wcfmfa fa-briefcase"></span>
 		<span class="wcfm-page-heading-text"><?php _e( 'Listings', 'wc-frontend-manager' ); ?></span>
 		<?php do_action( 'wcfm_page_heading' ); ?>
@@ -33,19 +33,25 @@ $post_a_job = get_permalink ( get_option( 'job_manager_submit_job_form_page_id' 
 		
 		<div class="wcfm-container wcfm-top-element-container">
 			<?php
-			$wcfm_listings_menus = apply_filters( 'wcfm_listings_menus', array( 'all' => __( 'All', 'wc-frontend-manager'), 
-																																					'publish' => __( 'Published', 'wc-frontend-manager'),
-																																					'pending' => __( 'Pending', 'wc-frontend-manager'),
-																																					'expired' => __( 'Expired', 'wc-frontend-manager'),
-																																					'preview' => __( 'Preview', 'wc-frontend-manager'),
-																																					//'pending_payment' => __( 'Pending Payment', 'wc-frontend-manager')
-																																				) );
-		
+			$wcfm_listings_menus = apply_filters(
+				'wcfm_listings_menus',
+				array(
+					'all'     => __( 'All', 'wc-frontend-manager' ),
+					'publish' => __( 'Published', 'wc-frontend-manager' ),
+					'pending' => __( 'Pending', 'wc-frontend-manager' ),
+					'expired' => __( 'Expired', 'wc-frontend-manager' ),
+					'preview' => __( 'Preview', 'wc-frontend-manager' ),
+																																					 
+				)
+			);
+
 			$listing_status = ! empty( $_GET['listing_status'] ) ? sanitize_text_field( $_GET['listing_status'] ) : 'all';
-			
+
 			$current_user_id = apply_filters( 'wcfm_current_vendor_id', get_current_user_id() );
-			if( current_user_can( 'administrator' ) ) $current_user_id = 0;
-			$count_listings = array();
+			if ( current_user_can( 'administrator' ) ) {
+				$current_user_id = 0;
+			}
+			$count_listings            = array();
 			$count_listings['publish'] = wcfm_get_user_posts_count( $current_user_id, 'job_listing', 'publish' );
 			$count_listings['pending'] = wcfm_get_user_posts_count( $current_user_id, 'job_listing', 'pending' );
 			$count_listings['expired'] = wcfm_get_user_posts_count( $current_user_id, 'job_listing', 'expired' );
@@ -55,14 +61,17 @@ $post_a_job = get_permalink ( get_option( 'job_manager_submit_job_form_page_id' 
 			<ul class="wcfm_listings_menus">
 				<?php
 				$is_first = true;
-				foreach( $wcfm_listings_menus as $wcfm_listings_menus_key => $wcfm_listings_menu ) {
+				foreach ( $wcfm_listings_menus as $wcfm_listings_menus_key => $wcfm_listings_menu ) {
 					?>
 					<li class="wcfm_listings_menu_item">
 						<?php
-						if($is_first) $is_first = false;
-						else echo " | ";
+						if ( $is_first ) {
+							$is_first = false;
+						} else {
+							echo ' | ';
+						}
 						?>
-						<a class="<?php echo ( $wcfm_listings_menus_key == $listing_status ) ? 'active' : ''; ?>" href="<?php echo get_wcfm_listings_url( $wcfm_listings_menus_key ); ?>"><?php echo esc_html($wcfm_listings_menu . ' ('. $count_listings[$wcfm_listings_menus_key] .')'); ?></a>
+						<a class="<?php echo ( $wcfm_listings_menus_key == $listing_status ) ? 'active' : ''; ?>" href="<?php echo get_wcfm_listings_url( $wcfm_listings_menus_key ); ?>"><?php echo esc_html( $wcfm_listings_menu . ' (' . $count_listings[ $wcfm_listings_menus_key ] . ')' ); ?></a>
 					</li>
 					<?php
 				}
@@ -70,9 +79,9 @@ $post_a_job = get_permalink ( get_option( 'job_manager_submit_job_form_page_id' 
 			</ul>
 			
 			<?php
-			if( apply_filters( 'wcfm_allow_wp_admin_view', true ) ) {
-				if( !WCFM_Dependencies::wcfmu_plugin_active_check() ) {
-					if( $is_wcfmu_inactive_notice_show = apply_filters( 'is_wcfmu_inactive_notice_show', true ) ) {
+			if ( apply_filters( 'wcfm_allow_wp_admin_view', true ) ) {
+				if ( ! WCFM_Dependencies::wcfmu_plugin_active_check() ) {
+					if ( $is_wcfmu_inactive_notice_show = apply_filters( 'is_wcfmu_inactive_notice_show', true ) ) {
 						?>
 						<span class="wcfm_screen_manager_dummy text_tip" data-tip="<?php wcfmu_feature_help_text_show( 'Screen Manager', false, true ); ?>"><span class="wcfmfa fa-tv"></span></span>
 						<?php
@@ -83,27 +92,33 @@ $post_a_job = get_permalink ( get_option( 'job_manager_submit_job_form_page_id' 
 					<?php
 				}
 				?>
-				<a target="_blank" class="wcfm_wp_admin_view text_tip" href="<?php echo admin_url('edit.php?post_type=job_listing'); ?>" data-tip="<?php _e( 'WP Admin View', 'wc-frontend-manager' ); ?>"><span class="fab fa-wordpress fa-wordpress-simple"></span></a>
+				<a target="_blank" class="wcfm_wp_admin_view text_tip" href="<?php echo admin_url( 'edit.php?post_type=job_listing' ); ?>" data-tip="<?php _e( 'WP Admin View', 'wc-frontend-manager' ); ?>"><span class="fab fa-wordpress fa-wordpress-simple"></span></a>
 				<?php
 			}
 			do_action( 'wcfm_listings_head_actions' );
-			if( $has_new = apply_filters( 'wcfm_add_new_listing_sub_menu', true ) ) {
-				echo '<a id="add_new_listing_dashboard" class="add_new_wcfm_ele_dashboard text_tip" href="'.$post_a_job.'" data-tip="' . __('Add New Listing', 'wc-frontend-manager') . '"><span class="wcfmfa fa-briefcase"></span><span class="text">' . __( 'Add New', 'wc-frontend-manager') . '</span></a>';
+			if ( $has_new = apply_filters( 'wcfm_add_new_listing_sub_menu', true ) ) {
+				echo '<a id="add_new_listing_dashboard" class="add_new_wcfm_ele_dashboard text_tip" href="' . $post_a_job . '" data-tip="' . __( 'Add New Listing', 'wc-frontend-manager' ) . '"><span class="wcfmfa fa-briefcase"></span><span class="text">' . __( 'Add New', 'wc-frontend-manager' ) . '</span></a>';
 			}
 			?>
 			<div class="wcfm-clearfix"></div>
 			</div>
-	  <div class="wcfm-clearfix"></div><br />
+		<div class="wcfm-clearfix"></div><br />
 	  
-	  <div class="wcfm_listings_filter_wrap wcfm_filters_wrap">
+		<div class="wcfm_listings_filter_wrap wcfm_filters_wrap">
 			<?php
-			if( apply_filters( 'wcfm_is_coupons_vendor_filter', true ) ) {
+			if ( apply_filters( 'wcfm_is_coupons_vendor_filter', true ) ) {
 				$is_marketplace = wcfm_is_marketplace();
-				if( $is_marketplace ) {
-					if( !wcfm_is_vendor() ) {
-						$WCFM->wcfm_fields->wcfm_generate_form_field( array(
-																											"dropdown_vendor" => array( 'type' => 'select', 'options' => array(), 'attributes' => array( 'style' => 'width: 150px;' ) )
-																											 ) );
+				if ( $is_marketplace ) {
+					if ( ! wcfm_is_vendor() ) {
+						$WCFM->wcfm_fields->wcfm_generate_form_field(
+							array(
+								'dropdown_vendor' => array(
+									'type'       => 'select',
+									'options'    => array(),
+									'attributes' => array( 'style' => 'width: 150px;' ),
+								),
+							)
+						);
 					}
 				}
 			}

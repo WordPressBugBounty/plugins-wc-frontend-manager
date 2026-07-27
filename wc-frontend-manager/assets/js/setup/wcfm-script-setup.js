@@ -60,19 +60,21 @@ jQuery(document).ready(function($) {
 		}
 	}).change();
 	
-	// Stripe 3D and SCA
-	$('#withdrawal_stripe_is_3d_secure').click(function() {
-		if( $(this).is(':checked') ) {
+	// Stripe 3D and SCA — the 3DS toggle only forces Transfer Charges (and so
+	// hides the Split Pay Mode dropdown) on the Legacy engine. The Modern engine
+	// runs SCA automatically and honours the chosen mode, so the dropdown stays
+	// visible and authoritative there regardless of the checkbox.
+	function wcfm_stripe_split_pay_mode_visibility() {
+		var is_legacy = ( 'legacy' == $('#withdrawal_stripe_split_pay_engine').val() );
+		if( is_legacy && $('#withdrawal_stripe_is_3d_secure').is(':checked') ) {
 			$('.withdrawal_stripe_split_pay_mode_wrapper').addClass('wcfm_wpml_hide');
 		} else {
 			$('.withdrawal_stripe_split_pay_mode_wrapper').removeClass('wcfm_wpml_hide');
 		}
-	});
-	if( $('#withdrawal_stripe_is_3d_secure').is(':checked') ) {
-		$('.withdrawal_stripe_split_pay_mode_wrapper').addClass('wcfm_wpml_hide');
-	} else {
-		$('.withdrawal_stripe_split_pay_mode_wrapper').removeClass('wcfm_wpml_hide');
 	}
+	$('#withdrawal_stripe_is_3d_secure').click(wcfm_stripe_split_pay_mode_visibility);
+	$('#withdrawal_stripe_split_pay_engine').change(wcfm_stripe_split_pay_mode_visibility);
+	wcfm_stripe_split_pay_mode_visibility();
 	
 	$('#withdrawal_charge_type').change(function() {
 		$withdrawal_charge_type = $(this).val();

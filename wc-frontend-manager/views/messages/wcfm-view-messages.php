@@ -1,27 +1,27 @@
 <?php
-/**
- * WCFMu plugin view
- *
- * WCFM Messages view
- *
- * @author 		WC Lovers
- * @package 	wcfm/views
- * @version   2.3.2
- */
- 
+
+
+
+
+
+
+
+
+
+
 global $WCFM;
 
-if( (!apply_filters( 'wcfm_is_pref_notification', true ) || !apply_filters( 'wcfm_is_allow_notifications', true ) ) && ( !apply_filters( 'wcfm_is_allow_direct_message', true ) || !apply_filters( 'wcfm_is_pref_direct_message', true ) ) ) {
-	wcfm_restriction_message_show( "Notifications" );
+if ( ( ! apply_filters( 'wcfm_is_pref_notification', true ) || ! apply_filters( 'wcfm_is_allow_notifications', true ) ) && ( ! apply_filters( 'wcfm_is_allow_direct_message', true ) || ! apply_filters( 'wcfm_is_pref_direct_message', true ) ) ) {
+	wcfm_restriction_message_show( 'Notifications' );
 	return;
 }
 
 $wcfm_messages = '';
 
 $is_marketplace = wcfm_is_marketplace();
-$user_arr = array();
-if( $is_marketplace ) {
-	$user_arr = array(); //$WCFM->wcfm_vendor_support->wcfm_get_vendor_list(true);
+$user_arr       = array();
+if ( $is_marketplace ) {
+	$user_arr = array();  
 }
 
 $message_status = 'unread';
@@ -41,11 +41,11 @@ $message_types  = get_wcfm_message_types();
 		
 		<?php do_action( 'before_wcfm_messages_form' ); ?>
 		
-		<?php if( apply_filters( 'wcfm_is_pref_notification', true ) && apply_filters( 'wcfm_is_allow_notifications', true ) ) { ?>
+		<?php if ( apply_filters( 'wcfm_is_pref_notification', true ) && apply_filters( 'wcfm_is_allow_notifications', true ) ) { ?>
 			<?php do_action( 'before_wcfm_messages' ); ?>
 			
 			<div class="wcfm-container wcfm-top-element-container">
-				<h2><?php _e('Notifications', 'wc-frontend-manager' ); ?></h2>
+				<h2><?php _e( 'Notifications', 'wc-frontend-manager' ); ?></h2>
 				<div class="wcfm-clearfix"></div>
 			</div>
 			<div class="wcfm-clearfix"></div><br />
@@ -59,8 +59,8 @@ $message_types  = get_wcfm_message_types();
 				</select>
 				<select name="filter-by-type" id="filter-by-type" style="width: 150px;">
 					<option value='all'><?php esc_html_e( 'All', 'wc-frontend-manager' ); ?></option>
-					<?php foreach( $message_types as $message_type => $message_type_label ) { ?>
-						<option value='<?php echo esc_attr($message_type); ?>' <?php selected( $message_type, $selected_type, true ); ?>><?php echo esc_html($message_type_label); ?></option>
+					<?php foreach ( $message_types as $message_type => $message_type_label ) { ?>
+						<option value='<?php echo esc_attr( $message_type ); ?>' <?php selected( $message_type, $selected_type, true ); ?>><?php echo esc_html( $message_type_label ); ?></option>
 					<?php } ?>
 				</select>
 			</div>
@@ -99,14 +99,21 @@ $message_types  = get_wcfm_message_types();
 					<div class="wcfm-clearfix"></div>
 				</div>
 			</div>
-			<?php do_action( 'after_wcfm_messages' );	?>
+			<?php do_action( 'after_wcfm_messages' ); ?>
 			<div class="wcfm-clearfix"></div><br />
 		<?php } ?>
 		
-		<?php if( apply_filters( 'wcfm_is_allow_direct_message', true ) && apply_filters( 'wcfm_is_pref_direct_message', true ) ) { ?>
+		<?php if ( apply_filters( 'wcfm_is_allow_direct_message', true ) && apply_filters( 'wcfm_is_pref_direct_message', true ) ) { ?>
 			<form id="wcfm_messages_form" class="wcfm">
 				<div class="wcfm-container wcfm-top-element-container">
-					<h2><span class="fab fa-telegram-plane"></span>&nbsp;<?php _e('Send Direct Message', 'wc-frontend-manager' ); ?>&nbsp;-&nbsp;<?php if( wcfm_is_vendor() || ( function_exists( 'wcfm_is_affiliate' ) && wcfm_is_affiliate() ) ) { _e('To Store Admin', 'wc-frontend-manager' ); } else { _e('To Store Vendors', 'wc-frontend-manager' ); } ?></h2>
+					<h2><span class="fab fa-telegram-plane"></span>&nbsp;<?php _e( 'Send Direct Message', 'wc-frontend-manager' ); ?>&nbsp;-&nbsp;
+					<?php
+					if ( wcfm_is_vendor() || ( function_exists( 'wcfm_is_affiliate' ) && wcfm_is_affiliate() ) ) {
+						_e( 'To Store Admin', 'wc-frontend-manager' );
+					} else {
+						_e( 'To Store Vendors', 'wc-frontend-manager' ); }
+					?>
+					</h2>
 					<div class="wcfm-clearfix"></div>
 				</div>
 				<div class="wcfm-clearfix"></div><br />
@@ -114,23 +121,46 @@ $message_types  = get_wcfm_message_types();
 					<div id="wcfm_messages_listing_expander" class="wcfm-content">
 						<?php
 						$rich_editor = apply_filters( 'wcfm_is_allow_rich_editor', 'rich_editor' );
-						$wpeditor = apply_filters( 'wcfm_is_allow_profile_wpeditor', 'wpeditor' );
-						if( $wpeditor && $rich_editor ) {
+						$wpeditor    = apply_filters( 'wcfm_is_allow_profile_wpeditor', 'wpeditor' );
+						if ( $wpeditor && $rich_editor ) {
 							$rich_editor = 'wcfm_wpeditor';
 						} else {
 							$wpeditor = 'textarea';
 						}
-						$WCFM->wcfm_fields->wcfm_generate_form_field( apply_filters( 'wcfm_messages_field_users', array(
-																																																		"wcfm_messages" => array( 'type' => $wpeditor, 'class' => 'wcfm-textarea wcfm_full_ele wcfm_ele ' . $rich_editor, 'label_class' => 'wcfm_title', 'value' => $wcfm_messages ),
-																																																		) ) );
+						$WCFM->wcfm_fields->wcfm_generate_form_field(
+							apply_filters(
+								'wcfm_messages_field_users',
+								array(
+									'wcfm_messages' => array(
+										'type'        => $wpeditor,
+										'class'       => 'wcfm-textarea wcfm_full_ele wcfm_ele ' . $rich_editor,
+										'label_class' => 'wcfm_title',
+										'value'       => $wcfm_messages,
+									),
+								)
+							)
+						);
 						?>
 						
 						<div id="wcfm_messages_users_block">
 							<?php
-							if( $is_marketplace && !wcfm_is_vendor() && ( !function_exists( 'wcfm_is_affiliate' ) || ( function_exists( 'wcfm_is_affiliate' ) && !wcfm_is_affiliate() ) ) ) {
-								$WCFM->wcfm_fields->wcfm_generate_form_field( apply_filters( 'wcfm_messages_fields', array(
-																																																	"direct_to" => array( 'label' => __( 'Direct TO:', 'wc-frontend-manager' ), 'type' => 'select', 'options' => $user_arr, 'attributes' => array( 'style' => 'width: 150px;' ), 'class' => 'wcfm-select wcfm_ele', 'label_class' => 'wcfm_title', 'value' => 1 ),
-																																																	) ) );
+							if ( $is_marketplace && ! wcfm_is_vendor() && ( ! function_exists( 'wcfm_is_affiliate' ) || ( function_exists( 'wcfm_is_affiliate' ) && ! wcfm_is_affiliate() ) ) ) {
+								$WCFM->wcfm_fields->wcfm_generate_form_field(
+									apply_filters(
+										'wcfm_messages_fields',
+										array(
+											'direct_to' => array(
+												'label'   => __( 'Direct TO:', 'wc-frontend-manager' ),
+												'type'    => 'select',
+												'options' => $user_arr,
+												'attributes' => array( 'style' => 'width: 150px;' ),
+												'class'   => 'wcfm-select wcfm_ele',
+												'label_class' => 'wcfm_title',
+												'value'   => 1,
+											),
+										)
+									)
+								);
 							}
 							?>
 						</div>

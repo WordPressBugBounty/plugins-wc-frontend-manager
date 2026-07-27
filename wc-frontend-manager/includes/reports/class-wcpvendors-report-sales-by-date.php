@@ -1,38 +1,38 @@
 <?php
-/**
- * Report class responsible for handling sales by date reports.
- *
- * @since      2.0.0
- *
- * @package    WooCommerce Product Vendors
- * @subpackage WooCommerce Product Vendors/Reports
- */
+
+
+
+
+
+
+
+
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+	exit;  
 }
 
-include_once( WC()->plugin_path() . '/includes/admin/reports/class-wc-admin-report.php' );
+require_once WC()->plugin_path() . '/includes/admin/reports/class-wc-admin-report.php';
 
 class WC_Product_Vendors_Vendor_Report_Sales_By_Date extends WC_Admin_Report {
 	public $chart_colors = array();
 	public $current_range;
 	private $report_data;
 
-	/**
-	 * Constructor
-	 *
-	 * @access public
-	 * @since 2.0.0
-	 * @version 2.0.0
-	 * @return bool
-	 */
+	
+
+
+
+
+
+
+
 	public function __construct( $current_range = '' ) {
 		global $WCFM;
-		
-		if( !$current_range ) {
+
+		if ( ! $current_range ) {
 			$current_range = ! empty( $_GET['range'] ) ? sanitize_text_field( $_GET['range'] ) : '7day';
-	
+
 			if ( ! in_array( $current_range, array( 'custom', 'year', 'last_month', 'month', '7day' ) ) ) {
 				$current_range = '7day';
 			}
@@ -41,14 +41,14 @@ class WC_Product_Vendors_Vendor_Report_Sales_By_Date extends WC_Admin_Report {
 		$this->current_range = $current_range;
 	}
 
-	/**
-	 * Get the report data
-	 *
-	 * @access public
-	 * @since 2.0.0
-	 * @version 2.0.0
-	 * @return array of objects
-	 */
+	
+
+
+
+
+
+
+
 	public function get_report_data() {
 		if ( empty( $this->report_data ) ) {
 			$this->query_report_data();
@@ -57,59 +57,59 @@ class WC_Product_Vendors_Vendor_Report_Sales_By_Date extends WC_Admin_Report {
 		return $this->report_data;
 	}
 
-	/**
-	 * Get the report based on parameters
-	 *
-	 * @access public
-	 * @since 2.0.0
-	 * @version 2.0.0
-	 * @return array of objects
-	 */
+	
+
+
+
+
+
+
+
 	public function query_report_data() {
 		global $wpdb;
 
-		$this->report_data = new stdClass;
+		$this->report_data = new stdClass();
 
-		// check if table exists before continuing
+		 
 		if ( ! WC_Product_Vendors_Utils::commission_table_exists() ) {
 			return $this->report_data;
 		}
 
-		$sql = "SELECT * FROM " . WC_PRODUCT_VENDORS_COMMISSION_TABLE . " AS commission";
+		$sql = 'SELECT * FROM ' . WC_PRODUCT_VENDORS_COMMISSION_TABLE . ' AS commission';
 
-		$sql .= " WHERE 1=1";
-		$sql .= " AND commission.vendor_id = %d";
+		$sql .= ' WHERE 1=1';
+		$sql .= ' AND commission.vendor_id = %d';
 		$sql .= " AND commission.commission_status != 'void'";
 
-		switch( $this->current_range ) {
-			case 'year' :
-				$sql .= " AND YEAR( commission.order_date ) = YEAR( CURDATE() )";
+		switch ( $this->current_range ) {
+			case 'year':
+				$sql .= ' AND YEAR( commission.order_date ) = YEAR( CURDATE() )';
 				break;
 
-			case 'last_month' :
-				$sql .= " AND MONTH( commission.order_date ) = MONTH( NOW() ) - 1";
+			case 'last_month':
+				$sql .= ' AND MONTH( commission.order_date ) = MONTH( NOW() ) - 1';
 				break;
 
-			case 'month' :
-				$sql .= " AND MONTH( commission.order_date ) = MONTH( NOW() )";
+			case 'month':
+				$sql .= ' AND MONTH( commission.order_date ) = MONTH( NOW() )';
 				break;
 
-			case 'custom' :
+			case 'custom':
 				$start_date = ! empty( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : '';
-				$end_date = ! empty( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : '';
+				$end_date   = ! empty( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : '';
 
 				$sql .= " AND DATE( commission.order_date ) BETWEEN '" . $start_date . "' AND '" . $end_date . "'";
 				break;
 
-			case 'default' :
-			case '7day' :
-				$sql .= " AND DATE( commission.order_date ) BETWEEN DATE_SUB( NOW(), INTERVAL 7 DAY ) AND NOW()";
+			case 'default':
+			case '7day':
+				$sql .= ' AND DATE( commission.order_date ) BETWEEN DATE_SUB( NOW(), INTERVAL 7 DAY ) AND NOW()';
 				break;
 		}
 
 		if ( false === ( $results = get_transient( 'wcpv_reports_legend_' . WC_Product_Vendors_Utils::get_logged_in_vendor() . '_' . $this->current_range ) ) ) {
-			
-			// Enable big selects for reports
+
+			 
 			$wpdb->query( 'SET SESSION SQL_BIG_SELECTS=1' );
 
 			$results = $wpdb->get_results( $wpdb->prepare( $sql, WC_Product_Vendors_Utils::get_logged_in_vendor() ) );
@@ -126,98 +126,98 @@ class WC_Product_Vendors_Vendor_Report_Sales_By_Date extends WC_Admin_Report {
 
 		$total_orders = array();
 
-		foreach( $results as $data ) {
+		foreach ( $results as $data ) {
 
 			$total_orders[] = $data->order_id;
-			
+
 			$total_product_amount           += (float) sanitize_text_field( $data->product_amount );
 			$total_product_tax_amount       += (float) sanitize_text_field( $data->product_tax_amount );
 			$total_shipping_amount          += (float) sanitize_text_field( $data->product_shipping_amount );
 			$total_shipping_tax_amount      += (float) sanitize_text_field( $data->product_shipping_tax_amount );
 			$total_earned_commission_amount += (float) sanitize_text_field( $data->total_commission_amount );
 
-			// show only paid commissions
+			 
 			if ( 'paid' === $data->commission_status ) {
-				$total_commission_amount   += (float) sanitize_text_field( $data->total_commission_amount );
+				$total_commission_amount += (float) sanitize_text_field( $data->total_commission_amount );
 			}
 		}
 
-		$total_orders = count( array_unique( $total_orders ) );
-		$total_sales = $total_product_amount + $total_product_tax_amount + $total_shipping_amount + $total_shipping_tax_amount;
-		$net_sales = $total_sales - $total_product_tax_amount - $total_shipping_amount - $total_shipping_tax_amount;
+		$total_orders     = count( array_unique( $total_orders ) );
+		$total_sales      = $total_product_amount + $total_product_tax_amount + $total_shipping_amount + $total_shipping_tax_amount;
+		$net_sales        = $total_sales - $total_product_tax_amount - $total_shipping_amount - $total_shipping_tax_amount;
 		$total_tax_amount = $total_product_tax_amount + $total_shipping_tax_amount;
 
-		$this->report_data->total_sales           = $total_sales;
-		$this->report_data->net_sales             = wc_format_decimal( $net_sales );
-		$this->report_data->average_sales         = wc_format_decimal( $net_sales / ( $this->chart_interval + 1 ), 2 );
-		$this->report_data->total_orders          = $total_orders;
-		$this->report_data->total_items           = count( $results );
-		$this->report_data->total_shipping        = wc_format_decimal( $total_shipping_amount );
-		$this->report_data->total_commission      = wc_format_decimal( $total_commission_amount );
-		$this->report_data->total_earned          = wc_format_decimal( $total_earned_commission_amount );
-		$this->report_data->total_tax             = wc_format_decimal( $total_tax_amount );
+		$this->report_data->total_sales      = $total_sales;
+		$this->report_data->net_sales        = wc_format_decimal( $net_sales );
+		$this->report_data->average_sales    = wc_format_decimal( $net_sales / ( $this->chart_interval + 1 ), 2 );
+		$this->report_data->total_orders     = $total_orders;
+		$this->report_data->total_items      = count( $results );
+		$this->report_data->total_shipping   = wc_format_decimal( $total_shipping_amount );
+		$this->report_data->total_commission = wc_format_decimal( $total_commission_amount );
+		$this->report_data->total_earned     = wc_format_decimal( $total_earned_commission_amount );
+		$this->report_data->total_tax        = wc_format_decimal( $total_tax_amount );
 	}
 
-	/**
-	 * Get the legend for the main chart sidebar
-	 * @return array
-	 */
+	
+
+
+
 	public function get_chart_legend() {
 		$legend = array();
 		$data   = $this->get_report_data();
 
 		switch ( $this->chart_groupby ) {
-			case 'day' :
+			case 'day':
 				$average_sales_title = sprintf( __( '%s average daily sales', 'woocommerce-product-vendors' ), '<strong>' . wc_price( $data->average_sales ) . '</strong>' );
-			break;
-			case 'month' :
-			default :
+				break;
+			case 'month':
+			default:
 				$average_sales_title = sprintf( __( '%s average monthly sales', 'woocommerce-product-vendors' ), '<strong>' . wc_price( $data->average_sales ) . '</strong>' );
-			break;
+				break;
 		}
-		
-		if( apply_filters( 'wcfm_sales_report_is_allow_gross_sales', true ) ) {
+
+		if ( apply_filters( 'wcfm_sales_report_is_allow_gross_sales', true ) ) {
 			$legend[] = array(
 				'title'            => sprintf( __( '%s gross sales in this period', 'woocommerce-product-vendors' ), '<strong>' . wc_price( $data->total_sales ) . '</strong>' ),
 				'placeholder'      => __( 'This is the sum of the order totals after any refunds and including shipping and taxes.', 'woocommerce-product-vendors' ),
 				'color'            => $this->chart_colors['sales_amount'],
-				'highlight_series' => 4
+				'highlight_series' => 4,
 			);
 		}
-		
-		if( apply_filters( 'wcfm_sales_report_is_allow_net_sales', true ) ) {
+
+		if ( apply_filters( 'wcfm_sales_report_is_allow_net_sales', true ) ) {
 			$legend[] = array(
 				'title'            => sprintf( __( '%s net sales in this period', 'woocommerce-product-vendors' ), '<strong>' . wc_price( $data->net_sales ) . '</strong>' ),
 				'placeholder'      => __( 'This is the sum of the order totals after any refunds and excluding shipping and taxes.', 'woocommerce-product-vendors' ),
 				'color'            => $this->chart_colors['net_sales_amount'],
-				'highlight_series' => 5
+				'highlight_series' => 5,
 			);
 		}
-		
-		if( apply_filters( 'wcfm_sales_report_is_allow_earning', true ) ) {
+
+		if ( apply_filters( 'wcfm_sales_report_is_allow_earning', true ) ) {
 			$legend[] = array(
 				'title'            => sprintf( __( '%s total earnings', 'wc-frontend-manager' ), '<strong>' . wc_price( $data->total_earned ) . '</strong>' ),
 				'placeholder'      => __( 'This is the sum of the earned commission including shipping and taxes if applicable.', 'woocommerce-product-vendors' ),
 				'color'            => $this->chart_colors['earned'],
-				'highlight_series' => 6
+				'highlight_series' => 6,
 			);
 		}
 
-		if( apply_filters( 'wcfm_sales_report_is_allow_withdrawal', true ) ) {
+		if ( apply_filters( 'wcfm_sales_report_is_allow_withdrawal', true ) ) {
 			$legend[] = array(
 				'title'            => sprintf( __( '%s total withdrawal', 'wc-frontend-manager' ), '<strong>' . wc_price( $data->total_commission ) . '</strong>' ),
 				'placeholder'      => __( 'This is the sum of the commission paid including shipping and taxes if applicable.', 'woocommerce-product-vendors' ),
 				'color'            => $this->chart_colors['commission'],
-				'highlight_series' => 6
+				'highlight_series' => 6,
 			);
 		}
-		
-		if( apply_filters( 'wcfm_sales_report_is_allow_avg_sales', true ) ) {
+
+		if ( apply_filters( 'wcfm_sales_report_is_allow_avg_sales', true ) ) {
 			if ( $data->average_sales > 0 ) {
 				$legend[] = array(
 					'title'            => $average_sales_title,
 					'color'            => $this->chart_colors['average'],
-					'highlight_series' => 3
+					'highlight_series' => 3,
 				);
 			}
 		}
@@ -225,35 +225,35 @@ class WC_Product_Vendors_Vendor_Report_Sales_By_Date extends WC_Admin_Report {
 		$legend[] = array(
 			'title'            => sprintf( __( '%s orders placed', 'woocommerce-product-vendors' ), '<strong>' . $data->total_orders . '</strong>' ),
 			'color'            => $this->chart_colors['order_count'],
-			'highlight_series' => 0
+			'highlight_series' => 0,
 		);
 
 		$legend[] = array(
 			'title'            => sprintf( __( '%s items purchased', 'woocommerce-product-vendors' ), '<strong>' . $data->total_items . '</strong>' ),
 			'color'            => $this->chart_colors['item_count'],
-			'highlight_series' => 1
+			'highlight_series' => 1,
 		);
 
-		if( apply_filters( 'wcfm_sales_report_is_allow_shipping', true ) ) {
+		if ( apply_filters( 'wcfm_sales_report_is_allow_shipping', true ) ) {
 			$legend[] = array(
 				'title'            => sprintf( __( '%s charged for shipping', 'woocommerce-product-vendors' ), '<strong>' . wc_price( $data->total_shipping ) . '</strong>' ),
 				'color'            => $this->chart_colors['shipping_amount'],
-				'highlight_series' => 2
+				'highlight_series' => 2,
 			);
 		}
 
 		return $legend;
 	}
 
-	/**
-	 * Output the report
-	 */
+	
+
+
 	public function output_report() {
 		$ranges = array(
-			'year'         => __( 'Year', 'woocommerce-product-vendors' ),
-			'last_month'   => __( 'Last Month', 'woocommerce-product-vendors' ),
-			'month'        => __( 'This Month', 'woocommerce-product-vendors' ),
-			'7day'         => __( 'Last 7 Days', 'woocommerce-product-vendors' ),
+			'year'       => __( 'Year', 'woocommerce-product-vendors' ),
+			'last_month' => __( 'Last Month', 'woocommerce-product-vendors' ),
+			'month'      => __( 'This Month', 'woocommerce-product-vendors' ),
+			'7day'       => __( 'Last 7 Days', 'woocommerce-product-vendors' ),
 		);
 
 		$this->chart_colors = array(
@@ -271,18 +271,18 @@ class WC_Product_Vendors_Vendor_Report_Sales_By_Date extends WC_Admin_Report {
 
 		$this->calculate_current_range( $this->current_range );
 
-		include( WC()->plugin_path() . '/includes/admin/views/html-report-by-date.php' );
+		include WC()->plugin_path() . '/includes/admin/views/html-report-by-date.php';
 	}
 
-	/**
-	 * Output an export link
-	 */
+	
+
+
 	public function get_export_button() {
 		return;
 		?>
 		<a
 			href="#"
-			download="report-<?php echo esc_attr( $this->current_range ); ?>-<?php echo date_i18n( 'Y-m-d', current_time('timestamp') ); ?>.csv"
+			download="report-<?php echo esc_attr( $this->current_range ); ?>-<?php echo date_i18n( 'Y-m-d', current_time( 'timestamp' ) ); ?>.csv"
 			class="export_csv"
 			data-export="chart"
 			data-xaxes="<?php esc_attr_e( 'Date', 'woocommerce-product-vendors' ); ?>"
@@ -296,11 +296,11 @@ class WC_Product_Vendors_Vendor_Report_Sales_By_Date extends WC_Admin_Report {
 		<?php
 	}
 
-	/**
-	 * Round our totals correctly
-	 * @param  string $amount
-	 * @return string
-	 */
+	
+
+
+
+
 	private function round_chart_totals( $amount ) {
 		if ( is_array( $amount ) ) {
 			return array( $amount[0], wc_format_decimal( $amount[1], wc_get_price_decimals() ) );
@@ -309,81 +309,81 @@ class WC_Product_Vendors_Vendor_Report_Sales_By_Date extends WC_Admin_Report {
 		}
 	}
 
-	/**
-	 * Get the main chart
-	 *
-	 * @return string
-	 */
+	
+
+
+
+
 	public function get_main_chart( $show_legend = 1 ) {
 		global $wp_locale, $wpdb, $WCFM;
 
-		// check if table exists before continuing
+		 
 		if ( ! WC_Product_Vendors_Utils::commission_table_exists() ) {
 			return $this->report_data;
 		}
 
-		$select = "SELECT COUNT( DISTINCT commission.order_id ) AS count, COUNT( commission.order_id ) AS order_item_count, SUM( commission.product_amount + commission.product_shipping_amount + commission.product_tax_amount + commission.product_shipping_tax_amount ) AS total_sales, SUM( commission.product_shipping_amount ) AS total_shipping, SUM( commission.product_tax_amount ) AS total_tax, SUM( commission.product_shipping_tax_amount ) AS total_shipping_tax, SUM( commission.total_commission_amount ) AS total_earned, SUM( commission.total_commission_amount ) AS total_commission, commission.order_date";
+		$select = 'SELECT COUNT( DISTINCT commission.order_id ) AS count, COUNT( commission.order_id ) AS order_item_count, SUM( commission.product_amount + commission.product_shipping_amount + commission.product_tax_amount + commission.product_shipping_tax_amount ) AS total_sales, SUM( commission.product_shipping_amount ) AS total_shipping, SUM( commission.product_tax_amount ) AS total_tax, SUM( commission.product_shipping_tax_amount ) AS total_shipping_tax, SUM( commission.total_commission_amount ) AS total_earned, SUM( commission.total_commission_amount ) AS total_commission, commission.order_date';
 
-		$sql = $select;
-		$sql .= " FROM " . WC_PRODUCT_VENDORS_COMMISSION_TABLE . " AS commission";
-		$sql .= " WHERE 1=1";
-		$sql .= " AND commission.vendor_id = %d";
+		$sql  = $select;
+		$sql .= ' FROM ' . WC_PRODUCT_VENDORS_COMMISSION_TABLE . ' AS commission';
+		$sql .= ' WHERE 1=1';
+		$sql .= ' AND commission.vendor_id = %d';
 		$sql .= " AND commission.commission_status != 'void'";
 
-		switch( $this->current_range ) {
-			case 'year' :
-				$sql .= " AND YEAR( commission.order_date ) = YEAR( CURDATE() )";
+		switch ( $this->current_range ) {
+			case 'year':
+				$sql .= ' AND YEAR( commission.order_date ) = YEAR( CURDATE() )';
 				break;
 
-			case 'last_month' :
-				$sql .= " AND MONTH( commission.order_date ) = MONTH( NOW() ) - 1";
+			case 'last_month':
+				$sql .= ' AND MONTH( commission.order_date ) = MONTH( NOW() ) - 1';
 				break;
 
-			case 'month' :
-				$sql .= " AND MONTH( commission.order_date ) = MONTH( NOW() )";
+			case 'month':
+				$sql .= ' AND MONTH( commission.order_date ) = MONTH( NOW() )';
 				break;
 
-			case 'custom' :
+			case 'custom':
 				$start_date = ! empty( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : '';
-				$end_date = ! empty( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : '';
+				$end_date   = ! empty( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : '';
 
 				$sql .= " AND DATE( commission.order_date ) BETWEEN '" . $start_date . "' AND '" . $end_date . "'";
 				break;
 
-			case 'default' :
-			case '7day' :
-				$sql .= " AND DATE( commission.order_date ) BETWEEN DATE_SUB( NOW(), INTERVAL 7 DAY ) AND NOW()";
+			case 'default':
+			case '7day':
+				$sql .= ' AND DATE( commission.order_date ) BETWEEN DATE_SUB( NOW(), INTERVAL 7 DAY ) AND NOW()';
 				break;
 		}
-			
-		$sql .= " GROUP BY DATE( commission.order_date )";
-			
+
+		$sql .= ' GROUP BY DATE( commission.order_date )';
+
 		if ( false === ( $results = get_transient( 'wcpv_reports_' . WC_Product_Vendors_Utils::get_logged_in_vendor() . '_' . $this->current_range ) ) ) {
 
-			// Enable big selects for reports
+			 
 			$wpdb->query( 'SET SESSION SQL_BIG_SELECTS=1' );
-			
+
 			$results = $wpdb->get_results( $wpdb->prepare( $sql, WC_Product_Vendors_Utils::get_logged_in_vendor() ) );
 
 			set_transient( 'wcpv_reports_' . WC_Product_Vendors_Utils::get_logged_in_vendor() . '_' . $this->current_range, $results, DAY_IN_SECONDS );
 		}
 
-		// Prepare data for report
-		$order_counts         = $this->prepare_chart_data( $results, 'order_date', 'count', $this->chart_interval, $this->start_date, $this->chart_groupby );
-		
-		$order_item_counts    = $this->prepare_chart_data( $results, 'order_date', 'order_item_count', $this->chart_interval, $this->start_date, $this->chart_groupby );
-		
-		$order_amounts        = $this->prepare_chart_data( $results, 'order_date', 'total_sales', $this->chart_interval, $this->start_date, $this->chart_groupby );
-		
-		$shipping_amounts     = $this->prepare_chart_data( $results, 'order_date', 'total_shipping', $this->chart_interval, $this->start_date, $this->chart_groupby );
-		
+		 
+		$order_counts = $this->prepare_chart_data( $results, 'order_date', 'count', $this->chart_interval, $this->start_date, $this->chart_groupby );
+
+		$order_item_counts = $this->prepare_chart_data( $results, 'order_date', 'order_item_count', $this->chart_interval, $this->start_date, $this->chart_groupby );
+
+		$order_amounts = $this->prepare_chart_data( $results, 'order_date', 'total_sales', $this->chart_interval, $this->start_date, $this->chart_groupby );
+
+		$shipping_amounts = $this->prepare_chart_data( $results, 'order_date', 'total_shipping', $this->chart_interval, $this->start_date, $this->chart_groupby );
+
 		$shipping_tax_amounts = $this->prepare_chart_data( $results, 'order_date', 'total_shipping_tax', $this->chart_interval, $this->start_date, $this->chart_groupby );
-		
-		$tax_amounts          = $this->prepare_chart_data( $results, 'order_date', 'total_tax', $this->chart_interval, $this->start_date, $this->chart_groupby );
 
-		$total_earned         = $this->prepare_chart_data( $results, 'order_date', 'total_earned', $this->chart_interval, $this->start_date, $this->chart_groupby );
+		$tax_amounts = $this->prepare_chart_data( $results, 'order_date', 'total_tax', $this->chart_interval, $this->start_date, $this->chart_groupby );
 
-		$total_commission     = $this->prepare_chart_data( $results, 'order_date', 'total_commission', $this->chart_interval, $this->start_date, $this->chart_groupby );
+		$total_earned = $this->prepare_chart_data( $results, 'order_date', 'total_earned', $this->chart_interval, $this->start_date, $this->chart_groupby );
+
+		$total_commission = $this->prepare_chart_data( $results, 'order_date', 'total_commission', $this->chart_interval, $this->start_date, $this->chart_groupby );
 
 		$net_order_amounts = array();
 
@@ -392,7 +392,7 @@ class WC_Product_Vendors_Vendor_Report_Sales_By_Date extends WC_Admin_Report {
 			$net_order_amounts[ $order_amount_key ][1] = $net_order_amounts[ $order_amount_key ][1] - $shipping_amounts[ $order_amount_key ][1] - $shipping_tax_amounts[ $order_amount_key ][1] - $tax_amounts[ $order_amount_key ][1];
 		}
 
-		// Encode in json format
+		 
 		$chart_data = '{'
 			. '  "order_counts"             : ' . $WCFM->wcfm_prepare_chart_data( $order_counts )
 			. ', "order_item_counts"        : ' . $WCFM->wcfm_prepare_chart_data( $order_item_counts )
@@ -401,7 +401,7 @@ class WC_Product_Vendors_Vendor_Report_Sales_By_Date extends WC_Admin_Report {
 			. ', "shipping_amounts"         : ' . $WCFM->wcfm_prepare_chart_data( $shipping_amounts )
 			. ', "total_earned_commission"  : ' . $WCFM->wcfm_prepare_chart_data( $total_earned )
 			. ', "total_paid_commission"    : ' . $WCFM->wcfm_prepare_chart_data( $total_commission )
-		  . '}';
+			. '}';
 		?>
 		<div class="chart-container">
 			<div class="chart-placeholder main"><canvas id="chart-placeholder-canvas"></canvas></div>
@@ -422,9 +422,9 @@ class WC_Product_Vendors_Vendor_Report_Sales_By_Date extends WC_Admin_Report {
 				var mySalesReportChart = new Chart(ctx, {
 						type: 'bar',
 						data: {
-							  labels: sales_data.total_earned_commission.labels,
+								labels: sales_data.total_earned_commission.labels,
 								datasets: [
-								      <?php if( apply_filters( 'wcfm_sales_report_is_allow_gross_sales', true ) ) { ?>
+										<?php if ( apply_filters( 'wcfm_sales_report_is_allow_gross_sales', true ) ) { ?>
 											{
 												type: 'line',
 												label: "<?php _e( 'Gross Sales', 'wc-frontend-manager' ); ?>",
@@ -434,8 +434,8 @@ class WC_Product_Vendors_Vendor_Report_Sales_By_Date extends WC_Admin_Report {
 												data: sales_data.order_amounts.datas,
 											},
 											<?php } ?>
-											<?php if( apply_filters( 'wcfm_sales_report_is_allow_earning', true ) ) { ?>
-								      {
+											<?php if ( apply_filters( 'wcfm_sales_report_is_allow_earning', true ) ) { ?>
+										{
 												type: 'line',
 												label: "<?php _e( 'Earning', 'wc-frontend-manager' ); ?>",
 												backgroundColor: color(window.chartColors.green).alpha(0.2).rgbString(),
@@ -444,7 +444,7 @@ class WC_Product_Vendors_Vendor_Report_Sales_By_Date extends WC_Admin_Report {
 												data: sales_data.total_earned_commission.datas,
 											},
 											<?php } ?>
-											<?php if( apply_filters( 'wcfm_sales_report_is_allow_withdrawal', true ) ) { ?>
+											<?php if ( apply_filters( 'wcfm_sales_report_is_allow_withdrawal', true ) ) { ?>
 											{
 												type: 'bar',
 												label: "<?php _e( 'Withdrawal', 'wc-frontend-manager' ); ?>",
@@ -454,7 +454,7 @@ class WC_Product_Vendors_Vendor_Report_Sales_By_Date extends WC_Admin_Report {
 												data: sales_data.total_paid_commission.datas,
 											},
 											<?php } ?>
-											<?php if( apply_filters( 'wcfm_sales_report_is_allow_shipping', true ) ) { ?>
+											<?php if ( apply_filters( 'wcfm_sales_report_is_allow_shipping', true ) ) { ?>
 											{
 												type: 'line',
 												label: "<?php _e( 'Shipping Amounts', 'wc-frontend-manager' ); ?>",
@@ -464,7 +464,7 @@ class WC_Product_Vendors_Vendor_Report_Sales_By_Date extends WC_Admin_Report {
 												data: sales_data.shipping_amounts.datas,
 											},
 											<?php } ?>
-								      {
+										{
 												type: 'bar',
 												label: "<?php _e( 'Order Counts', 'wc-frontend-manager' ); ?>",
 												backgroundColor: color(window.chartColors.yellow).alpha(0.5).rgbString(),
@@ -483,13 +483,13 @@ class WC_Product_Vendors_Vendor_Report_Sales_By_Date extends WC_Admin_Report {
 											]
 						},
 						options: {
-							  responsive: true,
-                title:{
-                    text: "<?php _e( 'Sales Report by Date', 'wc-frontend-manager' ); ?>",
-                    position: "bottom",
-                    display: true
-                },
-                legend: {
+								responsive: true,
+				title:{
+					text: "<?php _e( 'Sales Report by Date', 'wc-frontend-manager' ); ?>",
+					position: "bottom",
+					display: true
+				},
+				legend: {
 									position: "bottom",
 									display: show_legend,
 								},
@@ -507,7 +507,7 @@ class WC_Product_Vendors_Vendor_Report_Sales_By_Date extends WC_Admin_Report {
 										},
 										ticks:{
 											display: $show_ticks
-                    }
+					}
 									}],
 									yAxes: [{
 										scaleLabel: {
@@ -520,10 +520,10 @@ class WC_Product_Vendors_Vendor_Report_Sales_By_Date extends WC_Admin_Report {
 						});
 				
 				var resizeId;
-        jQuery(window).resize(function() {
+		jQuery(window).resize(function() {
 					clearTimeout(resizeId);
 					resizeId = setTimeout(afterResizing, 100);
-        });
+		});
 				function afterResizing() {
 					var canvasheight = document.getElementById("chart-placeholder-canvas").height;
 					if(canvasheight <= 370) {

@@ -2,8 +2,8 @@
 global $WCFM;
 
 $wcfm_is_allow_manage_coupons = apply_filters( 'wcfm_is_allow_manage_coupons', true );
-if( !apply_filters( 'wcfm_is_pref_coupon', true ) || !$wcfm_is_allow_manage_coupons ) {
-	wcfm_restriction_message_show( "Coupons" );
+if ( ! apply_filters( 'wcfm_is_pref_coupon', true ) || ! $wcfm_is_allow_manage_coupons ) {
+	wcfm_restriction_message_show( 'Coupons' );
 	return;
 }
 
@@ -11,7 +11,7 @@ if( !apply_filters( 'wcfm_is_pref_coupon', true ) || !$wcfm_is_allow_manage_coup
 
 <div class="collapse wcfm-collapse" id="wcfm_coupons_listing">
 
-  <div class="wcfm-page-headig">
+	<div class="wcfm-page-headig">
 		<span class="wcfmfa fa-gift"></span>
 		<span class="wcfm-page-heading-text"><?php _e( 'Coupons', 'wc-frontend-manager' ); ?></span>
 		<?php do_action( 'wcfm_page_heading' ); ?>
@@ -21,11 +21,11 @@ if( !apply_filters( 'wcfm_is_pref_coupon', true ) || !$wcfm_is_allow_manage_coup
 		<?php do_action( 'before_wcfm_coupons' ); ?>
 		
 		<div class="wcfm-container wcfm-top-element-container">
-			<h2><?php _e('Coupons Listing', 'wc-frontend-manager' ); ?></h2>
+			<h2><?php _e( 'Coupons Listing', 'wc-frontend-manager' ); ?></h2>
 			<?php
-			if( $allow_wp_admin_view = apply_filters( 'wcfm_allow_wp_admin_view', true ) ) {
-				if( !WCFM_Dependencies::wcfmu_plugin_active_check() ) {
-					if( $is_wcfmu_inactive_notice_show = apply_filters( 'is_wcfmu_inactive_notice_show', true ) ) {
+			if ( $allow_wp_admin_view = apply_filters( 'wcfm_allow_wp_admin_view', true ) ) {
+				if ( ! WCFM_Dependencies::wcfmu_plugin_active_check() ) {
+					if ( $is_wcfmu_inactive_notice_show = apply_filters( 'is_wcfmu_inactive_notice_show', true ) ) {
 						?>
 						<span class="wcfm_screen_manager_dummy text_tip" data-tip="<?php wcfmu_feature_help_text_show( 'Screen Manager', false, true ); ?>"><span class="wcfmfa fa-tv"></span></span>
 						<?php
@@ -36,16 +36,16 @@ if( !apply_filters( 'wcfm_is_pref_coupon', true ) || !$wcfm_is_allow_manage_coup
 					<?php
 				}
 				?>
-				<a target="_blank" class="wcfm_wp_admin_view text_tip" href="<?php echo admin_url('edit.php?post_type=shop_coupon'); ?>" data-tip="<?php _e( 'WP Admin View', 'wc-frontend-manager' ); ?>"><span class="fab fa-wordpress fa-wordpress-simple"></span></a>
+				<a target="_blank" class="wcfm_wp_admin_view text_tip" href="<?php echo admin_url( 'edit.php?post_type=shop_coupon' ); ?>" data-tip="<?php _e( 'WP Admin View', 'wc-frontend-manager' ); ?>"><span class="fab fa-wordpress fa-wordpress-simple"></span></a>
 				<?php
 			}
-			if( $has_new = apply_filters( 'wcfm_add_new_coupon_sub_menu', true ) ) {
-				echo '<a id="add_new_coupon_dashboard" class="add_new_wcfm_ele_dashboard text_tip" href="'.get_wcfm_coupons_manage_url().'" data-tip="' . __('Add New Coupon', 'wc-frontend-manager') . '"><span class="wcfmfa fa-gift"></span><span class="text">' . __( 'Add New', 'wc-frontend-manager') . '</span></a>';
+			if ( $has_new = apply_filters( 'wcfm_add_new_coupon_sub_menu', true ) ) {
+				echo '<a id="add_new_coupon_dashboard" class="add_new_wcfm_ele_dashboard text_tip" href="' . get_wcfm_coupons_manage_url() . '" data-tip="' . __( 'Add New Coupon', 'wc-frontend-manager' ) . '"><span class="wcfmfa fa-gift"></span><span class="text">' . __( 'Add New', 'wc-frontend-manager' ) . '</span></a>';
 			}
 			?>
 			<div class="wcfm-clearfix"></div>
 		</div>
-	  <div class="wcfm-clearfix"></div><br />
+		<div class="wcfm-clearfix"></div><br />
 	  
 		<div class="wcfm-container">
 			<div id="wcfm_coupons_listing_expander" class="wcfm-content">

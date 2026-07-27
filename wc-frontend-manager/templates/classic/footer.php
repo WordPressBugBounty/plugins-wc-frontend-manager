@@ -1,13 +1,13 @@
 <?php
-/**
- * WCFM plugin templates
- *
- * Footer area
- *
- * @author 		WC Lovers
- * @package 	wcfm/templates/default
- * @version   3.1.2
- */
+
+
+
+
+
+
+
+
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }

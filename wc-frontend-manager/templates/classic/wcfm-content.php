@@ -1,57 +1,58 @@
 <?php
 
-/**
- * WCFM plugin templates
- *
- * Main content area
- *
- * @author 		WC Lovers
- * @package 	wcfm/templates/default
- * @version   3.1.2
- */
-if (!defined('ABSPATH')) {
+
+
+
+
+
+
+
+
+
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 global $WCFM;
 
 $stylesheet_path = get_stylesheet_directory() . '/';
-$default_path = get_template_directory() . '/';
+$default_path    = get_template_directory() . '/';
 
-if (file_exists($stylesheet_path . 'header.php')) {
-	include_once($stylesheet_path . 'header.php');
-} elseif (file_exists($default_path . 'header.php')) {
-	include_once($default_path . 'header.php');
-} elseif (function_exists('get_header')) {
+if ( file_exists( $stylesheet_path . 'header.php' ) ) {
+	include_once $stylesheet_path . 'header.php';
+} elseif ( file_exists( $default_path . 'header.php' ) ) {
+	include_once $default_path . 'header.php';
+} elseif ( function_exists( 'get_header' ) ) {
 	get_header();
 } else {
 	wp_head();
 }
 
-do_action('after_wcfm_dashboard_header');
+do_action( 'after_wcfm_dashboard_header' );
 
-while (have_posts()) : the_post(); ?>
+while ( have_posts() ) :
+	the_post(); ?>
 	<div id="wcfm-main-content" class="<?php echo ''; ?>">
 		<div class="wcfm-content-container">
 			<div class="wcfm-main-content-wrap">
-				<?php do_action('before_wcfm_dashboard'); ?>
+				<?php do_action( 'before_wcfm_dashboard' ); ?>
 				<?php the_content(); ?>
-				<?php do_action('after_wcfm_dashboard'); ?>
+				<?php do_action( 'after_wcfm_dashboard' ); ?>
 			</div>
 		</div>
 	</div>
 
-<?php
+	<?php
 endwhile;
 wp_reset_query();
 
-do_action('before_wcfm_dashboard_footer');
+do_action( 'before_wcfm_dashboard_footer' );
 
-if (file_exists($stylesheet_path . 'footer.php')) {
-	include_once($stylesheet_path . 'footer.php');
-} elseif (file_exists($default_path . 'footer.php')) {
-	include_once($default_path . 'footer.php');
-} elseif (function_exists('get_footer')) {
+if ( file_exists( $stylesheet_path . 'footer.php' ) ) {
+	include_once $stylesheet_path . 'footer.php';
+} elseif ( file_exists( $default_path . 'footer.php' ) ) {
+	include_once $default_path . 'footer.php';
+} elseif ( function_exists( 'get_footer' ) ) {
 	get_footer();
 } else {
 	wp_footer();

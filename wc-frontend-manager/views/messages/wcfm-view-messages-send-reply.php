@@ -2,7 +2,7 @@
 global $WCFM, $WCFMu;
 
 $messageid = absint( $_POST['messageid'] );
-$authorid = absint( $_POST['authorid'] );
+$authorid  = absint( $_POST['authorid'] );
 ?>
 
 <div class="wcfm-clearfix"></div><br />
@@ -20,7 +20,7 @@ $authorid = absint( $_POST['authorid'] );
 		<?php do_action( 'after_wcfm_messages_form' ); ?>
 		
 		<?php
-		if( !wcfm_is_vendor() && ( !function_exists( 'wcfm_is_affiliate' ) || ( function_exists( 'wcfm_is_affiliate' ) && !wcfm_is_affiliate() ) ) ) {
+		if ( ! wcfm_is_vendor() && ( ! function_exists( 'wcfm_is_affiliate' ) || ( function_exists( 'wcfm_is_affiliate' ) && ! wcfm_is_affiliate() ) ) ) {
 			echo '<input type="hidden" id="wcfm_message_send_reply_direct_to" name="wcfm_message_send_reply_direct_to" value="' . $authorid . '" />';
 		}
 		?>

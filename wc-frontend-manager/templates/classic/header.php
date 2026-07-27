@@ -1,18 +1,20 @@
 <?php
-/**
- * WCFM plugin templates
- *
- * Header area
- *
- * @author 		WC Lovers
- * @package 	wcfm/templates/default
- * @version   3.1.2
- */
+
+
+
+
+
+
+
+
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if( !apply_filters( 'wcfm_is_allow_template_header', true ) ) return;
+if ( ! apply_filters( 'wcfm_is_allow_template_header', true ) ) {
+	return;
+}
 ?>
 <div id="wcfm-header" class="left-logo">
 	<div class="wcfm-header-container">
@@ -22,8 +24,8 @@ if( !apply_filters( 'wcfm_is_allow_template_header', true ) ) return;
 			$blog_link  = get_bloginfo( 'url' );
 			?>
 			<div class="wcfm-site-name">
-			  <?php do_action( 'wcfm_dasboard_header_before' ); ?>
-				<a class="wcfm_header_site_name" href="<?php echo esc_url($blog_link); ?>"><?php echo wp_kses_post($blog_title); ?></a>
+				<?php do_action( 'wcfm_dasboard_header_before' ); ?>
+				<a class="wcfm_header_site_name" href="<?php echo esc_url( $blog_link ); ?>"><?php echo wp_kses_post( $blog_title ); ?></a>
 				<?php do_action( 'wcfm_dasboard_header_after' ); ?>
 			</div>
 		</div>

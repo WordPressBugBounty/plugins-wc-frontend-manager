@@ -8,7 +8,7 @@ global $WCFM, $WCFMu;
 	<table>
 		<tbody>
 		
-		  <?php do_action( 'wcfm_product_login_popup_begin' ); ?>
+			<?php do_action( 'wcfm_product_login_popup_begin' ); ?>
 		  
 			<tr>
 				<td>

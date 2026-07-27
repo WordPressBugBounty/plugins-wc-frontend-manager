@@ -1,13 +1,13 @@
 <?php
-/**
- * WCFM plugin templates
- *
- * Main content area
- *
- * @author 		WC Lovers
- * @package 	wcfm/templates/default
- * @version   3.1.2
- */
+
+
+
+
+
+
+
+
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -28,8 +28,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php
 global $WCFM;
 $default_path = $WCFM->plugin_path . 'templates/default/';
-include_once( $default_path . 'header.php' );
-while ( have_posts() ) : the_post(); ?>
+require_once $default_path . 'header.php';
+while ( have_posts() ) :
+	the_post();
+	?>
 	<div id="wcfm-main-content" class="<?php echo ''; ?>">
 		<div class="wcfm-content-container">
 			<div class="wcfm-main-content-wrap">
@@ -44,7 +46,7 @@ while ( have_posts() ) : the_post(); ?>
 endwhile;
 wp_reset_query();
 
-include_once( $default_path . 'footer.php' );
+require_once $default_path . 'footer.php';
 ?>
 </body>
 

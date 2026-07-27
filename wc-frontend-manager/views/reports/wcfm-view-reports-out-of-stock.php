@@ -1,17 +1,17 @@
 <?php
-/**
- * WCFM plugin view
- *
- * WCFM Reports - Out of Stock View
- *
- * @author 		WC Lovers
- * @package 	wcfm/view
- * @version   1.0.0
- */
- 
+
+
+
+
+
+
+
+
+
+
 $wcfm_is_allow_reports = apply_filters( 'wcfm_is_allow_reports', true );
-if( !$wcfm_is_allow_reports ) {
-	wcfm_restriction_message_show( "Reports" );
+if ( ! $wcfm_is_allow_reports ) {
+	wcfm_restriction_message_show( 'Reports' );
 	return;
 }
 
@@ -21,7 +21,7 @@ global $WCFM;
 
 <div class="collapse wcfm-collapse" id="wcfm_report_details">
 
-  <div class="wcfm-page-headig">
+	<div class="wcfm-page-headig">
 		<span class="wcfmfa fa-times-circle"></span>
 		<span class="wcfm-page-heading-text"><?php _e( 'Out of Stock', 'wc-frontend-manager' ); ?></span>
 		<?php do_action( 'wcfm_page_heading' ); ?>
@@ -32,9 +32,9 @@ global $WCFM;
 		<div class="wcfm-container wcfm-top-element-container">
 			<?php $WCFM->template->get_template( 'reports/wcfm-view-reports-menu.php' ); ?>
 			<?php
-			if( $allow_wp_admin_view = apply_filters( 'wcfm_allow_wp_admin_view', true ) ) {
+			if ( $allow_wp_admin_view = apply_filters( 'wcfm_allow_wp_admin_view', true ) ) {
 				?>
-				<a target="_blank" class="wcfm_wp_admin_view text_tip" href="<?php echo admin_url('admin.php?page=wc-reports&tab=stock&report=out_of_stock'); ?>" data-tip="<?php _e( 'WP Admin View', 'wc-frontend-manager' ); ?>"><span class="fab fa-wordpress fa-wordpress-simple"></span></a>
+				<a target="_blank" class="wcfm_wp_admin_view text_tip" href="<?php echo admin_url( 'admin.php?page=wc-reports&tab=stock&report=out_of_stock' ); ?>" data-tip="<?php _e( 'WP Admin View', 'wc-frontend-manager' ); ?>"><span class="fab fa-wordpress fa-wordpress-simple"></span></a>
 				<?php
 			}
 			?>

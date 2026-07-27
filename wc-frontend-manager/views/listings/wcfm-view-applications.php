@@ -1,26 +1,26 @@
 <?php
-/**
- * WCFMu plugin view
- *
- * WCFM WP Job Manager Applications view
- *
- * @author 		WC Lovers
- * @package 	wcfm/views/listings
- * @version   6.0.5
- */
- 
+
+
+
+
+
+
+
+
+
+
 global $WCFM;
 
 $wcfm_is_allow_applications = apply_filters( 'wcfm_is_allow_listings', true );
-if( !$wcfm_is_allow_applications ) {
-	wcfm_restriction_message_show( "Applications" );
+if ( ! $wcfm_is_allow_applications ) {
+	wcfm_restriction_message_show( 'Applications' );
 	return;
 }
 ?>
 
 <div class="collapse wcfm-collapse" id="wcfm_applications_listing">
 
-  <div class="wcfm-page-headig">
+	<div class="wcfm-page-headig">
 		<span class="wcfmfa fa-user-tie"></span>
 		<span class="wcfm-page-heading-text"><?php _e( 'Applications', 'wc-frontend-manager' ); ?></span>
 		<?php do_action( 'wcfm_page_heading' ); ?>
@@ -32,17 +32,23 @@ if( !$wcfm_is_allow_applications ) {
 		<div class="wcfm-container wcfm-top-element-container">
 			<div class="wcfm-clearfix"></div>
 		</div>
-	  <div class="wcfm-clearfix"></div><br />
+		<div class="wcfm-clearfix"></div><br />
 	  
-	  <div class="wcfm_applications_filter_wrap wcfm_filters_wrap">
+		<div class="wcfm_applications_filter_wrap wcfm_filters_wrap">
 			<?php
-			if( apply_filters( 'wcfm_is_coupons_vendor_filter', true ) ) {
+			if ( apply_filters( 'wcfm_is_coupons_vendor_filter', true ) ) {
 				$is_marketplace = wcfm_is_marketplace();
-				if( $is_marketplace ) {
-					if( !wcfm_is_vendor() ) {
-						$WCFM->wcfm_fields->wcfm_generate_form_field( array(
-																											"dropdown_vendor" => array( 'type' => 'select', 'options' => array(), 'attributes' => array( 'style' => 'width: 150px;' ) )
-																											 ) );
+				if ( $is_marketplace ) {
+					if ( ! wcfm_is_vendor() ) {
+						$WCFM->wcfm_fields->wcfm_generate_form_field(
+							array(
+								'dropdown_vendor' => array(
+									'type'       => 'select',
+									'options'    => array(),
+									'attributes' => array( 'style' => 'width: 150px;' ),
+								),
+							)
+						);
 					}
 				}
 			}

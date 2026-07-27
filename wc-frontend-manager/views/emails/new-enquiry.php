@@ -1,16 +1,17 @@
 <?php
-/**
- * The template for displaying demo plugin content.
- *
- * Override this template by copying it to yourtheme/wcfm/emails/new-enquiry.php
- *
- * @author 		WC Lovers
- * @package 	wcfm/views/emails
- * @version   1.0.0
- */
-if (!defined('ABSPATH'))
-    return; // Exit if accessed directly
-  
+
+
+
+
+
+
+
+
+
+if ( ! defined( 'ABSPATH' ) ) {
+	return;  
+}
+
 global $WCFM;
 
 do_action( 'woocommerce_email_header', $email_heading, $email );
@@ -24,7 +25,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email );
 
 <?php do_action( 'wcfm_enquiry_email_before_enquiry', $enquiry_id ); ?>
 
-<blockquote><strong><i><?php echo wpautop( wptexturize( make_clickable( $enquiry ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></i></strong></blockquote>
+<blockquote><strong><i><?php echo wpautop( wptexturize( make_clickable( $enquiry ) ) );  ?></i></strong></blockquote>
 
 <?php do_action( 'wcfm_enquiry_email_after_enquiry', $enquiry_id ); ?>
 
@@ -36,7 +37,7 @@ if ( $additional_info ) {
 }
 ?>
 
-<p><?php printf( esc_html__( 'To respond this Inquiry, please %sClick Here%s.', 'wc-frontend-manager' ), '<a href="'.$enquiry_url.'">', '</a>' ); ?></p>
+<p><?php printf( esc_html__( 'To respond this Inquiry, please %1$sClick Here%2$s.', 'wc-frontend-manager' ), '<a href="' . $enquiry_url . '">', '</a>' ); ?></p>
 
 <?php do_action( 'wcfm_enquiry_email_after', $enquiry_id ); ?>
 

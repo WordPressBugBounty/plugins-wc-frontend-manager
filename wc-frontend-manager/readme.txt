@@ -3,11 +3,11 @@ Contributors: wclovers
 Tags: woocommerce marketplace, multivendor marketplace, multi vendor, product vendors, wp user frontend, product vendor dashboard, ecommerce, vendor shop manager, woocommerce frontend shop manager, wcvendors, woocommerce frontend manager, wc frontend manager, woocommerce frontend shop manager, shop manager, ecommerce, e-commerce, woocommerce live manager
 Donate link: https://www.paypal.me/wclovers/25usd
 Requires at least: 5.5
-Tested up to: 7.0
+Tested up to: 7.0.2
 WC requires at least: 7.0
 WC tested up to: 10.9
 Requires PHP: 7.4
-Stable tag: 6.7.28
+Stable tag: 6.8.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,7 +21,7 @@ Stop wrestling with the cluttered WordPress backend. **WCFM - Frontend Manager**
 
 Whether you are a single-store owner who wants to hide `wp-admin` from your staff, or you are scaling a massive multi-vendor empire, WCFM is the powerful engine that drives your daily operations. It works flawlessly as a standalone Store Manager dashboard, and seamlessly transforms into a robust Vendor Dashboard when paired with marketplace plugins like **WCFM Marketplace, Dokan, WC Vendors, and WC Product Vendors**.
 
-= 🚀 Supercharge Your Dashboard: WCFM AI Suite (New Addon!) =
+= 🚀 Supercharge Your Dashboard: [WCFM AI Suite (New Addon!)](https://wclovers.com/product/woocommerce-frontend-manager-ai-suite/) =
 
 Ready to bring the power of artificial intelligence to your marketplace beyond a basic text generator? The **WCFM AI Suite** is our newest addon that unlocks a fully integrated **AI Commerce & Content Studio** right inside your frontend dashboard.
 
@@ -278,15 +278,22 @@ Explore the frontend interfaces and management screens included in WCFM.
 
 Below is a record of updates, features, and fixes across all releases.
 
+= 6.8.0 =
+*Updated - 27/07/2026*
+
+* Security - Fixed an IDOR vulnerability in vendor inquiry replies, preventing unauthorized access to other vendors' inquiries.
+* Enhance - Added support for the new Stripe Split Pay engine in vendor payment settings (WCFM Marketplace v3.8.0)
+* Enhance - Persist Stripe Connect onboarding data required by the new Stripe Split Pay engine.
+
 = 6.7.28 =
-*Updated - 28/06/2026*
+*Updated - 27/06/2026*
 
 * Security - Fixed an Unauthenticated Authorization Bypass vulnerability that allowed arbitrary reply injection into store inquiries and unsolicited notification emails.
 * Security - Fixed an Insecure Direct Object Reference (IDOR) vulnerability that allowed authenticated vendors to archive products, toggle featured listings, mark orders complete, and delete inquiries and messages belonging to other vendors.
 * Enhance - Added developer hooks to add a custom column to the Vendors list (`wcfm_vendors_custom_column_header`, `wcfm_vendors_custom_column_data_after`, plus filterable DataTable column config).
 * Enhance - Added action hooks to the Article manager view (`before_wcfm_article_manage_action`, `after_wcfm_article_manage_action`, `wcfm_article_manager_featured_image_field_end`).
 * Enhance - Added the `wcfm_dashboard_after_limit_stats` hook and refreshed the Dashboard welcome box to a responsive layout.
-* Enhance - WooCommerce 10.9+ compatibility check added
+* Enhance - WooCommerce 10.8+ compatibility check added
 * Enhance - WordPress 7.0+ compatibility check added
 
 = 6.7.27 =
@@ -2825,12 +2832,8 @@ Removed deprecated filter wcfm_allow_setup_page_access
 
 == Upgrade Notice ==
 
-= 6.7.28 =
+= 6.8.0 =
 
-* Security - Fixed an Unauthenticated Authorization Bypass vulnerability that allowed arbitrary reply injection into store inquiries and unsolicited notification emails.
-* Security - Fixed an Insecure Direct Object Reference (IDOR) vulnerability that allowed authenticated vendors to archive products, toggle featured listings, mark orders complete, and delete inquiries and messages belonging to other vendors.
-* Enhance - Added developer hooks to add a custom column to the Vendors list (`wcfm_vendors_custom_column_header`, `wcfm_vendors_custom_column_data_after`, plus filterable DataTable column config).
-* Enhance - Added action hooks to the Article manager view (`before_wcfm_article_manage_action`, `after_wcfm_article_manage_action`, `wcfm_article_manager_featured_image_field_end`).
-* Enhance - Added the `wcfm_dashboard_after_limit_stats` hook and refreshed the Dashboard welcome box to a responsive layout.
-* Enhance - WooCommerce 10.9+ compatibility check added
-* Enhance - WordPress 7.0+ compatibility check added
+* Security - Fixed an IDOR vulnerability in vendor inquiry replies, preventing unauthorized access to other vendors' inquiries.
+* Enhance - Added support for the new Stripe Split Pay engine in vendor payment settings (WCFM Marketplace v3.8.0)
+* Enhance - Persist Stripe Connect onboarding data required by the new Stripe Split Pay engine.
