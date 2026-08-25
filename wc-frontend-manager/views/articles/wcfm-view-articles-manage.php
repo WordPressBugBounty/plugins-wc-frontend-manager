@@ -583,23 +583,9 @@ if ( $wpeditor && $rich_editor ) {
 				<div class="wcfm-message" tabindex="-1"></div>
 			  
 				<?php if ( $article_id && ( $wcfm_articles_single->post_status == 'publish' ) ) { ?>
-					<input type="submit" name="submit-data" value="
-					<?php
-					if ( apply_filters( 'wcfm_is_allow_publish_live_articles', true ) ) {
-						_e( 'Submit', 'wc-frontend-manager' );
-					} else {
-						_e( 'Submit for Review', 'wc-frontend-manager' ); }
-					?>
-					" id="wcfm_articles_simple_submit_button" class="wcfm_submit_button" />
+					<input type="submit" name="submit-data" value="<?php echo esc_attr( apply_filters( 'wcfm_is_allow_publish_live_articles', true ) ? __( 'Submit', 'wc-frontend-manager' ) : __( 'Submit for Review', 'wc-frontend-manager' ) ); ?>" id="wcfm_articles_simple_submit_button" class="wcfm_submit_button" />
 				<?php } else { ?>
-					<input type="submit" name="submit-data" value="
-					<?php
-					if ( apply_filters( 'wcfm_is_allow_publish_articles', true ) ) {
-						_e( 'Submit', 'wc-frontend-manager' );
-					} else {
-						_e( 'Submit for Review', 'wc-frontend-manager' ); }
-					?>
-					" id="wcfm_articles_simple_submit_button" class="wcfm_submit_button" />
+					<input type="submit" name="submit-data" value="<?php echo esc_attr( apply_filters( 'wcfm_is_allow_publish_articles', true ) ? __( 'Submit', 'wc-frontend-manager' ) : __( 'Submit for Review', 'wc-frontend-manager' ) ); ?>" id="wcfm_articles_simple_submit_button" class="wcfm_submit_button" />
 				<?php } ?>
 				<?php if ( apply_filters( 'wcfm_is_allow_draft_published_articles', true ) && apply_filters( 'wcfm_is_allow_add_articles', true ) ) { ?>
 					<input type="submit" name="draft-data" value="<?php _e( 'Draft', 'wc-frontend-manager' ); ?>" id="wcfm_articles_simple_draft_button" class="wcfm_submit_button" />

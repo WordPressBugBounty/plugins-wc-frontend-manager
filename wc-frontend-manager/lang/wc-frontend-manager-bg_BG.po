@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WCFM\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wc-frontend-"
 "manager\n"
-"POT-Creation-Date: 2026-07-24 08:03:49+00:00\n"
+"POT-Creation-Date: 2026-08-24 08:46:56+00:00\n"
 "PO-Revision-Date: 2017-11-11 18:38+0000\n"
 "Last-Translator: admin <nordine@actipop.fr>\n"
 "Language-Team: Bulgarian\n"
@@ -104,11 +104,11 @@ msgstr ""
 #: controllers/notice/wcfm-controller-notices.php:97
 #: controllers/products/wcfm-controller-products.php:446
 #: controllers/reports/wcfm-controller-reports-out-of-stock.php:111
-#: views/articles/wcfm-view-articles-manage.php:618
+#: views/articles/wcfm-view-articles-manage.php:604
 #: views/enquiry/wcfm-view-my-account-enquiry.php:93
 #: views/notice/wcfm-view-notice-manage.php:74
-#: views/products-manager/wcfm-view-products-manage.php:1288
-#: views/products-popup/wcfm-view-product-popup.php:545
+#: views/products-manager/wcfm-view-products-manage.php:1274
+#: views/products-popup/wcfm-view-product-popup.php:531
 msgid "View"
 msgstr "Преглед"
 
@@ -406,11 +406,11 @@ msgstr ""
 
 #: controllers/enquiry/wcfm-controller-enquiry-form.php:172
 #: controllers/enquiry/wcfm-controller-enquiry-form.php:174
-#: controllers/enquiry/wcfm-controller-enquiry-manage.php:172
-#: controllers/enquiry/wcfm-controller-enquiry-manage.php:174
-#: controllers/enquiry/wcfm-controller-enquiry-manage.php:180
-#: controllers/enquiry/wcfm-controller-enquiry-manage.php:234
-#: controllers/enquiry/wcfm-controller-enquiry-manage.php:401
+#: controllers/enquiry/wcfm-controller-enquiry-manage.php:168
+#: controllers/enquiry/wcfm-controller-enquiry-manage.php:170
+#: controllers/enquiry/wcfm-controller-enquiry-manage.php:176
+#: controllers/enquiry/wcfm-controller-enquiry-manage.php:230
+#: controllers/enquiry/wcfm-controller-enquiry-manage.php:397
 #: controllers/messages/wcfm-controller-messages.php:173
 #: controllers/messages/wcfm-controller-messages.php:197
 #: core/class-wcfm-policy.php:76 core/class-wcfm-policy.php:80
@@ -481,7 +481,8 @@ msgstr "Магазин"
 msgid "New Inquiry <b>%1$s</b> received for <b>%2$s</b>"
 msgstr ""
 
-#: controllers/enquiry/wcfm-controller-enquiry-manage.php:62
+#: controllers/enquiry/wcfm-controller-enquiry-manage.php:52
+#: controllers/withdrawal/wcfm/wcfm-controller-withdrawal-request.php:45
 #: core/class-wcfm-ajax.php:143 core/class-wcfm-ajax.php:153
 #: core/class-wcfm-ajax.php:181 core/class-wcfm-ajax.php:191
 #: core/class-wcfm-ajax.php:201 core/class-wcfm-ajax.php:240
@@ -537,29 +538,29 @@ msgstr ""
 msgid "You don&#8217;t have permission to do this."
 msgstr ""
 
-#: controllers/enquiry/wcfm-controller-enquiry-manage.php:201
+#: controllers/enquiry/wcfm-controller-enquiry-manage.php:197
 msgid "Reply for your Inquiry"
 msgstr ""
 
-#: controllers/enquiry/wcfm-controller-enquiry-manage.php:202
-#: controllers/enquiry/wcfm-controller-enquiry-manage.php:432
+#: controllers/enquiry/wcfm-controller-enquiry-manage.php:198
+#: controllers/enquiry/wcfm-controller-enquiry-manage.php:428
 #: core/class-wcfm-ajax.php:1608 core/class-wcfm-notification.php:842
 #: core/class-wcfm-notification.php:853 views/emails/plain/new-enquiry.php:19
 msgid "Hi"
 msgstr ""
 
-#: controllers/enquiry/wcfm-controller-enquiry-manage.php:204
+#: controllers/enquiry/wcfm-controller-enquiry-manage.php:200
 msgid ""
 "We recently have a enquiry from you regarding \"%s\". Please see our "
 "response below: "
 msgstr ""
 
-#: controllers/enquiry/wcfm-controller-enquiry-manage.php:210
+#: controllers/enquiry/wcfm-controller-enquiry-manage.php:206
 msgid "See details %1$shere%2$s."
 msgstr ""
 
-#: controllers/enquiry/wcfm-controller-enquiry-manage.php:213
-#: controllers/enquiry/wcfm-controller-enquiry-manage.php:439
+#: controllers/enquiry/wcfm-controller-enquiry-manage.php:209
+#: controllers/enquiry/wcfm-controller-enquiry-manage.php:435
 #: controllers/vendors/wcfm-controller-vendors-new.php:251
 #: core/class-wcfm-ajax.php:1611 core/class-wcfm-notification.php:849
 #: core/class-wcfm-notification.php:858 views/emails/new-enquiry.php:44
@@ -567,17 +568,17 @@ msgstr ""
 msgid "Thank You"
 msgstr ""
 
-#: controllers/enquiry/wcfm-controller-enquiry-manage.php:223
-#: controllers/enquiry/wcfm-controller-enquiry-manage.php:431
+#: controllers/enquiry/wcfm-controller-enquiry-manage.php:219
+#: controllers/enquiry/wcfm-controller-enquiry-manage.php:427
 msgid "Inquiry Reply"
 msgstr ""
 
-#: controllers/enquiry/wcfm-controller-enquiry-manage.php:260
+#: controllers/enquiry/wcfm-controller-enquiry-manage.php:256
 msgid "New reply posted for Inquiry <b>%s</b>"
 msgstr ""
 
-#: controllers/enquiry/wcfm-controller-enquiry-manage.php:431
-#: controllers/enquiry/wcfm-controller-enquiry-manage.php:438
+#: controllers/enquiry/wcfm-controller-enquiry-manage.php:427
+#: controllers/enquiry/wcfm-controller-enquiry-manage.php:434
 #: core/class-wcfm-enquiry.php:427 core/class-wcfm-enquiry.php:662
 #: core/class-wcfm-enquiry.php:666 core/class-wcfm-enquiry.php:686
 #: core/class-wcfm-enquiry.php:690 helpers/class-wcfm-install.php:402
@@ -585,22 +586,22 @@ msgstr ""
 msgid "Inquiry"
 msgstr ""
 
-#: controllers/enquiry/wcfm-controller-enquiry-manage.php:434
+#: controllers/enquiry/wcfm-controller-enquiry-manage.php:430
 msgid ""
 "You have received reply for your \"{enquiry_for}\" inquiry. Please see our "
 "response below: "
 msgstr ""
 
-#: controllers/enquiry/wcfm-controller-enquiry-manage.php:438
+#: controllers/enquiry/wcfm-controller-enquiry-manage.php:434
 msgid "See details here"
 msgstr ""
 
-#: controllers/enquiry/wcfm-controller-enquiry-manage.php:454
+#: controllers/enquiry/wcfm-controller-enquiry-manage.php:450
 msgid "Reply to Inquiry"
 msgstr ""
 
-#: controllers/enquiry/wcfm-controller-enquiry-manage.php:466
-#: controllers/enquiry/wcfm-controller-enquiry-manage.php:486
+#: controllers/enquiry/wcfm-controller-enquiry-manage.php:462
+#: controllers/enquiry/wcfm-controller-enquiry-manage.php:482
 msgid "New reply received for Inquiry <b>%s</b>"
 msgstr ""
 
@@ -686,11 +687,11 @@ msgstr ""
 
 #: controllers/listings/wcfm-controller-listings.php:29
 #: views/articles/wcfm-view-articles-manage.php:159
-#: views/articles/wcfm-view-articles-manage.php:612
+#: views/articles/wcfm-view-articles-manage.php:598
 #: views/listings/wcfm-view-listings.php:43
 #: views/products-manager/wcfm-view-products-manage.php:510
-#: views/products-manager/wcfm-view-products-manage.php:1282
-#: views/products-popup/wcfm-view-product-popup.php:539
+#: views/products-manager/wcfm-view-products-manage.php:1268
+#: views/products-popup/wcfm-view-product-popup.php:525
 msgid "Preview"
 msgstr ""
 
@@ -845,12 +846,12 @@ msgstr "ДЪЛЖИМА"
 
 #: controllers/products/wcfm-controller-products.php:27
 #: core/class-wcfm-non-ajax.php:59
-#: views/articles/wcfm-view-articles-manage.php:605
+#: views/articles/wcfm-view-articles-manage.php:591
 #: views/articles/wcfm-view-articles.php:15
-#: views/coupons/wcfm-view-coupons-manage.php:275
+#: views/coupons/wcfm-view-coupons-manage.php:261
 #: views/products/wcfm-view-products.php:15
-#: views/products-manager/wcfm-view-products-manage.php:1273
-#: views/products-popup/wcfm-view-product-popup.php:532
+#: views/products-manager/wcfm-view-products-manage.php:1259
+#: views/products-popup/wcfm-view-product-popup.php:518
 msgid "Draft"
 msgstr "Запази"
 
@@ -1359,35 +1360,36 @@ msgstr ""
 msgid "Wirecard Pay"
 msgstr ""
 
-#: controllers/withdrawal/wcfm/wcfm-controller-withdrawal-request.php:115
+#: controllers/withdrawal/wcfm/wcfm-controller-withdrawal-request.php:143
+#: controllers/withdrawal/wcfm/wcfm-controller-withdrawal-request.php:218
+#: controllers/withdrawal/wcmp/wcfm-controller-withdrawal-request.php:64
+msgid "No commission selected for withdrawal"
+msgstr ""
+
+#: controllers/withdrawal/wcfm/wcfm-controller-withdrawal-request.php:167
 msgid "Withdrawal Request successfully processed."
 msgstr ""
 
-#: controllers/withdrawal/wcfm/wcfm-controller-withdrawal-request.php:117
+#: controllers/withdrawal/wcfm/wcfm-controller-withdrawal-request.php:169
 msgid "Withdrawal Request processing failed, please contact Store Admin."
 msgstr ""
 
-#: controllers/withdrawal/wcfm/wcfm-controller-withdrawal-request.php:122
+#: controllers/withdrawal/wcfm/wcfm-controller-withdrawal-request.php:174
 msgid "Vendor <b>%1$s</b> has placed a Withdrawal Request #%2$s."
 msgstr ""
 
-#: controllers/withdrawal/wcfm/wcfm-controller-withdrawal-request.php:139
+#: controllers/withdrawal/wcfm/wcfm-controller-withdrawal-request.php:191
 msgid "Your withdrawal request successfully sent."
 msgstr ""
 
-#: controllers/withdrawal/wcfm/wcfm-controller-withdrawal-request.php:144
+#: controllers/withdrawal/wcfm/wcfm-controller-withdrawal-request.php:209
 msgid "Your withdrawal request failed, please try after sometime."
 msgstr ""
 
-#: controllers/withdrawal/wcfm/wcfm-controller-withdrawal-request.php:147
-#: controllers/withdrawal/wcfm/wcfm-controller-withdrawal-request.php:150
+#: controllers/withdrawal/wcfm/wcfm-controller-withdrawal-request.php:212
+#: controllers/withdrawal/wcfm/wcfm-controller-withdrawal-request.php:215
 #: controllers/withdrawal/wcmp/wcfm-controller-withdrawal-request.php:61
 msgid "No payment method selected for withdrawal commission"
-msgstr ""
-
-#: controllers/withdrawal/wcfm/wcfm-controller-withdrawal-request.php:153
-#: controllers/withdrawal/wcmp/wcfm-controller-withdrawal-request.php:64
-msgid "No commission selected for withdrawal"
 msgstr ""
 
 #: controllers/withdrawal/wcfm/wcfm-controller-withdrawal-requests-actions.php:50
@@ -3660,7 +3662,7 @@ msgstr "Резервации на работния плот"
 
 #: core/class-wcfm-wcbookings.php:101
 #: views/capability/wcfm-view-capability.php:1429
-#: views/wc_bookings/wcfm-view-wcbookings-dashboard.php:120
+#: views/wc_bookings/wcfm-view-wcbookings-dashboard.php:105
 #: views/wc_bookings/wcfm-view-wcbookings-details.php:90
 #: views/wc_bookings/wcfm-view-wcbookings.php:40
 msgid "Bookings List"
@@ -3680,7 +3682,7 @@ msgstr ""
 
 #: core/class-wcfm-wcbookings.php:113
 #: views/capability/wcfm-view-capability.php:1438
-#: views/wc_bookings/wcfm-view-wcbookings-dashboard.php:143
+#: views/wc_bookings/wcfm-view-wcbookings-dashboard.php:123
 msgid "Bookings Calendar"
 msgstr ""
 
@@ -3832,8 +3834,8 @@ msgstr ""
 
 #: core/class-wcfm-wcfmmarketplace.php:564
 #: includes/reports/class-dokan-report-sales-by-date.php:839
-#: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:599
-#: includes/reports/class-wcmarketplace-report-sales-by-date.php:546
+#: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:594
+#: includes/reports/class-wcmarketplace-report-sales-by-date.php:541
 #: includes/reports/class-wcpvendors-report-sales-by-date.php:440
 #: includes/reports/class-wcvendors-report-sales-by-date.php:557
 #: views/orders/wcfm-view-orders.php:118 views/orders/wcfm-view-orders.php:127
@@ -4045,8 +4047,8 @@ msgstr ""
 #: core/class-wcfm-withdrawal.php:143 core/class-wcfm-withdrawal.php:157
 #: core/class-wcfm.php:860 helpers/class-wcfm-install.php:398
 #: includes/reports/class-dokan-report-sales-by-date.php:849
-#: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:617
-#: includes/reports/class-wcmarketplace-report-sales-by-date.php:563
+#: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:605
+#: includes/reports/class-wcmarketplace-report-sales-by-date.php:551
 #: includes/reports/class-wcpvendors-report-sales-by-date.php:450
 #: includes/reports/class-wcvendors-report-sales-by-date.php:567
 #: views/capability/wcfm-view-capability.php:637
@@ -6600,9 +6602,9 @@ msgstr "Последните 7 дни"
 #: includes/reports/class-wcfm-report-sales-by-date.php:631
 #: includes/reports/class-wcfm-report-sales-by-date.php:814
 #: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:342
-#: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:700
+#: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:686
 #: includes/reports/class-wcmarketplace-report-sales-by-date.php:298
-#: includes/reports/class-wcmarketplace-report-sales-by-date.php:621
+#: includes/reports/class-wcmarketplace-report-sales-by-date.php:607
 #: includes/reports/class-wcpvendors-report-sales-by-date.php:288
 #: includes/reports/class-wcpvendors-report-sales-by-date.php:506
 #: includes/reports/class-wcvendors-report-sales-by-date.php:326
@@ -6664,8 +6666,8 @@ msgstr ""
 
 #: includes/reports/class-dokan-report-sales-by-date.php:868
 #: includes/reports/class-wcfm-report-sales-by-date.php:747
-#: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:660
-#: includes/reports/class-wcmarketplace-report-sales-by-date.php:584
+#: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:646
+#: includes/reports/class-wcmarketplace-report-sales-by-date.php:570
 #: includes/reports/class-wcpvendors-report-sales-by-date.php:469
 #: includes/reports/class-wcvendors-report-sales-by-date.php:599
 msgid "Order Counts"
@@ -6673,8 +6675,8 @@ msgstr ""
 
 #: includes/reports/class-dokan-report-sales-by-date.php:876
 #: includes/reports/class-wcfm-report-sales-by-date.php:756
-#: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:669
-#: includes/reports/class-wcmarketplace-report-sales-by-date.php:592
+#: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:655
+#: includes/reports/class-wcmarketplace-report-sales-by-date.php:578
 #: includes/reports/class-wcpvendors-report-sales-by-date.php:477
 #: includes/reports/class-wcvendors-report-sales-by-date.php:607
 msgid "Order Item Counts"
@@ -6692,8 +6694,8 @@ msgstr ""
 
 #: includes/reports/class-dokan-report-sales-by-date.php:903
 #: includes/reports/class-wcfm-report-sales-by-date.php:795
-#: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:681
-#: includes/reports/class-wcmarketplace-report-sales-by-date.php:603
+#: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:667
+#: includes/reports/class-wcmarketplace-report-sales-by-date.php:589
 #: includes/reports/class-wcpvendors-report-sales-by-date.php:488
 #: includes/reports/class-wcvendors-report-sales-by-date.php:618
 msgid "Sales Report by Date"
@@ -6701,8 +6703,8 @@ msgstr ""
 
 #: includes/reports/class-dokan-report-sales-by-date.php:930
 #: includes/reports/class-wcfm-report-sales-by-date.php:823
-#: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:709
-#: includes/reports/class-wcmarketplace-report-sales-by-date.php:630
+#: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:695
+#: includes/reports/class-wcmarketplace-report-sales-by-date.php:616
 #: includes/reports/class-wcpvendors-report-sales-by-date.php:515
 #: includes/reports/class-wcvendors-report-sales-by-date.php:645
 #: views/coupons/wcfm-view-coupons.php:57
@@ -6850,28 +6852,28 @@ msgstr ""
 msgid "%s total tax"
 msgstr ""
 
-#: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:597
-#: includes/reports/class-wcmarketplace-report-sales-by-date.php:544
+#: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:594
+#: includes/reports/class-wcmarketplace-report-sales-by-date.php:541
 msgid "Admin Fees"
 msgstr ""
 
-#: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:615
-#: includes/reports/class-wcmarketplace-report-sales-by-date.php:561
+#: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:605
+#: includes/reports/class-wcmarketplace-report-sales-by-date.php:551
 #: views/vendors/wcfm-view-vendors.php:98
 #: views/vendors/wcfm-view-vendors.php:120
 msgid "Paid Fees"
 msgstr ""
 
-#: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:629
+#: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:615
 msgid "Refunds"
 msgstr ""
 
-#: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:639
+#: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:625
 msgid "Tax Amounts"
 msgstr ""
 
-#: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:650
-#: includes/reports/class-wcmarketplace-report-sales-by-date.php:575
+#: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:636
+#: includes/reports/class-wcmarketplace-report-sales-by-date.php:561
 #: includes/reports/class-wcpvendors-report-sales-by-date.php:460
 #: includes/reports/class-wcvendors-report-sales-by-date.php:578
 #: includes/reports/class-wcvendors-report-sales-by-date.php:589
@@ -7041,30 +7043,30 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
-#: views/articles/wcfm-view-articles-manage.php:589
-#: views/articles/wcfm-view-articles-manage.php:598
-#: views/coupons/wcfm-view-coupons-manage.php:258
-#: views/coupons/wcfm-view-coupons-manage.php:267
+#: views/articles/wcfm-view-articles-manage.php:586
+#: views/articles/wcfm-view-articles-manage.php:588
+#: views/coupons/wcfm-view-coupons-manage.php:255
+#: views/coupons/wcfm-view-coupons-manage.php:257
 #: views/customers/wcfm-view-customers-manage.php:448
 #: views/enquiry/wcfm-view-enquiry-form.php:314
 #: views/knowledgebase/wcfm-view-knowledgebase-manage.php:167
 #: views/notice/wcfm-view-notice-manage.php:145
+#: views/products-manager/wcfm-view-products-manage.php:1252
 #: views/products-manager/wcfm-view-products-manage.php:1255
-#: views/products-manager/wcfm-view-products-manage.php:1265
-#: views/products-popup/wcfm-view-product-popup.php:516
-#: views/products-popup/wcfm-view-product-popup.php:525
+#: views/products-popup/wcfm-view-product-popup.php:513
+#: views/products-popup/wcfm-view-product-popup.php:515
 #: views/vendors/wcfm-view-vendors-new.php:312
 msgid "Submit"
 msgstr "Публикувай"
 
-#: views/articles/wcfm-view-articles-manage.php:591
-#: views/articles/wcfm-view-articles-manage.php:600
-#: views/coupons/wcfm-view-coupons-manage.php:260
-#: views/coupons/wcfm-view-coupons-manage.php:269
-#: views/products-manager/wcfm-view-products-manage.php:1257
-#: views/products-manager/wcfm-view-products-manage.php:1267
-#: views/products-popup/wcfm-view-product-popup.php:518
-#: views/products-popup/wcfm-view-product-popup.php:527
+#: views/articles/wcfm-view-articles-manage.php:586
+#: views/articles/wcfm-view-articles-manage.php:588
+#: views/coupons/wcfm-view-coupons-manage.php:255
+#: views/coupons/wcfm-view-coupons-manage.php:257
+#: views/products-manager/wcfm-view-products-manage.php:1252
+#: views/products-manager/wcfm-view-products-manage.php:1255
+#: views/products-popup/wcfm-view-product-popup.php:513
+#: views/products-popup/wcfm-view-product-popup.php:515
 msgid "Submit for Review"
 msgstr "Изпрати за преглед"
 
@@ -11129,18 +11131,18 @@ msgstr ""
 msgid "Global Availability"
 msgstr ""
 
-#: views/wc_bookings/wcfm-view-wcbookings-dashboard.php:57
+#: views/wc_bookings/wcfm-view-wcbookings-dashboard.php:52
 #: views/wc_bookings/wcfm-view-wcbookings.php:77
 msgid "Create Booking"
 msgstr ""
 
-#: views/wc_bookings/wcfm-view-wcbookings-dashboard.php:72
+#: views/wc_bookings/wcfm-view-wcbookings-dashboard.php:67
 #: views/wc_bookings/wcfm-view-wcbookings-details.php:99
 #: views/wc_bookings/wcfm-view-wcbookings.php:88
 msgid "Create Bookable"
 msgstr ""
 
-#: views/wc_bookings/wcfm-view-wcbookings-dashboard.php:94
+#: views/wc_bookings/wcfm-view-wcbookings-dashboard.php:84
 #: views/wc_bookings/wcfm-view-wcbookings-details.php:94
 #: views/wc_bookings/wcfm-view-wcbookings.php:83
 msgid "Manage Resources"

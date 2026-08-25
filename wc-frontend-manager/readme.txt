@@ -5,9 +5,9 @@ Donate link: https://www.paypal.me/wclovers/25usd
 Requires at least: 5.5
 Tested up to: 7.0.2
 WC requires at least: 7.0
-WC tested up to: 10.9
+WC tested up to: 11.0
 Requires PHP: 7.4
-Stable tag: 6.8.0
+Stable tag: 6.8.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,7 +21,7 @@ Stop wrestling with the cluttered WordPress backend. **WCFM - Frontend Manager**
 
 Whether you are a single-store owner who wants to hide `wp-admin` from your staff, or you are scaling a massive multi-vendor empire, WCFM is the powerful engine that drives your daily operations. It works flawlessly as a standalone Store Manager dashboard, and seamlessly transforms into a robust Vendor Dashboard when paired with marketplace plugins like **WCFM Marketplace, Dokan, WC Vendors, and WC Product Vendors**.
 
-= 🚀 Supercharge Your Dashboard: [WCFM AI Suite (New Addon!)](https://wclovers.com/product/woocommerce-frontend-manager-ai-suite/) =
+= 🚀 Supercharge Your Dashboard: [WCFM AI Suite](https://wclovers.com/product/woocommerce-frontend-manager-ai-suite/) (New Addon!) =
 
 Ready to bring the power of artificial intelligence to your marketplace beyond a basic text generator? The **WCFM AI Suite** is our newest addon that unlocks a fully integrated **AI Commerce & Content Studio** right inside your frontend dashboard.
 
@@ -277,6 +277,15 @@ Explore the frontend interfaces and management screens included in WCFM.
 == Changelog ==
 
 Below is a record of updates, features, and fixes across all releases.
+
+= 6.8.1 =
+*Updated - 25/08/2026*
+
+* Security - Fixed an Insecure Direct Object Reference (IDOR / CWE-639) vulnerability that allowed an authenticated vendor to submit a withdrawal request against another vendor's commission and have the payout credited to their own account, reported by Shikhali Jamalzade, Credit goes to Shikhali Jamalzade for identifying this issue.
+* Fix - Withdrawal requests now re-validate every submitted commission against the requesting vendor's own withdrawable commissions, so ineligible, already-requested or other vendors' commissions can no longer be submitted or double-spent.
+* Fix - Prevented stray backslashes from being stored in enquiry replies, enquiry submissions, and dashboard notifications.
+* Fix - Hardened output escaping and removed redundant markup in several dashboard report and manager templates.
+* Enhance - WooCommerce 11.0+ compatibility check added
 
 = 6.8.0 =
 *Updated - 27/07/2026*
@@ -2832,8 +2841,10 @@ Removed deprecated filter wcfm_allow_setup_page_access
 
 == Upgrade Notice ==
 
-= 6.8.0 =
+= 6.8.1 =
 
-* Security - Fixed an IDOR vulnerability in vendor inquiry replies, preventing unauthorized access to other vendors' inquiries.
-* Enhance - Added support for the new Stripe Split Pay engine in vendor payment settings (WCFM Marketplace v3.8.0)
-* Enhance - Persist Stripe Connect onboarding data required by the new Stripe Split Pay engine.
+* Security - Fixed an Insecure Direct Object Reference (IDOR / CWE-639) vulnerability that allowed an authenticated vendor to submit a withdrawal request against another vendor's commission and have the payout credited to their own account, reported by Shikhali Jamalzade, Credit goes to Shikhali Jamalzade for identifying this issue.
+* Fix - Withdrawal requests now re-validate every submitted commission against the requesting vendor's own withdrawable commissions, so ineligible, already-requested or other vendors' commissions can no longer be submitted or double-spent.
+* Fix - Prevented stray backslashes from being stored in enquiry replies, enquiry submissions, and dashboard notifications.
+* Fix - Hardened output escaping and removed redundant markup in several dashboard report and manager templates.
+* Enhance - WooCommerce 11.0+ compatibility check added

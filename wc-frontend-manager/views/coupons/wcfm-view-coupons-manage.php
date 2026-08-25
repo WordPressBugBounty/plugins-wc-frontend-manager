@@ -252,23 +252,9 @@ do_action( 'before_wcfm_coupons_manage' );
 				<div class="wcfm-message" tabindex="-1"></div>
 			  
 				<?php if ( $coupon_id && ( $coupon_post->post_status == 'publish' ) ) { ?>
-					<input type="submit" name="submit-data" value="
-					<?php
-					if ( apply_filters( 'wcfm_is_allow_publish_live_coupons', true ) ) {
-						_e( 'Submit', 'wc-frontend-manager' );
-					} else {
-						_e( 'Submit for Review', 'wc-frontend-manager' ); }
-					?>
-					" id="wcfm_coupon_manager_submit_button" class="wcfm_submit_button" />
+					<input type="submit" name="submit-data" value="<?php echo esc_attr( apply_filters( 'wcfm_is_allow_publish_live_coupons', true ) ? __( 'Submit', 'wc-frontend-manager' ) : __( 'Submit for Review', 'wc-frontend-manager' ) ); ?>" id="wcfm_coupon_manager_submit_button" class="wcfm_submit_button" />
 				<?php } else { ?>
-					<input type="submit" name="submit-data" value="
-					<?php
-					if ( current_user_can( 'publish_shop_coupons' ) && apply_filters( 'wcfm_is_allow_publish_coupons', true ) ) {
-						_e( 'Submit', 'wc-frontend-manager' );
-					} else {
-						_e( 'Submit for Review', 'wc-frontend-manager' ); }
-					?>
-					" id="wcfm_coupon_manager_submit_button" class="wcfm_submit_button" />
+					<input type="submit" name="submit-data" value="<?php echo esc_attr( current_user_can( 'publish_shop_coupons' ) && apply_filters( 'wcfm_is_allow_publish_coupons', true ) ? __( 'Submit', 'wc-frontend-manager' ) : __( 'Submit for Review', 'wc-frontend-manager' ) ); ?>" id="wcfm_coupon_manager_submit_button" class="wcfm_submit_button" />
 				<?php } ?>
 					
 				<?php if ( apply_filters( 'wcfm_is_allow_draft_published_coupons', true ) && apply_filters( 'wcfm_is_allow_add_coupons', true ) ) { ?>

@@ -546,7 +546,7 @@ class WCFM_Notification {
 		$is_notice         = 0;
 		$is_direct_message = 1;
 
-		$notification_messages = esc_sql( wp_filter_post_kses( $wcfm_messages ) );
+		$notification_messages = wp_kses_post( $wcfm_messages );
 		$wcfm_messages_type    = esc_sql( wc_clean( $wcfm_messages_type ) );
 		$current_time          = date( 'Y-m-d H:i:s', current_time( 'timestamp', 0 ) );
 
@@ -569,7 +569,7 @@ class WCFM_Notification {
 						}
 
 						if ( apply_filters( 'wcfm_allow_wpml_email_translation', true ) && $raw_message ) {
-							$notification_messages = esc_sql( wp_filter_post_kses( $this->wcfm_direct_message_raw_to_l10n( $raw_message ) ) );
+							$notification_messages = wp_kses_post( $this->wcfm_direct_message_raw_to_l10n( $raw_message ) );
 						}
 
 						 
@@ -587,7 +587,7 @@ class WCFM_Notification {
 					}
 
 					if ( apply_filters( 'wcfm_allow_wpml_email_translation', true ) && $raw_message ) {
-						$notification_messages = esc_sql( wp_filter_post_kses( $this->wcfm_direct_message_raw_to_l10n( $raw_message ) ) );
+						$notification_messages = wp_kses_post( $this->wcfm_direct_message_raw_to_l10n( $raw_message ) );
 					}
 
 					 

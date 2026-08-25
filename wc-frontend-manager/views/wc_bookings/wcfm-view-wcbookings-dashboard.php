@@ -49,12 +49,7 @@ if ( ! current_user_can( 'manage_bookings_settings' ) && ! current_user_can( 'ma
 						<div id="wcfm_bookings_product_add_expander" class="wcfm-content">
 							<div class="booking_dashboard_section_icon"><span class="wcfmfa fa-calendar-plus"></span></div>
 							<div class="booking_dashboard_section_label">
-								<h2 title="
-								<?php
-								if ( ! WCFM_Dependencies::wcfmu_plugin_active_check() ) {
-									wcfmu_feature_help_text_show( 'Manual Create Booking', false, true ); }
-								?>
-								"><?php _e( 'Create Booking', 'wc-frontend-manager' ); ?></h2>
+								<h2 title="<?php WCFM_Dependencies::wcfmu_plugin_active_check() || wcfmu_feature_help_text_show( 'Manual Create Booking', false, true ); ?>"><?php _e( 'Create Booking', 'wc-frontend-manager' ); ?></h2>
 							</div>
 						</div>
 					<?php
@@ -86,12 +81,7 @@ if ( ! current_user_can( 'manage_bookings_settings' ) && ! current_user_can( 'ma
 						<div id="wcfm_bookings_resources_expander" class="wcfm-content">
 							<div class="booking_dashboard_section_icon"><span class="wcfmfa fa-briefcase"></span></div>
 							<div class="booking_dashboard_section_label">
-								<h2 title="
-								<?php
-								if ( ! WCFM_Dependencies::wcfmu_plugin_active_check() ) {
-									wcfmu_feature_help_text_show( 'Manage Resources', false, true ); }
-								?>
-								"><?php _e( 'Manage Resources', 'wc-frontend-manager' ); ?></h2>
+								<h2 title="<?php WCFM_Dependencies::wcfmu_plugin_active_check() || wcfmu_feature_help_text_show( 'Manage Resources', false, true ); ?>"><?php _e( 'Manage Resources', 'wc-frontend-manager' ); ?></h2>
 							</div>
 						</div>
 					<?php
@@ -112,12 +102,7 @@ if ( ! current_user_can( 'manage_bookings_settings' ) && ! current_user_can( 'ma
 						<div id="wcfm_bookings_list_expander" class="wcfm-content">
 							<div class="booking_dashboard_section_icon"><span class="wcfmfa fa-calendar"></span></div>
 							<div class="booking_dashboard_section_label">
-								<h2 title="
-								<?php
-								if ( ! WCFM_Dependencies::wcfmu_plugin_active_check() ) {
-									wcfmu_feature_help_text_show( 'Bookings List', false, true ); }
-								?>
-								"><?php _e( 'Bookings List', 'wc-frontend-manager' ); ?></h2>
+								<h2 title="<?php WCFM_Dependencies::wcfmu_plugin_active_check() || wcfmu_feature_help_text_show( 'Bookings List', false, true ); ?>"><?php _e( 'Bookings List', 'wc-frontend-manager' ); ?></h2>
 							</div>
 						</div>
 					<?php
@@ -135,12 +120,7 @@ if ( ! current_user_can( 'manage_bookings_settings' ) && ! current_user_can( 'ma
 						<div id="wcfm_bookings_calendar_expander" class="wcfm-content">
 							<div class="booking_dashboard_section_icon"><span class="wcfmfa fa-calendar-alt"></span></div>
 							<div class="booking_dashboard_section_label">
-								<h2 title="
-								<?php
-								if ( ! WCFM_Dependencies::wcfmu_plugin_active_check() ) {
-									wcfmu_feature_help_text_show( 'Bookings Calendar', false, true ); }
-								?>
-								"><?php _e( 'Bookings Calendar', 'wc-frontend-manager' ); ?></h2>
+								<h2 title="<?php WCFM_Dependencies::wcfmu_plugin_active_check() || wcfmu_feature_help_text_show( 'Bookings Calendar', false, true ); ?>"><?php _e( 'Bookings Calendar', 'wc-frontend-manager' ); ?></h2>
 							</div>
 						</div>
 					<?php

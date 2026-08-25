@@ -56,7 +56,7 @@ class WCFM_Enquiry_Manage_Controller {
 			 
 			$attchments = wcfm_handle_file_upload();
 
-			$inquiry_reply    = apply_filters( 'wcfm_editor_content_before_save', stripslashes( wp_filter_post_kses( html_entity_decode( $_POST['inquiry_reply'], ENT_QUOTES, 'UTF-8' ) ) ) );
+			$inquiry_reply    = apply_filters( 'wcfm_editor_content_before_save', wp_kses_post( stripslashes( html_entity_decode( $_POST['inquiry_reply'], ENT_QUOTES, 'UTF-8' ) ) ) );
 			$inquiry_reply_by = apply_filters( 'wcfm_message_author', get_current_user_id() );
 			 
 			$inquiry_product_id     = absint( $wcfm_enquiry_row->product_id );
@@ -67,7 +67,7 @@ class WCFM_Enquiry_Manage_Controller {
 
 			$inquiry_reply      = apply_filters( 'wcfm_enquiry_reply_content', $inquiry_reply, $inquiry_product_id, $inquiry_vendor_id, $inquiry_customer_id );
 			$inquiry_reply_mail = $inquiry_reply;
-			$inquiry_reply      = esc_sql( wp_filter_post_kses( $inquiry_reply ) );
+			$inquiry_reply      = wp_kses_post( $inquiry_reply );
 
 			$current_time = date( 'Y-m-d H:i:s', current_time( 'timestamp', 0 ) );
 
@@ -298,7 +298,7 @@ class WCFM_My_Account_Enquiry_Manage_Controller {
 			 
 			$attchments = wcfm_handle_file_upload();
 
-			$inquiry_reply          = wp_filter_post_kses( apply_filters( 'wcfm_editor_content_before_save', stripslashes( html_entity_decode( $_POST['inquiry_reply'], ENT_QUOTES, 'UTF-8' ) ) ) );
+			$inquiry_reply          = wp_kses_post( apply_filters( 'wcfm_editor_content_before_save', stripslashes( html_entity_decode( $_POST['inquiry_reply'], ENT_QUOTES, 'UTF-8' ) ) ) );
 			$inquiry_reply_by       = apply_filters( 'wcfm_message_author', get_current_user_id() );
 			$inquiry_id             = absint( $wcfm_enquiry_reply_form_data['inquiry_id'] );
 			$inquiry_product_id     = absint( $wcfm_enquiry_reply_form_data['inquiry_product_id'] );
@@ -318,7 +318,7 @@ class WCFM_My_Account_Enquiry_Manage_Controller {
 
 			$inquiry_reply      = apply_filters( 'wcfm_enquiry_reply_content', $inquiry_reply, $inquiry_product_id, $inquiry_vendor_id, $inquiry_customer_id );
 			$inquiry_reply_mail = $inquiry_reply;
-			$inquiry_reply      = esc_sql( wp_filter_post_kses( $inquiry_reply ) );
+			$inquiry_reply      = wp_kses_post( $inquiry_reply );
 
 			$current_time = date( 'Y-m-d H:i:s', current_time( 'timestamp', 0 ) );
 

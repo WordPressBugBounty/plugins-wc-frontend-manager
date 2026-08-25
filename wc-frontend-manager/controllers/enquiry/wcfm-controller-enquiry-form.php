@@ -59,7 +59,7 @@ class WCFM_Enquiry_Form_Controller {
 
 		if ( isset( $wcfm_enquiry_tab_form_data['enquiry'] ) && ! empty( $wcfm_enquiry_tab_form_data['enquiry'] ) ) {
 
-			$enquiry = apply_filters( 'wcfm_editor_content_before_save', wcfm_stripe_newline( strip_tags( wp_filter_post_kses( $wcfm_enquiry_tab_form_data['enquiry'] ) ) ) );
+			$enquiry = apply_filters( 'wcfm_editor_content_before_save', wcfm_stripe_newline( strip_tags( wp_kses_post( $wcfm_enquiry_tab_form_data['enquiry'] ) ) ) );
 			$reply   = '';
 
 			$author_id  = 0;
@@ -100,7 +100,7 @@ class WCFM_Enquiry_Form_Controller {
 
 			$enquiry      = apply_filters( 'wcfm_enquiry_content', $enquiry, $product_id, $vendor_id, $customer_id );
 			$enquiry_mail = $enquiry;
-			$enquiry      = esc_sql( $enquiry );
+			 
 
 			if ( ! defined( 'DOING_WCFM_EMAIL' ) ) {
 				define( 'DOING_WCFM_EMAIL', true );

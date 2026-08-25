@@ -1249,24 +1249,10 @@ if ( $product_id && defined( 'ICL_SITEPRESS_VERSION' ) && ! ICL_PLUGIN_INACTIVE 
 				<input type="submit" name="submit-data" value="<?php _e( 'Reject', 'wc-frontend-manager' ); ?>" id="wcfm_products_simple_reject_button" class="wcfm_submit_button" />
 				<?php } else { ?>
 					<?php if ( $product_id && ( $wcfm_products_single->post_status == 'publish' ) ) { ?>
-						<input type="submit" name="submit-data" value="
-						<?php
-						if ( apply_filters( 'wcfm_is_allow_publish_live_products', true ) ) {
-							_e( 'Submit', 'wc-frontend-manager' );
-						} else {
-							_e( 'Submit for Review', 'wc-frontend-manager' ); }
-						?>
-						" id="wcfm_products_simple_submit_button" class="wcfm_submit_button" />
+						<input type="submit" name="submit-data" value="<?php echo esc_attr( apply_filters( 'wcfm_is_allow_publish_live_products', true ) ? __( 'Submit', 'wc-frontend-manager' ) : __( 'Submit for Review', 'wc-frontend-manager' ) ); ?>" id="wcfm_products_simple_submit_button" class="wcfm_submit_button" />
 					<?php } else { ?>
 						<?php if ( apply_filters( 'wcfm_is_allow_product_limit', true ) && apply_filters( 'wcfm_is_allow_space_limit', true ) ) { ?>
-							<input type="submit" name="submit-data" value="
-							<?php
-							if ( apply_filters( 'wcfm_is_allow_publish_products', true ) ) {
-								_e( 'Submit', 'wc-frontend-manager' );
-							} else {
-								_e( 'Submit for Review', 'wc-frontend-manager' ); }
-							?>
-							" id="wcfm_products_simple_submit_button" class="wcfm_submit_button" />
+							<input type="submit" name="submit-data" value="<?php echo esc_attr( apply_filters( 'wcfm_is_allow_publish_products', true ) ? __( 'Submit', 'wc-frontend-manager' ) : __( 'Submit for Review', 'wc-frontend-manager' ) ); ?>" id="wcfm_products_simple_submit_button" class="wcfm_submit_button" />
 						<?php } ?>
 					<?php } ?>
 					<?php if ( apply_filters( 'wcfm_is_allow_draft_published_products', true ) && apply_filters( 'wcfm_is_allow_add_products', true ) ) { ?>

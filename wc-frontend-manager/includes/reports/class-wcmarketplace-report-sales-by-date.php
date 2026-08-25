@@ -538,14 +538,7 @@ class WC_Marketplace_Report_Sales_By_Date extends WC_Admin_Report {
 											<?php if ( apply_filters( 'wcfm_sales_report_is_allow_earning', true ) ) { ?>
 											{
 												type: 'line',
-												label: "
-												<?php
-												if ( $admin_fee_mode ) {
-													_e( 'Admin Fees', 'wc-frontend-manager' );
-												} else {
-													_e( 'Earning', 'wc-frontend-manager' ); }
-												?>
-												",
+												label: "<?php echo esc_js( $admin_fee_mode ? __( 'Admin Fees', 'wc-frontend-manager' ) : __( 'Earning', 'wc-frontend-manager' ) ); ?>",
 												backgroundColor: color(window.chartColors.green).alpha(0.2).rgbString(),
 												borderColor: window.chartColors.green,
 												fill: true,
@@ -555,14 +548,7 @@ class WC_Marketplace_Report_Sales_By_Date extends WC_Admin_Report {
 											<?php if ( apply_filters( 'wcfm_sales_report_is_allow_withdrawal', true ) ) { ?>
 											{
 												type: 'bar',
-												label: "
-												<?php
-												if ( $admin_fee_mode ) {
-													_e( 'Paid Fees', 'wc-frontend-manager' );
-												} else {
-													_e( 'Withdrawal', 'wc-frontend-manager' ); }
-												?>
-												",
+												label: "<?php echo esc_js( $admin_fee_mode ? __( 'Paid Fees', 'wc-frontend-manager' ) : __( 'Withdrawal', 'wc-frontend-manager' ) ); ?>",
 												backgroundColor: color(window.chartColors.grey).alpha(0.2).rgbString(),
 												borderColor: window.chartColors.grey,
 												borderWidth: 2,
