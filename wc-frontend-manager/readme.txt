@@ -21,7 +21,8 @@ Stop wrestling with the cluttered WordPress backend. **WCFM - Frontend Manager**
 
 Whether you are a single-store owner who wants to hide `wp-admin` from your staff, or you are scaling a massive multi-vendor empire, WCFM is the powerful engine that drives your daily operations. It works flawlessly as a standalone Store Manager dashboard, and seamlessly transforms into a robust Vendor Dashboard when paired with marketplace plugins like **WCFM Marketplace, Dokan, WC Vendors, and WC Product Vendors**.
 
-= 🚀 Supercharge Your Dashboard: [WCFM AI Suite](https://wclovers.com/product/woocommerce-frontend-manager-ai-suite/) (New Addon!) =
+= 🚀 Supercharge Your Dashboard with Artificial Intelligence =
+**[WCFM AI Suite (New Addon!)](https://wclovers.com/product/woocommerce-frontend-manager-ai-suite/)**
 
 Ready to bring the power of artificial intelligence to your marketplace beyond a basic text generator? The **WCFM AI Suite** is our newest addon that unlocks a fully integrated **AI Commerce & Content Studio** right inside your frontend dashboard.
 
