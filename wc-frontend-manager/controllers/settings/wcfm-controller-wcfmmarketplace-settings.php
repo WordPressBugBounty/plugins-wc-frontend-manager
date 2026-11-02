@@ -60,6 +60,24 @@ class WCFM_Settings_Marketplace_Controller {
 		 
 
 		 
+		if ( isset( $wcfm_settings_form['phone'] ) ) {
+			$wcfm_settings_form['phone'] = wcfm_clean_contact_field( $wcfm_settings_form['phone'] );
+		}
+		if ( isset( $wcfm_settings_form['store_email'] ) ) {
+			$wcfm_settings_form['store_email'] = wcfm_clean_contact_field( $wcfm_settings_form['store_email'] );
+		}
+		if ( isset( $wcfm_settings_form['customer_support'] ) ) {
+			$wcfm_settings_form['customer_support'] = wc_clean( $wcfm_settings_form['customer_support'] );
+		}
+
+		 
+		foreach ( array( 'banner_video', 'list_banner_video' ) as $banner_video_field ) {
+			if ( isset( $wcfm_settings_form[ $banner_video_field ] ) ) {
+				$wcfm_settings_form[ $banner_video_field ] = is_scalar( $wcfm_settings_form[ $banner_video_field ] ) ? esc_url_raw( trim( $wcfm_settings_form[ $banner_video_field ] ) ) : '';
+			}
+		}
+
+		 
 		if ( apply_filters( 'wcfm_is_allow_store_logo', true ) ) {
 			if ( isset( $wcfm_settings_form['gravatar'] ) ) {
 				if ( ! empty( $wcfm_settings_form['gravatar'] ) ) {

@@ -373,12 +373,12 @@ class WCFM_Notification {
 								$message_icon = $this->get_wcfm_notification_icon( $wcfm_message->message_type );
 
 								 
-								$message_text                          = htmlspecialchars_decode( $wcfm_message->message );
+								$message_text                          = wcfm_removeslashes( $wcfm_message->message );
 								$wcfm_dashboard_message_content_length = (int) apply_filters( 'wcfm_is_allow_dashboard_message_content_length', 80 );
 								if ( $wcfm_message->message_type == 'direct' ) {
 									$message_text = substr( strip_tags( $message_text ), 0, $wcfm_dashboard_message_content_length ) . ' ...';
 								}
-								echo '<div class="wcfm_dashboard_notification">' . wp_kses_post( $message_icon ) . ' ' . wp_kses_post( $message_text ) . '</div>';
+								echo '<div class="wcfm_dashboard_notification">' . wp_kses_post( $message_icon ) . ' ' . wcfm_kses_notification_message( $message_text ) . '</div>';
 								++$counter;
 							}
 							if ( count( $wcfm_messages ) > 5 ) {
@@ -997,7 +997,7 @@ class WCFM_Notification {
 
 			if ( ! empty( $wcfm_messages ) ) {
 				foreach ( $wcfm_messages as $wcfm_message ) {
-					$wcfm_messages_json_arr .= '<div class="wcfm_notification_box">' . $this->get_wcfm_notification_icon( $wcfm_message->message_type ) . wcfm_removeslashes( htmlspecialchars_decode( $wcfm_message->message ) ) . '</div>';
+					$wcfm_messages_json_arr .= '<div class="wcfm_notification_box">' . $this->get_wcfm_notification_icon( $wcfm_message->message_type ) . wcfm_render_notification_message( $wcfm_message->message ) . '</div>';
 				}
 			}
 			if ( $wcfm_messages_json_arr ) {

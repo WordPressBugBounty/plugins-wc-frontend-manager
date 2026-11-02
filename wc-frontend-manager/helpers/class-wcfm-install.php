@@ -50,9 +50,6 @@ class WCFM_Install {
 		$WCFM_Query->init_query_vars();
 		$WCFM_Query->add_endpoints();
 
-		 
-		flush_rewrite_rules();
-
 		if ( ! get_option( 'wcfm_installed' ) && apply_filters( 'wcfm_enable_setup_wizard', true ) ) {
 			set_transient( '_wcfm_activation_redirect', 1, 30 );
 		}

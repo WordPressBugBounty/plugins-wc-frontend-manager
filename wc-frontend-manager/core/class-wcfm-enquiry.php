@@ -49,13 +49,10 @@ class WCFM_Enquiry {
 
 		 
 		add_action( 'init', array( &$this, 'wcfm_enquiry_my_account_endpoints' ) );
+		add_filter( 'wcfm_rewrite_endpoints', array( $this, 'wcfm_enquiry_my_account_rewrite_endpoints' ) );
 
 		 
 		add_filter( 'query_vars', array( &$this, 'wcfm_enquiry_my_account_query_vars' ), 0 );
-
-		 
-		register_activation_hook( $WCFM->file, array( &$this, 'wcfm_enquiry_my_account_flush_rewrite_rules' ) );
-		register_deactivation_hook( $WCFM->file, array( &$this, 'wcfm_enquiry_my_account_flush_rewrite_rules' ) );
 
 		 
 		add_filter( 'woocommerce_account_menu_items', array( &$this, 'wcfm_enquiry_my_account_menu_items' ), 200 );
@@ -161,12 +158,6 @@ class WCFM_Enquiry {
 
 		add_rewrite_endpoint( $this->wcfm_myaccount_inquiry_endpoint, EP_ROOT | EP_PAGES );
 		add_rewrite_endpoint( $this->wcfm_myaccount_view_inquiry_endpoint, EP_ROOT | EP_PAGES );
-
-		if ( ! get_option( 'wcfm_updated_end_point_Enquiry' ) ) {
-			 
-			flush_rewrite_rules();
-			update_option( 'wcfm_updated_end_point_Enquiry', 1 );
-		}
 	}
 
 	
@@ -385,17 +376,24 @@ class WCFM_Enquiry {
 		add_rewrite_endpoint( $this->wcfm_myaccount_view_inquiry_endpoint, EP_ROOT | EP_PAGES );
 	}
 
+	
+
+
+
+
+
+	public function wcfm_enquiry_my_account_rewrite_endpoints( $endpoints ) {
+		$endpoints[ $this->wcfm_myaccount_inquiry_endpoint ]      = EP_ROOT | EP_PAGES;
+		$endpoints[ $this->wcfm_myaccount_view_inquiry_endpoint ] = EP_ROOT | EP_PAGES;
+
+		return $endpoints;
+	}
+
 	function wcfm_enquiry_my_account_query_vars( $vars ) {
 		$vars[] = $this->wcfm_myaccount_inquiry_endpoint;
 		$vars[] = $this->wcfm_myaccount_view_inquiry_endpoint;
 
 		return $vars;
-	}
-
-	function wcfm_enquiry_my_account_flush_rewrite_rules() {
-		add_rewrite_endpoint( $this->wcfm_myaccount_inquiry_endpoint, EP_ROOT | EP_PAGES );
-		add_rewrite_endpoint( $this->wcfm_myaccount_view_inquiry_endpoint, EP_ROOT | EP_PAGES );
-		flush_rewrite_rules();
 	}
 
 	function wcfm_enquiry_my_account_menu_items( $items ) {

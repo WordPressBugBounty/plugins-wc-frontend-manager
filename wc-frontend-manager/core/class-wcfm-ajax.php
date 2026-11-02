@@ -154,6 +154,22 @@ class WCFM_Ajax {
 						wp_die();
 					}
 
+					$product_manage_error = $this->wcfm_products_manage_request_error();
+					if ( $product_manage_error ) {
+						 
+						$product_manage_error = wp_json_encode(
+							array(
+								'status'  => false,
+								'message' => $product_manage_error,
+							)
+						);
+						if ( defined( 'WCFM_REST_API_CALL' ) ) {
+							return $product_manage_error;
+						}
+						echo $product_manage_error;  
+						wp_die();
+					}
+
 					if ( wcfm_is_booking() ) {
 						include_once $this->controllers_path . 'wc_bookings/wcfm-controller-wcbookings-products-manage.php';
 						new WCFM_WCBookings_Products_Manage_Controller();
@@ -318,6 +334,12 @@ class WCFM_Ajax {
 
 				case 'wcfm-capability':
 					if ( ! current_user_can( 'manage_woocommerce' ) && ! current_user_can( 'shop_staff' ) ) {
+						wp_send_json_error( esc_html__( 'You don&#8217;t have permission to do this.', 'woocommerce' ) );
+						wp_die();
+					}
+
+					 
+					if ( wcfm_is_vendor() || ! apply_filters( 'wcfm_is_allow_capability_controller', true ) || ( ! current_user_can( apply_filters( 'wcfm_setup_page_required_capability', 'access_wcfm_site_setup' ) ) && ! ( function_exists( 'wcfm_is_manager' ) && wcfm_is_manager() && function_exists( 'wcfm_is_group_manager' ) && ! wcfm_is_group_manager() ) ) ) {
 						wp_send_json_error( esc_html__( 'You don&#8217;t have permission to do this.', 'woocommerce' ) );
 						wp_die();
 					}
@@ -657,6 +679,104 @@ class WCFM_Ajax {
 		}
 
 		die();
+	}
+
+	
+
+
+
+
+
+
+
+
+	private function wcfm_products_manage_request_error() {
+		 
+		$no_permission   = esc_html__( 'You don&#8217;t have permission to do this.', 'woocommerce' );
+		$invalid_product = esc_html__( 'Invalid Product.', 'wc-frontend-manager' );
+
+		if ( apply_filters( 'wcfm_is_pref_restriction_check', true ) && ! apply_filters( 'wcfm_is_allow_manage_products', true ) ) {
+			return $no_permission;
+		}
+
+		 
+		$form_data = array();
+		if ( isset( $_POST['wcfm_products_manage_form'] ) ) {
+			if ( defined( 'WCFM_REST_API_CALL' ) ) {
+				$form_data = wc_clean( $_POST['wcfm_products_manage_form'] );  
+			} else {
+				parse_str( $_POST['wcfm_products_manage_form'], $form_data );  
+			}
+		}
+
+		$product_id = 0;
+		 
+		if ( isset( $form_data['pro_id'] ) && 0 == $form_data['pro_id'] ) {  
+			if ( ! apply_filters( 'wcfm_is_allow_add_products', true ) ) {
+				return $no_permission;
+			}
+			 
+			if ( ! apply_filters( 'wcfm_is_allow_pm_add_products', true ) ) {
+				return $no_permission;
+			}
+			if ( ! apply_filters( 'wcfm_is_allow_product_limit', true ) ) {
+				return esc_html__( 'Product Limit Reached', 'wc-frontend-manager' );
+			}
+			if ( ! apply_filters( 'wcfm_is_allow_space_limit', true ) ) {
+				return esc_html__( 'Space Limit Reached', 'wc-frontend-manager' );
+			}
+		} else {
+			$product_id = ( isset( $form_data['pro_id'] ) && is_scalar( $form_data['pro_id'] ) ) ? (int) $form_data['pro_id'] : 0;
+			$product    = $product_id > 0 ? get_post( $product_id ) : null;
+			if ( ! $product || 'product' !== $product->post_type ) {
+				return $invalid_product;
+			}
+
+			if ( 'publish' === $product->post_status && ! apply_filters( 'wcfm_is_allow_edit_products', true ) ) {
+				return $no_permission;
+			}
+			if ( ! apply_filters( 'wcfm_is_allow_edit_specific_products', true, $product_id ) ) {
+				return $no_permission;
+			}
+			if ( ! wcfm_user_can_perform_request( wcfm_get_vendor_id_by_post( $product_id ), 'product_edit' ) ) {
+				 
+				 
+				 
+				if ( wcfm_is_vendor() || function_exists( 'wcfm_is_manager' ) || ! current_user_can( 'edit_post', $product_id ) ) {
+					return $no_permission;
+				}
+			}
+		}
+
+		 
+		$variation_ids = array();
+		if ( ! empty( $form_data['variations'] ) ) {
+			foreach ( (array) $form_data['variations'] as $variation ) {
+				if ( ! is_array( $variation ) || ( isset( $variation['id'] ) && ! is_scalar( $variation['id'] ) ) ) {
+					return $invalid_product;
+				}
+				if ( ! empty( $variation['id'] ) ) {
+					$variation_ids[] = absint( $variation['id'] );
+				}
+			}
+		}
+		if ( ! empty( $_POST['removed_variations'] ) ) {
+			foreach ( (array) $_POST['removed_variations'] as $removed_variation ) {  
+				if ( ! is_scalar( $removed_variation ) ) {
+					return $invalid_product;
+				}
+				$variation_ids[] = (int) $removed_variation;
+			}
+		}
+		foreach ( $variation_ids as $variation_id ) {
+			$variation = $variation_id > 0 ? get_post( $variation_id ) : null;
+			if ( $variation && ( 'product_variation' !== $variation->post_type || $product_id !== (int) $variation->post_parent ) ) {
+				return $no_permission;
+			}
+		}
+		 
+
+		return '';
 	}
 
 	

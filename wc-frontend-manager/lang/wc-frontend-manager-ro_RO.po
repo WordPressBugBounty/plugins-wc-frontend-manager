@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WooCommerce Frontend Manager\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wc-frontend-"
 "manager\n"
-"POT-Creation-Date: 2026-08-24 08:46:56+00:00\n"
+"POT-Creation-Date: 2026-11-01 05:51:11+00:00\n"
 "PO-Revision-Date: 2019-03-28 09:22+0000\n"
 "Last-Translator: daniel <daniel.urse@hotmail.com>\n"
 "Language-Team: Română\n"
@@ -19,38 +19,38 @@ msgstr ""
 #: controllers/articles/wcfm-controller-articles-manage.php:32
 #: controllers/coupons/wcfm-controller-coupons-manage.php:32
 #: controllers/customers/wcfm-controller-customers-manage.php:33
-#: controllers/enquiry/wcfm-controller-enquiry-form.php:54
+#: controllers/enquiry/wcfm-controller-enquiry-form.php:60
 #: controllers/products-manager/wcfm-controller-products-manage.php:38
 #: controllers/profile/wcfm-controller-profile.php:69
 #: controllers/settings/wcfm-controller-settings.php:29
 #: controllers/settings/wcfm-controller-wcfmmarketplace-settings.php:31
-#: core/class-wcfm-ajax.php:130 core/class-wcfm-ajax.php:502
-#: core/class-wcfm-ajax.php:578 core/class-wcfm-ajax.php:669
-#: core/class-wcfm-ajax.php:712 core/class-wcfm-ajax.php:749
-#: core/class-wcfm-ajax.php:787 core/class-wcfm-ajax.php:832
-#: core/class-wcfm-ajax.php:871 core/class-wcfm-ajax.php:944
-#: core/class-wcfm-ajax.php:1032 core/class-wcfm-ajax.php:1061
-#: core/class-wcfm-ajax.php:1090 core/class-wcfm-ajax.php:1117
-#: core/class-wcfm-ajax.php:1146 core/class-wcfm-ajax.php:1175
-#: core/class-wcfm-ajax.php:1204 core/class-wcfm-ajax.php:1235
-#: core/class-wcfm-ajax.php:1259 core/class-wcfm-ajax.php:1278
-#: core/class-wcfm-ajax.php:1297 core/class-wcfm-ajax.php:1358
-#: core/class-wcfm-ajax.php:1413 core/class-wcfm-ajax.php:1486
-#: core/class-wcfm-ajax.php:1552 core/class-wcfm-ajax.php:1577
-#: core/class-wcfm-ajax.php:1641 core/class-wcfm-ajax.php:1720
-#: core/class-wcfm-ajax.php:1807 core/class-wcfm-ajax.php:1838
-#: core/class-wcfm-ajax.php:1858 core/class-wcfm-ajax.php:1873
-#: core/class-wcfm-ajax.php:1949 core/class-wcfm-article.php:227
-#: core/class-wcfm-article.php:307 core/class-wcfm-customer.php:298
-#: core/class-wcfm-customer.php:402 core/class-wcfm-customer.php:447
-#: core/class-wcfm-enquiry.php:316 core/class-wcfm-enquiry.php:452
-#: core/class-wcfm-enquiry.php:486 core/class-wcfm-enquiry.php:521
-#: core/class-wcfm-enquiry.php:759 core/class-wcfm-integrations.php:2342
+#: core/class-wcfm-ajax.php:130 core/class-wcfm-ajax.php:524
+#: core/class-wcfm-ajax.php:600 core/class-wcfm-ajax.php:789
+#: core/class-wcfm-ajax.php:832 core/class-wcfm-ajax.php:869
+#: core/class-wcfm-ajax.php:907 core/class-wcfm-ajax.php:952
+#: core/class-wcfm-ajax.php:991 core/class-wcfm-ajax.php:1064
+#: core/class-wcfm-ajax.php:1152 core/class-wcfm-ajax.php:1181
+#: core/class-wcfm-ajax.php:1210 core/class-wcfm-ajax.php:1237
+#: core/class-wcfm-ajax.php:1266 core/class-wcfm-ajax.php:1295
+#: core/class-wcfm-ajax.php:1324 core/class-wcfm-ajax.php:1355
+#: core/class-wcfm-ajax.php:1379 core/class-wcfm-ajax.php:1398
+#: core/class-wcfm-ajax.php:1417 core/class-wcfm-ajax.php:1478
+#: core/class-wcfm-ajax.php:1533 core/class-wcfm-ajax.php:1606
+#: core/class-wcfm-ajax.php:1672 core/class-wcfm-ajax.php:1697
+#: core/class-wcfm-ajax.php:1761 core/class-wcfm-ajax.php:1840
+#: core/class-wcfm-ajax.php:1927 core/class-wcfm-ajax.php:1958
+#: core/class-wcfm-ajax.php:1978 core/class-wcfm-ajax.php:1993
+#: core/class-wcfm-ajax.php:2069 core/class-wcfm-article.php:221
+#: core/class-wcfm-article.php:301 core/class-wcfm-customer.php:292
+#: core/class-wcfm-customer.php:396 core/class-wcfm-customer.php:441
+#: core/class-wcfm-enquiry.php:307 core/class-wcfm-enquiry.php:450
+#: core/class-wcfm-enquiry.php:484 core/class-wcfm-enquiry.php:519
+#: core/class-wcfm-enquiry.php:757 core/class-wcfm-integrations.php:2334
 #: core/class-wcfm-notification.php:408 core/class-wcfm-notification.php:954
 #: core/class-wcfm-notification.php:1021 core/class-wcfm-notification.php:1065
 #: core/class-wcfm-notification.php:1116 core/class-wcfm-notification.php:1191
-#: core/class-wcfm-wcbookings.php:314 core/class-wcfm-wcmarketplace.php:915
-#: core/class-wcfm-wcmarketplace.php:944 core/class-wcfm-withdrawal.php:454
+#: core/class-wcfm-wcbookings.php:308 core/class-wcfm-wcmarketplace.php:915
+#: core/class-wcfm-wcmarketplace.php:944 core/class-wcfm-withdrawal.php:448
 msgid "Invalid nonce! Refresh your page and try again."
 msgstr ""
 
@@ -388,11 +388,16 @@ msgstr "Gestionare Client"
 msgid "Edit Customer"
 msgstr "Editeaza Client"
 
-#: controllers/enquiry/wcfm-controller-enquiry-form.php:46
+#: controllers/enquiry/wcfm-controller-enquiry-form.php:25
+#: helpers/wcfm-core-functions.php:1427
+msgid "Please login to the site first!"
+msgstr "Va rugam sa va autentificati pe site!"
+
+#: controllers/enquiry/wcfm-controller-enquiry-form.php:52
 msgid "Captcha failed, please try again."
 msgstr "Captcha nu a reusit, incercati din nou."
 
-#: controllers/enquiry/wcfm-controller-enquiry-form.php:169
+#: controllers/enquiry/wcfm-controller-enquiry-form.php:185
 #: views/enquiry/wcfm-view-enquiry-manage.php:158
 #: views/enquiry/wcfm-view-enquiry.php:103
 #: views/enquiry/wcfm-view-enquiry.php:118
@@ -405,8 +410,8 @@ msgstr "Captcha nu a reusit, incercati din nou."
 msgid "Additional Info"
 msgstr "Info Aditional"
 
-#: controllers/enquiry/wcfm-controller-enquiry-form.php:172
-#: controllers/enquiry/wcfm-controller-enquiry-form.php:174
+#: controllers/enquiry/wcfm-controller-enquiry-form.php:188
+#: controllers/enquiry/wcfm-controller-enquiry-form.php:190
 #: controllers/enquiry/wcfm-controller-enquiry-manage.php:168
 #: controllers/enquiry/wcfm-controller-enquiry-manage.php:170
 #: controllers/enquiry/wcfm-controller-enquiry-manage.php:176
@@ -415,11 +420,11 @@ msgstr "Info Aditional"
 #: controllers/messages/wcfm-controller-messages.php:173
 #: controllers/messages/wcfm-controller-messages.php:197
 #: core/class-wcfm-policy.php:76 core/class-wcfm-policy.php:80
-#: core/class-wcfm-vendor-support.php:207
-#: core/class-wcfm-vendor-support.php:324
-#: core/class-wcfm-vendor-support.php:326
-#: core/class-wcfm-vendor-support.php:475
-#: core/class-wcfm-vendor-support.php:484 helpers/wcfm-core-functions.php:1413
+#: core/class-wcfm-vendor-support.php:201
+#: core/class-wcfm-vendor-support.php:318
+#: core/class-wcfm-vendor-support.php:320
+#: core/class-wcfm-vendor-support.php:469
+#: core/class-wcfm-vendor-support.php:478 helpers/wcfm-core-functions.php:1413
 #: includes/emails/class-wcfm-email-new-enquiry.php:97
 #: includes/emails/class-wcfm-email-new-enquiry.php:99
 #: includes/emails/class-wcfm-email-new-enquiry.php:105
@@ -477,8 +482,10 @@ msgstr "Info Aditional"
 msgid "Store"
 msgstr "Magazin"
 
-#: controllers/enquiry/wcfm-controller-enquiry-form.php:241
-#: controllers/enquiry/wcfm-controller-enquiry-form.php:276
+#. translators: 1: inquiry number linked to the inquiry, 2: store or product
+#. name
+#: controllers/enquiry/wcfm-controller-enquiry-form.php:258
+#: controllers/enquiry/wcfm-controller-enquiry-form.php:294
 #, fuzzy
 msgid "New Inquiry <b>%1$s</b> received for <b>%2$s</b>"
 msgstr "Cerere noua %s primita pentru %s"
@@ -486,57 +493,58 @@ msgstr "Cerere noua %s primita pentru %s"
 #: controllers/enquiry/wcfm-controller-enquiry-manage.php:52
 #: controllers/withdrawal/wcfm/wcfm-controller-withdrawal-request.php:45
 #: core/class-wcfm-ajax.php:143 core/class-wcfm-ajax.php:153
-#: core/class-wcfm-ajax.php:181 core/class-wcfm-ajax.php:191
-#: core/class-wcfm-ajax.php:201 core/class-wcfm-ajax.php:240
-#: core/class-wcfm-ajax.php:252 core/class-wcfm-ajax.php:262
-#: core/class-wcfm-ajax.php:272 core/class-wcfm-ajax.php:282
-#: core/class-wcfm-ajax.php:292 core/class-wcfm-ajax.php:311
-#: core/class-wcfm-ajax.php:321 core/class-wcfm-ajax.php:331
-#: core/class-wcfm-ajax.php:341 core/class-wcfm-ajax.php:351
-#: core/class-wcfm-ajax.php:361 core/class-wcfm-ajax.php:371
-#: core/class-wcfm-ajax.php:381 core/class-wcfm-ajax.php:396
-#: core/class-wcfm-ajax.php:411 core/class-wcfm-ajax.php:421
-#: core/class-wcfm-ajax.php:431 core/class-wcfm-ajax.php:441
-#: core/class-wcfm-ajax.php:451 core/class-wcfm-ajax.php:461
-#: core/class-wcfm-ajax.php:471 core/class-wcfm-ajax.php:481
-#: core/class-wcfm-ajax.php:507 core/class-wcfm-ajax.php:583
-#: core/class-wcfm-ajax.php:674 core/class-wcfm-ajax.php:686
-#: core/class-wcfm-ajax.php:717 core/class-wcfm-ajax.php:754
-#: core/class-wcfm-ajax.php:792 core/class-wcfm-ajax.php:802
-#: core/class-wcfm-ajax.php:837 core/class-wcfm-ajax.php:847
-#: core/class-wcfm-ajax.php:876 core/class-wcfm-ajax.php:949
-#: core/class-wcfm-ajax.php:1037 core/class-wcfm-ajax.php:1066
-#: core/class-wcfm-ajax.php:1095 core/class-wcfm-ajax.php:1122
-#: core/class-wcfm-ajax.php:1151 core/class-wcfm-ajax.php:1180
-#: core/class-wcfm-ajax.php:1208 core/class-wcfm-ajax.php:1240
-#: core/class-wcfm-ajax.php:1302 core/class-wcfm-ajax.php:1363
-#: core/class-wcfm-ajax.php:1418 core/class-wcfm-ajax.php:1491
-#: core/class-wcfm-ajax.php:1557 core/class-wcfm-ajax.php:1582
-#: core/class-wcfm-ajax.php:1646 core/class-wcfm-ajax.php:1725
-#: core/class-wcfm-ajax.php:1812 core/class-wcfm-ajax.php:1843
-#: core/class-wcfm-article.php:240 core/class-wcfm-article.php:250
-#: core/class-wcfm-article.php:254 core/class-wcfm-article.php:273
-#: core/class-wcfm-article.php:279 core/class-wcfm-article.php:311
-#: core/class-wcfm-article.php:326 core/class-wcfm-customer.php:311
-#: core/class-wcfm-customer.php:321 core/class-wcfm-customer.php:336
-#: core/class-wcfm-customer.php:346 core/class-wcfm-customer.php:356
-#: core/class-wcfm-customer.php:407 core/class-wcfm-customer.php:424
-#: core/class-wcfm-customer.php:452 core/class-wcfm-enquiry.php:329
-#: core/class-wcfm-enquiry.php:344 core/class-wcfm-enquiry.php:372
-#: core/class-wcfm-enquiry.php:457 core/class-wcfm-enquiry.php:467
-#: core/class-wcfm-enquiry.php:491 core/class-wcfm-enquiry.php:501
-#: core/class-wcfm-enquiry.php:525 core/class-wcfm-enquiry.php:541
-#: core/class-wcfm-integrations.php:2347 core/class-wcfm-notification.php:1026
+#: core/class-wcfm-ajax.php:197 core/class-wcfm-ajax.php:207
+#: core/class-wcfm-ajax.php:217 core/class-wcfm-ajax.php:256
+#: core/class-wcfm-ajax.php:268 core/class-wcfm-ajax.php:278
+#: core/class-wcfm-ajax.php:288 core/class-wcfm-ajax.php:298
+#: core/class-wcfm-ajax.php:308 core/class-wcfm-ajax.php:327
+#: core/class-wcfm-ajax.php:337 core/class-wcfm-ajax.php:343
+#: core/class-wcfm-ajax.php:353 core/class-wcfm-ajax.php:363
+#: core/class-wcfm-ajax.php:373 core/class-wcfm-ajax.php:383
+#: core/class-wcfm-ajax.php:393 core/class-wcfm-ajax.php:403
+#: core/class-wcfm-ajax.php:418 core/class-wcfm-ajax.php:433
+#: core/class-wcfm-ajax.php:443 core/class-wcfm-ajax.php:453
+#: core/class-wcfm-ajax.php:463 core/class-wcfm-ajax.php:473
+#: core/class-wcfm-ajax.php:483 core/class-wcfm-ajax.php:493
+#: core/class-wcfm-ajax.php:503 core/class-wcfm-ajax.php:529
+#: core/class-wcfm-ajax.php:605 core/class-wcfm-ajax.php:695
+#: core/class-wcfm-ajax.php:794 core/class-wcfm-ajax.php:806
+#: core/class-wcfm-ajax.php:837 core/class-wcfm-ajax.php:874
+#: core/class-wcfm-ajax.php:912 core/class-wcfm-ajax.php:922
+#: core/class-wcfm-ajax.php:957 core/class-wcfm-ajax.php:967
+#: core/class-wcfm-ajax.php:996 core/class-wcfm-ajax.php:1069
+#: core/class-wcfm-ajax.php:1157 core/class-wcfm-ajax.php:1186
+#: core/class-wcfm-ajax.php:1215 core/class-wcfm-ajax.php:1242
+#: core/class-wcfm-ajax.php:1271 core/class-wcfm-ajax.php:1300
+#: core/class-wcfm-ajax.php:1328 core/class-wcfm-ajax.php:1360
+#: core/class-wcfm-ajax.php:1422 core/class-wcfm-ajax.php:1483
+#: core/class-wcfm-ajax.php:1538 core/class-wcfm-ajax.php:1611
+#: core/class-wcfm-ajax.php:1677 core/class-wcfm-ajax.php:1702
+#: core/class-wcfm-ajax.php:1766 core/class-wcfm-ajax.php:1845
+#: core/class-wcfm-ajax.php:1932 core/class-wcfm-ajax.php:1963
+#: core/class-wcfm-article.php:234 core/class-wcfm-article.php:244
+#: core/class-wcfm-article.php:248 core/class-wcfm-article.php:267
+#: core/class-wcfm-article.php:273 core/class-wcfm-article.php:305
+#: core/class-wcfm-article.php:320 core/class-wcfm-customer.php:305
+#: core/class-wcfm-customer.php:315 core/class-wcfm-customer.php:330
+#: core/class-wcfm-customer.php:340 core/class-wcfm-customer.php:350
+#: core/class-wcfm-customer.php:401 core/class-wcfm-customer.php:418
+#: core/class-wcfm-customer.php:446 core/class-wcfm-enquiry.php:320
+#: core/class-wcfm-enquiry.php:335 core/class-wcfm-enquiry.php:363
+#: core/class-wcfm-enquiry.php:455 core/class-wcfm-enquiry.php:465
+#: core/class-wcfm-enquiry.php:489 core/class-wcfm-enquiry.php:499
+#: core/class-wcfm-enquiry.php:523 core/class-wcfm-enquiry.php:539
+#: core/class-wcfm-integrations.php:2339 core/class-wcfm-notification.php:1026
 #: core/class-wcfm-notification.php:1070 core/class-wcfm-notification.php:1121
 #: core/class-wcfm-notification.php:1126 core/class-wcfm-notification.php:1133
 #: core/class-wcfm-notification.php:1145 core/class-wcfm-notification.php:1163
-#: core/class-wcfm-notification.php:1196 core/class-wcfm-wcbookings.php:327
-#: core/class-wcfm-wcbookings.php:342 core/class-wcfm-wcmarketplace.php:920
-#: core/class-wcfm-wcmarketplace.php:949 core/class-wcfm-withdrawal.php:466
-#: core/class-wcfm-withdrawal.php:484 core/class-wcfm-withdrawal.php:502
-#: core/class-wcfm-withdrawal.php:520 core/class-wcfm-withdrawal.php:538
-#: core/class-wcfm-withdrawal.php:550 core/class-wcfm-withdrawal.php:568
-#: core/class-wcfm-withdrawal.php:586 core/class-wcfm-withdrawal.php:598
+#: core/class-wcfm-notification.php:1196 core/class-wcfm-wcbookings.php:321
+#: core/class-wcfm-wcbookings.php:336 core/class-wcfm-wcmarketplace.php:920
+#: core/class-wcfm-wcmarketplace.php:949 core/class-wcfm-withdrawal.php:460
+#: core/class-wcfm-withdrawal.php:478 core/class-wcfm-withdrawal.php:496
+#: core/class-wcfm-withdrawal.php:514 core/class-wcfm-withdrawal.php:532
+#: core/class-wcfm-withdrawal.php:544 core/class-wcfm-withdrawal.php:562
+#: core/class-wcfm-withdrawal.php:580 core/class-wcfm-withdrawal.php:592
 msgid "You don&#8217;t have permission to do this."
 msgstr ""
 
@@ -546,7 +554,7 @@ msgstr "Raspunde la Intrebarea ta"
 
 #: controllers/enquiry/wcfm-controller-enquiry-manage.php:198
 #: controllers/enquiry/wcfm-controller-enquiry-manage.php:428
-#: core/class-wcfm-ajax.php:1608 core/class-wcfm-notification.php:842
+#: core/class-wcfm-ajax.php:1728 core/class-wcfm-notification.php:842
 #: core/class-wcfm-notification.php:853 views/emails/plain/new-enquiry.php:19
 msgid "Hi"
 msgstr "Hi"
@@ -565,7 +573,7 @@ msgstr "Vezi mai multe detalii %saici%s."
 #: controllers/enquiry/wcfm-controller-enquiry-manage.php:209
 #: controllers/enquiry/wcfm-controller-enquiry-manage.php:435
 #: controllers/vendors/wcfm-controller-vendors-new.php:251
-#: core/class-wcfm-ajax.php:1611 core/class-wcfm-notification.php:849
+#: core/class-wcfm-ajax.php:1731 core/class-wcfm-notification.php:849
 #: core/class-wcfm-notification.php:858 views/emails/new-enquiry.php:44
 #: views/emails/plain/new-enquiry.php:27
 msgid "Thank You"
@@ -582,9 +590,9 @@ msgstr "Mesaj nou trimis pentru cererea %s"
 
 #: controllers/enquiry/wcfm-controller-enquiry-manage.php:427
 #: controllers/enquiry/wcfm-controller-enquiry-manage.php:434
-#: core/class-wcfm-enquiry.php:427 core/class-wcfm-enquiry.php:662
-#: core/class-wcfm-enquiry.php:666 core/class-wcfm-enquiry.php:686
-#: core/class-wcfm-enquiry.php:690 helpers/class-wcfm-install.php:402
+#: core/class-wcfm-enquiry.php:425 core/class-wcfm-enquiry.php:660
+#: core/class-wcfm-enquiry.php:664 core/class-wcfm-enquiry.php:684
+#: core/class-wcfm-enquiry.php:688 helpers/class-wcfm-install.php:399
 #: views/enquiry/wcfm-view-my-account-enquiry-manage.php:68
 msgid "Inquiry"
 msgstr "Intrebare"
@@ -736,7 +744,7 @@ msgid "You"
 msgstr "Tu"
 
 #: controllers/messages/wcfm-controller-messages.php:195
-#: core/class-wcfm-vendor-support.php:1185
+#: core/class-wcfm-vendor-support.php:1180
 #: views/articles/wcfm-view-articles.php:13
 #: views/listings/wcfm-view-listings.php:39
 #: views/messages/wcfm-view-messages.php:61
@@ -958,13 +966,13 @@ msgid "Resume Package"
 msgstr "Reluati Pachetul"
 
 #: controllers/products/wcfm-controller-products.php:389
-#: core/class-wcfm-integrations.php:326 core/class-wcfm-integrations.php:371
-#: core/class-wcfm-integrations.php:675
+#: core/class-wcfm-integrations.php:318 core/class-wcfm-integrations.php:363
+#: core/class-wcfm-integrations.php:667
 msgid "Auction"
 msgstr "Actiune"
 
 #: controllers/products/wcfm-controller-products.php:391
-#: core/class-wcfm-integrations.php:357 core/class-wcfm-integrations.php:560
+#: core/class-wcfm-integrations.php:349 core/class-wcfm-integrations.php:552
 msgid "Rental"
 msgstr "Inchiriere"
 
@@ -1029,11 +1037,11 @@ msgid "Archive Product"
 msgstr ""
 
 #. translators: %s: attachment id
-#: controllers/products-manager/wcfm-controller-products-manage.php:467
+#: controllers/products-manager/wcfm-controller-products-manage.php:455
 msgid "#%s is an invalid image ID."
 msgstr ""
 
-#: controllers/products-manager/wcfm-controller-products-manage.php:567
+#: controllers/products-manager/wcfm-controller-products-manage.php:555
 #, fuzzy
 msgid "Variation #%1$s of %2$s"
 msgstr "Variatii"
@@ -1049,7 +1057,7 @@ msgstr "Profil salvat cu succes"
 
 #: controllers/settings/wcfm-controller-dokan-settings.php:106
 #: controllers/settings/wcfm-controller-settings.php:326
-#: controllers/settings/wcfm-controller-wcfmmarketplace-settings.php:262
+#: controllers/settings/wcfm-controller-wcfmmarketplace-settings.php:280
 #: controllers/settings/wcfm-controller-wcmarketplace-settings.php:319
 #: controllers/settings/wcfm-controller-wcpvendors-settings.php:85
 #: controllers/settings/wcfm-controller-wcvendors-settings.php:123
@@ -1057,7 +1065,7 @@ msgid "Settings saved successfully"
 msgstr "Setari salvate cu succes"
 
 #: controllers/settings/wcfm-controller-settings.php:260
-#: core/class-wcfm-enquiry.php:624
+#: core/class-wcfm-enquiry.php:622
 #: includes/shortcodes/class-wcfm-shortcode-enquiry.php:34
 #: views/enquiry/wcfm-view-enquiry-form.php:35
 #: views/enquiry/wcfm-view-enquiry-tab.php:26
@@ -1065,8 +1073,8 @@ msgstr "Setari salvate cu succes"
 msgid "Ask a Question"
 msgstr "Pune o Intrebare"
 
-#: controllers/settings/wcfm-controller-wcfmmarketplace-settings.php:143
-#: controllers/settings/wcfm-controller-wcfmmarketplace-settings.php:147
+#: controllers/settings/wcfm-controller-wcfmmarketplace-settings.php:161
+#: controllers/settings/wcfm-controller-wcfmmarketplace-settings.php:165
 #: controllers/settings/wcfm-controller-wcmarketplace-settings.php:103
 #: controllers/vendors/wcfm-controller-vendors-new.php:71
 #: controllers/vendors/wcfm-controller-vendors-new.php:74
@@ -1097,7 +1105,7 @@ msgid "Store Name"
 msgstr "Nume magazin"
 
 #: controllers/vendors/wcfm-controller-vendors-new.php:245
-#: helpers/class-wcfm-install.php:109
+#: helpers/class-wcfm-install.php:106
 msgid "Store Manager"
 msgstr "Manager magazin"
 
@@ -1122,8 +1130,8 @@ msgstr "Un nou furnizor <b>%s</b> a fost adaugat."
 msgid "Store Off-line"
 msgstr ""
 
-#: controllers/vendors/wcfm-controller-vendors.php:101 core/class-wcfm.php:544
-#: core/class-wcfm.php:600
+#: controllers/vendors/wcfm-controller-vendors.php:101 core/class-wcfm.php:542
+#: core/class-wcfm.php:617
 msgid "Disable Vendor"
 msgstr "Dezactiveaza Furnizor"
 
@@ -1163,7 +1171,7 @@ msgstr "Nu Expira Niciodata"
 msgid "Details"
 msgstr "Detalii"
 
-#: controllers/vendors/wcfm-controller-vendors.php:252 core/class-wcfm.php:739
+#: controllers/vendors/wcfm-controller-vendors.php:252 core/class-wcfm.php:759
 #: views/capability/wcfm-view-capability.php:1577
 #: views/customers/wcfm-view-customers-details.php:320
 #: views/customers/wcfm-view-customers.php:88
@@ -1335,7 +1343,7 @@ msgstr "Procesarea retragerii"
 
 #: controllers/withdrawal/wcfm/wcfm-controller-payments.php:143
 #: controllers/withdrawal/wcfm/wcfm-controller-withdrawal-requests.php:154
-#: helpers/class-wcfm-install.php:404
+#: helpers/class-wcfm-install.php:401
 #: views/orders/wcfm-view-orders-details.php:440
 #: views/withdrawal/wcfm/wcfm-view-transaction-details.php:135
 msgid "Invoice"
@@ -1619,121 +1627,130 @@ msgstr "Setari Inregistrare"
 msgid "WCfM Refund Request Form"
 msgstr "Cereri de Rembursare"
 
-#: core/class-wcfm-ajax.php:538
+#: core/class-wcfm-ajax.php:560
 #, fuzzy
 msgid "A new %1$s <b>%2$s</b> added to the store by <b>%3$s</b>"
 msgstr "Un nou %s <b>%s</b> a fost adaugat in magazin de <b>%s</b>"
 
-#: core/class-wcfm-ajax.php:681
+#: core/class-wcfm-ajax.php:696 core/class-wcfm-ajax.php:801
 msgid "Invalid Product."
 msgstr ""
 
-#: core/class-wcfm-ajax.php:701
+#: core/class-wcfm-ajax.php:723
+#, fuzzy
+msgid "Product Limit Reached"
+msgstr "Limita Produse:"
+
+#: core/class-wcfm-ajax.php:726 core/class-wcfm-article.php:283
+msgid "Space Limit Reached"
+msgstr ""
+
+#: core/class-wcfm-ajax.php:821
 msgid "Delete failed."
 msgstr ""
 
-#: core/class-wcfm-ajax.php:885 core/class-wcfm-ajax.php:956
+#: core/class-wcfm-ajax.php:1005 core/class-wcfm-ajax.php:1076
 msgid "Invalid Order"
 msgstr ""
 
-#: core/class-wcfm-ajax.php:900 core/class-wcfm-ajax.php:995
+#: core/class-wcfm-ajax.php:1020 core/class-wcfm-ajax.php:1115
 #, fuzzy
 msgid "<b>%1$s</b> order status updated to <b>%2$s</b> by <b>%3$s</b>"
 msgstr "<b>%s</b> status comanda actualziat catre <b>%s</b> by <b>%s</b>"
 
-#: core/class-wcfm-ajax.php:962
+#: core/class-wcfm-ajax.php:1082
 msgid "Invalid Order Status"
 msgstr ""
 
-#: core/class-wcfm-ajax.php:968 core/class-wcfm-ajax.php:1018
-#: core/class-wcfm-ajax.php:1021
+#: core/class-wcfm-ajax.php:1088 core/class-wcfm-ajax.php:1138
+#: core/class-wcfm-ajax.php:1141
 msgid "Order status updated."
 msgstr "Status comanda actualizat."
 
-#: core/class-wcfm-ajax.php:977
+#: core/class-wcfm-ajax.php:1097
 msgid "Unknown"
 msgstr ""
 
-#: core/class-wcfm-ajax.php:981
+#: core/class-wcfm-ajax.php:1101
 #, fuzzy
 msgid "Order status updated to <b>%1$s</b> by <b>%2$s</b>"
 msgstr "<b>%s</b> status comanda actualziat catre <b>%s</b> by <b>%s</b>"
 
-#: core/class-wcfm-ajax.php:1607
+#: core/class-wcfm-ajax.php:1727
 msgid "Email Verification Code"
 msgstr "Codul de verificare email"
 
-#: core/class-wcfm-ajax.php:1610
+#: core/class-wcfm-ajax.php:1730
 msgid "Here is your email verification code - <b>%s</b>"
 msgstr "Aici este codul tau de verificare email - <b>%s</b>"
 
-#: core/class-wcfm-ajax.php:1618
+#: core/class-wcfm-ajax.php:1738
 #, fuzzy
 msgid "Email Verification"
 msgstr "Codul de verificare email"
 
-#: core/class-wcfm-ajax.php:1627
+#: core/class-wcfm-ajax.php:1747
 msgid "Email verification code send to your email."
 msgstr "Codul de verificare email a fost trimis catre emailul dumneavoastra."
 
-#: core/class-wcfm-ajax.php:1629
+#: core/class-wcfm-ajax.php:1749
 msgid "Email verification not working right now, please try after sometime."
 msgstr "Verificarea de email nu funcioneaza momentan, incercati mai tarziu."
 
-#: core/class-wcfm-ajax.php:1668
+#: core/class-wcfm-ajax.php:1788
 #, fuzzy
 msgid "<b>%1$s</b> (Store: <b>%2$s</b>) has been disabled."
 msgstr "<b>%s</b> (Magazin: <b>%s</b>) a fost dezactivat."
 
-#: core/class-wcfm-ajax.php:1687
+#: core/class-wcfm-ajax.php:1807
 msgid "Your Store: <b>%s</b> has been disabled."
 msgstr "Magazinul tau: <b>%s</b> a fost dezactivat."
 
-#: core/class-wcfm-ajax.php:1706
+#: core/class-wcfm-ajax.php:1826
 msgid "Vendor successfully disabled."
 msgstr "Invalidare furnizor cu succes."
 
-#: core/class-wcfm-ajax.php:1709
+#: core/class-wcfm-ajax.php:1829
 msgid "Vendor can not be disabled right now, please try after sometime."
 msgstr ""
 "Furnizorul nu poate fi dezactivat chiar acum, vă rugăm să încercați după o "
 "dată."
 
-#: core/class-wcfm-ajax.php:1755
+#: core/class-wcfm-ajax.php:1875
 #, fuzzy
 msgid "<b>%1$s</b> (Store: <b>%2$s</b>) has been enabled."
 msgstr "<b>%s</b> (Magazin: <b>%s</b>) a fost activat."
 
-#: core/class-wcfm-ajax.php:1774
+#: core/class-wcfm-ajax.php:1894
 msgid "Your Store: <b>%s</b> has been enabled."
 msgstr "Magazinul tau: <b>%s</b> a fost activat."
 
-#: core/class-wcfm-ajax.php:1793
+#: core/class-wcfm-ajax.php:1913
 msgid "Vendor successfully enabled."
 msgstr "Furnizor autorizat cu succes."
 
-#: core/class-wcfm-ajax.php:1796
+#: core/class-wcfm-ajax.php:1916
 msgid "Vendor can not be enabled right now, please try after sometime."
 msgstr "Furnizorul nu poate fi activat chiar acum, încercați mai tarziu."
 
-#: core/class-wcfm-ajax.php:1881 core/class-wcfm-library.php:1227
+#: core/class-wcfm-ajax.php:2001 core/class-wcfm-library.php:1227
 msgid "Please insert username before submit."
 msgstr "Inserati username inainte de a continua."
 
-#: core/class-wcfm-ajax.php:1886 core/class-wcfm-library.php:1228
+#: core/class-wcfm-ajax.php:2006 core/class-wcfm-library.php:1228
 msgid "Please insert password before submit."
 msgstr "Inserati parola inainte de a continua."
 
-#: core/class-wcfm-ajax.php:1899 core/class-wcfm-ajax.php:1919
+#: core/class-wcfm-ajax.php:2019 core/class-wcfm-ajax.php:2039
 msgid "Please insert a valid username / e-mail address."
 msgstr ""
 
-#: core/class-wcfm-ajax.php:1910 core/class-wcfm-ajax.php:1915
-#: core/class-wcfm-ajax.php:1930 core/class-wcfm-ajax.php:1935
+#: core/class-wcfm-ajax.php:2030 core/class-wcfm-ajax.php:2035
+#: core/class-wcfm-ajax.php:2050 core/class-wcfm-ajax.php:2055
 msgid "Please try again!"
 msgstr "Va rugam incercati din nou!"
 
-#: core/class-wcfm-ajax.php:1912 core/class-wcfm-ajax.php:1932
+#: core/class-wcfm-ajax.php:2032 core/class-wcfm-ajax.php:2052
 msgid "Login successfully ..."
 msgstr "Connectat cu succes ..."
 
@@ -1745,29 +1762,25 @@ msgstr "Dashboard Articole"
 msgid "Articles Manager"
 msgstr "Managr articole"
 
-#: core/class-wcfm-article.php:121 views/articles/wcfm-view-articles.php:38
+#: core/class-wcfm-article.php:115 views/articles/wcfm-view-articles.php:38
 #: views/capability/wcfm-view-capability.php:1246
 msgid "Articles"
 msgstr "Articole"
 
-#: core/class-wcfm-article.php:269 core/class-wcfm-article.php:316
-#: core/class-wcfm-article.php:321
+#: core/class-wcfm-article.php:263 core/class-wcfm-article.php:310
+#: core/class-wcfm-article.php:315
 msgid "Invalid Article."
 msgstr ""
 
-#: core/class-wcfm-article.php:283
+#: core/class-wcfm-article.php:277
 msgid "You don&#8217;t have permission to add article."
 msgstr ""
 
-#: core/class-wcfm-article.php:286
+#: core/class-wcfm-article.php:280
 msgid "Article Limit Reached"
 msgstr ""
 
-#: core/class-wcfm-article.php:289
-msgid "Space Limit Reached"
-msgstr ""
-
-#: core/class-wcfm-article.php:337
+#: core/class-wcfm-article.php:331
 msgid "Deletion failed."
 msgstr ""
 
@@ -1784,7 +1797,7 @@ msgid "remaining"
 msgstr "ramase"
 
 #: core/class-wcfm-capability.php:412 core/class-wcfm-capability.php:757
-#: core/class-wcfm-capability.php:1282 core/class-wcfm-integrations.php:499
+#: core/class-wcfm-capability.php:1282 core/class-wcfm-integrations.php:491
 #: views/capability/wcfm-view-capability.php:1819
 #: views/products-manager/wcfm-view-products-manage-tabs.php:159
 msgid "Unlimited"
@@ -1802,7 +1815,7 @@ msgstr "Limita clineti:"
 msgid "Catalog"
 msgstr "Catalog"
 
-#: core/class-wcfm-catalog.php:83 core/class-wcfm.php:868
+#: core/class-wcfm-catalog.php:83 core/class-wcfm.php:888
 msgid "Catalog Mode"
 msgstr "Mod Catalog"
 
@@ -1826,20 +1839,20 @@ msgstr "Manager clienti"
 msgid "Customers Details"
 msgstr "Detalii clienti"
 
-#: core/class-wcfm-customer.php:144
+#: core/class-wcfm-customer.php:138
 #: views/capability/wcfm-view-capability.php:1714
 #: views/customers/wcfm-view-customers.php:25
 msgid "Customers"
 msgstr "Clienti"
 
-#: core/class-wcfm-customer.php:223 core/class-wcfm-library.php:419
+#: core/class-wcfm-customer.php:217 core/class-wcfm-library.php:419
 #: core/class-wcfm-library.php:580 core/class-wcfm-library.php:715
 #: core/class-wcfm-library.php:785 helpers/class-wcfm-setup-bak.php:161
 #: helpers/class-wcfm-setup.php:175
 msgid "Clear"
 msgstr ""
 
-#: core/class-wcfm-customer.php:224 core/class-wcfm-library.php:420
+#: core/class-wcfm-customer.php:218 core/class-wcfm-library.php:420
 #: core/class-wcfm-library.php:581 core/class-wcfm-library.php:716
 #: core/class-wcfm-library.php:786 helpers/class-wcfm-setup-bak.php:162
 #: helpers/class-wcfm-setup.php:176
@@ -1848,7 +1861,7 @@ msgstr ""
 msgid "Default"
 msgstr "Site Default"
 
-#: core/class-wcfm-customer.php:225 core/class-wcfm-library.php:421
+#: core/class-wcfm-customer.php:219 core/class-wcfm-library.php:421
 #: core/class-wcfm-library.php:582 core/class-wcfm-library.php:717
 #: core/class-wcfm-library.php:787 helpers/class-wcfm-setup-bak.php:163
 #: helpers/class-wcfm-setup.php:177
@@ -1856,11 +1869,11 @@ msgstr "Site Default"
 msgid "Select Color"
 msgstr "Selecteaza tot"
 
-#: core/class-wcfm-customer.php:413 core/class-wcfm-customer.php:418
+#: core/class-wcfm-customer.php:407 core/class-wcfm-customer.php:412
 msgid "Invalid customer."
 msgstr ""
 
-#: core/class-wcfm-customer.php:435
+#: core/class-wcfm-customer.php:429
 msgid "New Customer"
 msgstr "Client Nou"
 
@@ -1930,7 +1943,7 @@ msgstr ""
 "pluginurile Third Party."
 
 #: core/class-wcfm-customfield-support.php:84
-#: core/class-wcfm-integrations.php:1271 core/class-wcfm-integrations.php:1347
+#: core/class-wcfm-integrations.php:1263 core/class-wcfm-integrations.php:1339
 #: helpers/class-wcfm-setup.php:1150
 #: views/products-manager/wcfm-view-products-manage-tabs.php:536
 #: views/settings/wcfm-view-settings.php:698
@@ -2048,11 +2061,11 @@ msgstr "Necesar?"
 msgid "My Store"
 msgstr "Magazinul meu"
 
-#: core/class-wcfm-dokan.php:131 core/class-wcfm-vendor-support.php:1438
-#: core/class-wcfm-vendor-support.php:1447
-#: core/class-wcfm-vendor-support.php:1456
-#: core/class-wcfm-vendor-support.php:1468
-#: core/class-wcfm-vendor-support.php:1478
+#: core/class-wcfm-dokan.php:131 core/class-wcfm-vendor-support.php:1433
+#: core/class-wcfm-vendor-support.php:1442
+#: core/class-wcfm-vendor-support.php:1451
+#: core/class-wcfm-vendor-support.php:1463
+#: core/class-wcfm-vendor-support.php:1473
 #: core/class-wcfm-wcfmmarketplace.php:130
 #: core/class-wcfm-wcmarketplace.php:141 core/class-wcfm-wcpvendors.php:127
 #: core/class-wcfm-wcvendors.php:158
@@ -2065,44 +2078,44 @@ msgstr "Magazin"
 msgid "Total Earning"
 msgstr "Total Castig"
 
-#: core/class-wcfm-enquiry.php:142
+#: core/class-wcfm-enquiry.php:139
 msgid "Enquiry Dashboard"
 msgstr "Dashboard Intrebare"
 
-#: core/class-wcfm-enquiry.php:145
+#: core/class-wcfm-enquiry.php:142
 msgid "Enquiry Manager"
 msgstr "Manager Intrebare"
 
-#: core/class-wcfm-enquiry.php:405 core/class-wcfm-enquiry.php:419
-#: core/class-wcfm-enquiry.php:725
+#: core/class-wcfm-enquiry.php:403 core/class-wcfm-enquiry.php:417
+#: core/class-wcfm-enquiry.php:723
 #: views/enquiry/wcfm-view-my-account-enquiry-manage.php:71
 msgid "Inquiries"
 msgstr "Intrebari"
 
-#: core/class-wcfm-enquiry.php:554
+#: core/class-wcfm-enquiry.php:552
 msgid "Unable to delete"
 msgstr ""
 
-#: core/class-wcfm-enquiry.php:563
+#: core/class-wcfm-enquiry.php:561
 msgid "Successfully deleted"
 msgstr ""
 
-#: core/class-wcfm-enquiry.php:575 helpers/wcfm-core-functions.php:1619
+#: core/class-wcfm-enquiry.php:573 helpers/wcfm-core-functions.php:1619
 #: views/enquiry/wcfm-view-enquiry-manage.php:100
 #: views/enquiry/wcfm-view-enquiry-tab.php:56
 #: views/enquiry/wcfm-view-enquiry.php:44
 msgid "Enquiries"
 msgstr "Intrebari"
 
-#: core/class-wcfm-enquiry.php:739 core/class-wcfm-notification.php:385
+#: core/class-wcfm-enquiry.php:737 core/class-wcfm-notification.php:385
 msgid "Show All"
 msgstr "Arata Tot"
 
-#: core/class-wcfm-enquiry.php:742
+#: core/class-wcfm-enquiry.php:740
 msgid "There is no enquiry yet!!"
 msgstr "Nu a fost pusa nicio intrebare inca!"
 
-#: core/class-wcfm-enquiry.php:796
+#: core/class-wcfm-enquiry.php:794
 #: views/enquiry/wcfm-view-enquiry-manage.php:305
 #: views/enquiry/wcfm-view-my-account-enquiry-manage.php:245
 #: views/listings/wcfm-view-applications.php:68
@@ -2110,7 +2123,7 @@ msgstr "Nu a fost pusa nicio intrebare inca!"
 msgid "Attachment(s)"
 msgstr ""
 
-#: core/class-wcfm-enquiry.php:822 helpers/wcfm-core-functions.php:1198
+#: core/class-wcfm-enquiry.php:820 helpers/wcfm-core-functions.php:1198
 msgid "New Enquiry"
 msgstr "Intrebare Noua"
 
@@ -2148,46 +2161,46 @@ msgstr "Vizibil pe pagina de produs"
 msgid "Use as Variation"
 msgstr "Foloseste ca Variatie"
 
-#: core/class-wcfm-integrations.php:214
+#: core/class-wcfm-integrations.php:212
 msgid "Listings Dashboard"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:218
+#: core/class-wcfm-integrations.php:216
 msgid "Applications Dashboard"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:278 core/class-wcfm-integrations.php:417
+#: core/class-wcfm-integrations.php:270 core/class-wcfm-integrations.php:409
 #: helpers/class-wcfm-setup-bak.php:1696 helpers/class-wcfm-setup.php:2009
 #: views/listings/wcfm-view-listings.php:27
 msgid "Listings"
 msgstr "Listari"
 
-#: core/class-wcfm-integrations.php:312 core/class-wcfm-integrations.php:343
+#: core/class-wcfm-integrations.php:304 core/class-wcfm-integrations.php:335
 msgid "Listing Package"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:319
+#: core/class-wcfm-integrations.php:311
 msgid "Rental Product"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:398 core/class-wcfm-integrations.php:414
-#: core/class-wcfm-integrations.php:417
+#: core/class-wcfm-integrations.php:390 core/class-wcfm-integrations.php:406
+#: core/class-wcfm-integrations.php:409
 msgid "Manage Listings"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:404
+#: core/class-wcfm-integrations.php:396
 msgid "Edit Listing"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:406
+#: core/class-wcfm-integrations.php:398
 msgid "Manage Listing"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:408
+#: core/class-wcfm-integrations.php:400
 msgid "Add Listing"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:411
+#: core/class-wcfm-integrations.php:403
 #: views/articles/wcfm-view-articles-manage.php:169
 #: views/articles/wcfm-view-articles.php:69
 #: views/coupons/wcfm-view-coupons-manage.php:113
@@ -2209,12 +2222,12 @@ msgstr ""
 msgid "WP Admin View"
 msgstr "Vizualizare WP Admin"
 
-#: core/class-wcfm-integrations.php:415
+#: core/class-wcfm-integrations.php:407
 #: views/listings/wcfm-view-listings.php:100
 msgid "Add New Listing"
 msgstr "Adauga listare noua"
 
-#: core/class-wcfm-integrations.php:415 core/class-wcfm-non-ajax.php:317
+#: core/class-wcfm-integrations.php:407 core/class-wcfm-non-ajax.php:317
 #: helpers/wcfm-core-functions.php:1392
 #: views/articles/wcfm-view-articles-manage.php:174
 #: views/articles/wcfm-view-articles.php:74
@@ -2235,94 +2248,94 @@ msgstr "Adauga listare noua"
 msgid "Add New"
 msgstr "Adauga Nou"
 
-#: core/class-wcfm-integrations.php:486
+#: core/class-wcfm-integrations.php:478
 #, fuzzy
 msgid "Subscription Type"
 msgstr "Abonament"
 
-#: core/class-wcfm-integrations.php:489
+#: core/class-wcfm-integrations.php:481
 msgid ""
 "Link the subscription to the package (renew listing limit every subscription "
 "term)"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:490
+#: core/class-wcfm-integrations.php:482
 msgid ""
 "Link the subscription to posted listings (renew posted listings every "
 "subscription term)"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:494
+#: core/class-wcfm-integrations.php:486
 msgid "Choose how subscriptions affect this package"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:498
+#: core/class-wcfm-integrations.php:490
 msgid "Job listing limit"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:507
+#: core/class-wcfm-integrations.php:499
 msgid "The number of job listings a user can post with this package."
 msgstr ""
 
-#: core/class-wcfm-integrations.php:511
+#: core/class-wcfm-integrations.php:503
 msgid "Job listing duration"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:520
+#: core/class-wcfm-integrations.php:512
 msgid "The number of days that the job listing will be active."
 msgstr ""
 
-#: core/class-wcfm-integrations.php:524
+#: core/class-wcfm-integrations.php:516
 #, fuzzy
 msgid "Feature Listings?"
 msgstr "Asociaza Listarile"
 
-#: core/class-wcfm-integrations.php:528
+#: core/class-wcfm-integrations.php:520
 msgid "Feature this job listing - it will be styled differently and sticky."
 msgstr ""
 
-#: core/class-wcfm-integrations.php:569
+#: core/class-wcfm-integrations.php:561
 msgid "Set Price Type"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:571
+#: core/class-wcfm-integrations.php:563
 msgid "General Pricing"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:575
+#: core/class-wcfm-integrations.php:567
 msgid "Choose a price type - this controls the schema."
 msgstr ""
 
-#: core/class-wcfm-integrations.php:578
+#: core/class-wcfm-integrations.php:570
 msgid "Hourly Price"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:583
+#: core/class-wcfm-integrations.php:575
 msgid "Hourly price will be applicabe if booking or rental days min 1day"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:584 core/class-wcfm-integrations.php:592
+#: core/class-wcfm-integrations.php:576 core/class-wcfm-integrations.php:584
 msgid "Enter price here"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:587
+#: core/class-wcfm-integrations.php:579
 msgid "General Price"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:601
+#: core/class-wcfm-integrations.php:593
 #: views/products-manager/wcfm-view-wcbookings-products-manage.php:57
 msgid "Availability"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:608
+#: core/class-wcfm-integrations.php:600
 msgid "Product Availabilities"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:612
+#: core/class-wcfm-integrations.php:604
 msgid "Please select the date range to be disabled for the product."
 msgstr ""
 
-#: core/class-wcfm-integrations.php:617 views/coupons/wcfm-view-coupons.php:56
+#: core/class-wcfm-integrations.php:609 views/coupons/wcfm-view-coupons.php:56
 #: views/coupons/wcfm-view-coupons.php:67
 #: views/messages/wcfm-view-messages.php:77
 #: views/messages/wcfm-view-messages.php:90
@@ -2331,11 +2344,11 @@ msgstr ""
 msgid "Type"
 msgstr "Tip"
 
-#: core/class-wcfm-integrations.php:619
+#: core/class-wcfm-integrations.php:611
 msgid "Custom Date"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:624 core/class-wcfm-integrations.php:1281
+#: core/class-wcfm-integrations.php:616 core/class-wcfm-integrations.php:1273
 #: views/messages/wcfm-view-messages.php:79
 #: views/messages/wcfm-view-messages.php:92
 #: views/products-manager/wcfm-view-products-manage-tabs.php:593
@@ -2357,7 +2370,7 @@ msgstr ""
 msgid "From"
 msgstr "Din"
 
-#: core/class-wcfm-integrations.php:630
+#: core/class-wcfm-integrations.php:622
 #: views/messages/wcfm-view-messages.php:80
 #: views/messages/wcfm-view-messages.php:93
 #: views/products-manager/wcfm-view-products-manage-tabs.php:602
@@ -2371,174 +2384,174 @@ msgstr "Din"
 msgid "To"
 msgstr "Catre"
 
-#: core/class-wcfm-integrations.php:636 core/class-wcfm-wcbookings.php:199
+#: core/class-wcfm-integrations.php:628 core/class-wcfm-wcbookings.php:193
 msgid "Bookable"
 msgstr "Rezervabila"
 
-#: core/class-wcfm-integrations.php:638
+#: core/class-wcfm-integrations.php:630
 msgid "NO"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:682
+#: core/class-wcfm-integrations.php:674
 msgid "Auction Date From"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:691
+#: core/class-wcfm-integrations.php:683
 msgid "Auction Date To"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:732
+#: core/class-wcfm-integrations.php:724
 msgid "Has Voucher"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:767
+#: core/class-wcfm-integrations.php:759
 msgid "-- Choose Template --"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:774
+#: core/class-wcfm-integrations.php:766
 msgid "Voucher Template"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:780
+#: core/class-wcfm-integrations.php:772
 msgid "Select a voucher template to make this into a voucher product."
 msgstr ""
 
-#: core/class-wcfm-integrations.php:805 core/class-wcfm-integrations.php:1126
+#: core/class-wcfm-integrations.php:797 core/class-wcfm-integrations.php:1118
 #, fuzzy
 msgid "Service"
 msgstr "Prezentare generala"
 
-#: core/class-wcfm-integrations.php:813
+#: core/class-wcfm-integrations.php:805
 msgid "Diff. Taxation"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:842 core/class-wcfm-integrations.php:1133
+#: core/class-wcfm-integrations.php:834 core/class-wcfm-integrations.php:1125
 #, fuzzy
 msgid "Optional Mini Description"
 msgstr "Descriere Meta"
 
-#: core/class-wcfm-integrations.php:846 core/class-wcfm-integrations.php:1137
+#: core/class-wcfm-integrations.php:838 core/class-wcfm-integrations.php:1129
 #, fuzzy
 msgid ""
 "This content will be shown as short product description within checkout and "
 "emails."
 msgstr "Aceasta va fi afișată la descrierea plății taxei adăugate."
 
-#: core/class-wcfm-integrations.php:893 core/class-wcfm-integrations.php:1062
+#: core/class-wcfm-integrations.php:885 core/class-wcfm-integrations.php:1054
 #, fuzzy
 msgid "Sale Label"
 msgstr "Magazinul mu"
 
-#: core/class-wcfm-integrations.php:895 core/class-wcfm-integrations.php:904
-#: core/class-wcfm-integrations.php:1064 core/class-wcfm-integrations.php:1072
+#: core/class-wcfm-integrations.php:887 core/class-wcfm-integrations.php:896
+#: core/class-wcfm-integrations.php:1056 core/class-wcfm-integrations.php:1064
 #, fuzzy
 msgid "Select Price Label"
 msgstr "Selecteaza tot"
 
-#: core/class-wcfm-integrations.php:898 core/class-wcfm-integrations.php:1067
+#: core/class-wcfm-integrations.php:890 core/class-wcfm-integrations.php:1059
 msgid ""
 "If the product is on sale you may want to show a price label right before "
 "outputting the old price to inform the customer."
 msgstr ""
 
-#: core/class-wcfm-integrations.php:902 core/class-wcfm-integrations.php:1070
+#: core/class-wcfm-integrations.php:894 core/class-wcfm-integrations.php:1062
 #, fuzzy
 msgid "Sale Regular Label"
 msgstr "Eticheta Meniului de Acasa"
 
-#: core/class-wcfm-integrations.php:907 core/class-wcfm-integrations.php:1075
+#: core/class-wcfm-integrations.php:899 core/class-wcfm-integrations.php:1067
 msgid ""
 "If the product is on sale you may want to show a price label right before "
 "outputting the new price to inform the customer."
 msgstr ""
 
-#: core/class-wcfm-integrations.php:911
+#: core/class-wcfm-integrations.php:903
 #: views/integrations/wcfm-view-integrations-products-manage.php:447
 msgid "Unit"
 msgstr "Unitate"
 
-#: core/class-wcfm-integrations.php:913
+#: core/class-wcfm-integrations.php:905
 #, fuzzy
 msgid "Select unit"
 msgstr "Selecteaza nimic"
 
-#: core/class-wcfm-integrations.php:916
+#: core/class-wcfm-integrations.php:908
 msgid "Needed if selling on a per unit basis"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:920 core/class-wcfm-integrations.php:1078
+#: core/class-wcfm-integrations.php:912 core/class-wcfm-integrations.php:1070
 #, fuzzy
 msgid "Product Units"
 msgstr "Statistici Produs"
 
-#: core/class-wcfm-integrations.php:924 core/class-wcfm-integrations.php:1082
+#: core/class-wcfm-integrations.php:916 core/class-wcfm-integrations.php:1074
 msgid "Number of units included per default product price. Example: 1000 ml."
 msgstr ""
 
-#: core/class-wcfm-integrations.php:928
+#: core/class-wcfm-integrations.php:920
 #, fuzzy
 msgid "Base Price Units"
 msgstr "Pret bazat pe rol"
 
-#: core/class-wcfm-integrations.php:932
+#: core/class-wcfm-integrations.php:924
 msgid ""
 "Base price units. Example base price: 0,99 € / 100 ml. Insert 100 as base "
 "price unit amount."
 msgstr ""
 
-#: core/class-wcfm-integrations.php:936
+#: core/class-wcfm-integrations.php:928
 #, fuzzy
 msgid "Calculation"
 msgstr "Locatie"
 
-#: core/class-wcfm-integrations.php:940
+#: core/class-wcfm-integrations.php:932
 msgid "Calculate base prices automatically."
 msgstr ""
 
-#: core/class-wcfm-integrations.php:945 core/class-wcfm-integrations.php:1085
+#: core/class-wcfm-integrations.php:937 core/class-wcfm-integrations.php:1077
 #, fuzzy
 msgid "Regular Base Price"
 msgstr "Pret Regular"
 
-#: core/class-wcfm-integrations.php:952 core/class-wcfm-integrations.php:1091
+#: core/class-wcfm-integrations.php:944 core/class-wcfm-integrations.php:1083
 #, fuzzy
 msgid "Sale Base Price"
 msgstr "Pret bazat pe rol"
 
-#: core/class-wcfm-integrations.php:959 core/class-wcfm-integrations.php:1097
+#: core/class-wcfm-integrations.php:951 core/class-wcfm-integrations.php:1089
 msgid "Minimum Age"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:964 core/class-wcfm-integrations.php:1102
+#: core/class-wcfm-integrations.php:956 core/class-wcfm-integrations.php:1094
 msgid "Adds an age verification checkbox while purchasing this product."
 msgstr ""
 
-#: core/class-wcfm-integrations.php:1011 core/class-wcfm-integrations.php:1050
+#: core/class-wcfm-integrations.php:1003 core/class-wcfm-integrations.php:1042
 msgid "Select Delivery Time"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:1021 core/class-wcfm-integrations.php:1105
+#: core/class-wcfm-integrations.php:1013 core/class-wcfm-integrations.php:1097
 msgid "Delivery Time"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:1029
+#: core/class-wcfm-integrations.php:1021
 #, fuzzy
 msgid "Free shipping?"
 msgstr "Permite livrare gratuita"
 
-#: core/class-wcfm-integrations.php:1033
+#: core/class-wcfm-integrations.php:1025
 msgid "This option disables the \"plus shipping costs\" notice on product page"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:1196
+#: core/class-wcfm-integrations.php:1188
 msgid "Scheduler Config"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:1257
+#: core/class-wcfm-integrations.php:1249
 msgid "Availability Scheduler"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:1267
+#: core/class-wcfm-integrations.php:1259
 #: views/articles/wcfm-view-articles.php:126
 #: views/articles/wcfm-view-articles.php:137
 #: views/customers/wcfm-view-customers-details.php:250
@@ -2574,19 +2587,19 @@ msgstr ""
 msgid "Status"
 msgstr "Status"
 
-#: core/class-wcfm-integrations.php:1270 core/class-wcfm-integrations.php:1346
+#: core/class-wcfm-integrations.php:1262 core/class-wcfm-integrations.php:1338
 msgid "Disable"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:1279
+#: core/class-wcfm-integrations.php:1271
 msgid "Start Time"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:1311
+#: core/class-wcfm-integrations.php:1303
 msgid "End Time"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:1313
+#: core/class-wcfm-integrations.php:1305
 #: views/products-manager/wcfm-view-products-manage-tabs.php:600
 #: views/products-manager/wcfm-view-products-manage.php:666
 #: views/products-popup/wcfm-view-product-popup.php:229
@@ -2598,83 +2611,83 @@ msgstr ""
 msgid "Upto"
 msgstr "Pana la"
 
-#: core/class-wcfm-integrations.php:1343
+#: core/class-wcfm-integrations.php:1335
 msgid "CountDown"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:1362
+#: core/class-wcfm-integrations.php:1354
 msgid "Note: Start time and End time will be on GMT, Current GMT time is"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:1391
+#: core/class-wcfm-integrations.php:1383
 msgid "Country restrictions"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:1401
+#: core/class-wcfm-integrations.php:1393
 #, fuzzy
 msgid "Restriction rule"
 msgstr "Setari Inregistrare"
 
-#: core/class-wcfm-integrations.php:1404
+#: core/class-wcfm-integrations.php:1396
 msgid "Product Available for all countries"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:1405
+#: core/class-wcfm-integrations.php:1397
 msgid "Product Available for selected countries"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:1406
+#: core/class-wcfm-integrations.php:1398
 msgid "Product not Available for selected countries"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:1414
+#: core/class-wcfm-integrations.php:1406
 #, fuzzy
 msgid "Select countries"
 msgstr "Selecteaza nimic"
 
-#: core/class-wcfm-integrations.php:1449 core/class-wcfm-integrations.php:1452
+#: core/class-wcfm-integrations.php:1441 core/class-wcfm-integrations.php:1444
 #: helpers/class-wcfm-setup-bak.php:1330 helpers/class-wcfm-setup.php:1588
 #: views/integrations/wcfm-view-wc-tiered-price-table-products-manage.php:58
 msgid "Fixed"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:1453
+#: core/class-wcfm-integrations.php:1445
 #: views/integrations/wcfm-view-wc-tiered-price-table-products-manage.php:60
 #, fuzzy
 msgid "Percentage"
 msgstr "Procent discount"
 
-#: core/class-wcfm-integrations.php:1460
+#: core/class-wcfm-integrations.php:1452
 #: views/integrations/wcfm-view-wc-tiered-price-table-products-manage.php:72
 #, fuzzy
 msgid "Minimum quantity"
 msgstr "Cantitate Minima"
 
-#: core/class-wcfm-integrations.php:1464
+#: core/class-wcfm-integrations.php:1456
 #: views/integrations/wcfm-view-wc-tiered-price-table-products-manage.php:77
 msgid "Set if you are selling the product from qty more than 1"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:1468
+#: core/class-wcfm-integrations.php:1460
 #: views/integrations/wcfm-view-wc-tiered-price-table-products-manage.php:96
 msgid "Tiered pricing type"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:1476 core/class-wcfm-integrations.php:1497
+#: core/class-wcfm-integrations.php:1468 core/class-wcfm-integrations.php:1489
 #: views/integrations/wcfm-view-wc-tiered-price-table-products-manage.php:104
 #: views/integrations/wcfm-view-wc-tiered-price-table-products-manage.php:125
 #, fuzzy
 msgid "Tiered price"
 msgstr "Preturi obisnuite"
 
-#: core/class-wcfm-integrations.php:1482 core/class-wcfm-integrations.php:1503
+#: core/class-wcfm-integrations.php:1474 core/class-wcfm-integrations.php:1495
 #: views/integrations/wcfm-view-wc-tiered-price-table-products-manage.php:111
 #: views/integrations/wcfm-view-wc-tiered-price-table-products-manage.php:132
 #: views/orders/wcfm-view-orders.php:110 views/orders/wcfm-view-orders.php:151
 msgid "Quantity"
 msgstr "Cantitate"
 
-#: core/class-wcfm-integrations.php:1488
+#: core/class-wcfm-integrations.php:1480
 #: views/integrations/wcfm-view-wc-tiered-price-table-products-manage.php:117
 #: views/products/wcfm-view-products.php:281
 #: views/products/wcfm-view-products.php:308
@@ -2684,59 +2697,59 @@ msgstr "Cantitate"
 msgid "Price"
 msgstr "Pret"
 
-#: core/class-wcfm-integrations.php:1509
+#: core/class-wcfm-integrations.php:1501
 #: views/integrations/wcfm-view-wc-tiered-price-table-products-manage.php:138
 msgid "Percent discount"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:1604 core/class-wcfm-integrations.php:1617
-#: core/class-wcfm-integrations.php:1715
+#: core/class-wcfm-integrations.php:1596 core/class-wcfm-integrations.php:1609
+#: core/class-wcfm-integrations.php:1707
 #, fuzzy
 msgid "Select"
 msgstr "-Selecteaza-"
 
-#: core/class-wcfm-integrations.php:1618
+#: core/class-wcfm-integrations.php:1610
 #, fuzzy
 msgid "Use the default"
 msgstr "Resetare la valorile implicite"
 
-#: core/class-wcfm-integrations.php:1628 core/class-wcfm-integrations.php:1725
+#: core/class-wcfm-integrations.php:1620 core/class-wcfm-integrations.php:1717
 msgid "Delivery Time:"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:1636
+#: core/class-wcfm-integrations.php:1628
 #, fuzzy
 msgid "Alternative Shipping Information"
 msgstr "Notele Livrarii din Stat"
 
-#: core/class-wcfm-integrations.php:1641
+#: core/class-wcfm-integrations.php:1633
 msgid ""
 "Instead of the general shipping information you can enter a special "
 "information just for this product."
 msgstr ""
 
-#: core/class-wcfm-integrations.php:1644
+#: core/class-wcfm-integrations.php:1636
 #, fuzzy
 msgid "Disable Shipping Information"
 msgstr "Permite Livrarea"
 
-#: core/class-wcfm-integrations.php:1650
+#: core/class-wcfm-integrations.php:1642
 msgid ""
 "Don’t display shipping information for this product (e.g. if it is virtual/"
 "digital)."
 msgstr ""
 
-#: core/class-wcfm-integrations.php:1653 core/class-wcfm-integrations.php:1746
+#: core/class-wcfm-integrations.php:1645 core/class-wcfm-integrations.php:1738
 #, fuzzy
 msgid "Sale Label:"
 msgstr "Magazinul mu"
 
-#: core/class-wcfm-integrations.php:1666 core/class-wcfm-integrations.php:1757
+#: core/class-wcfm-integrations.php:1658 core/class-wcfm-integrations.php:1749
 msgid "GTIN"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:1701 core/class-wcfm-integrations.php:1714
-#: core/class-wcfm-integrations.php:1734 core/class-wcfm-integrations.php:1741
+#: core/class-wcfm-integrations.php:1693 core/class-wcfm-integrations.php:1706
+#: core/class-wcfm-integrations.php:1726 core/class-wcfm-integrations.php:1733
 #: views/products-manager/wcfm-view-products-manage.php:375
 #: views/products-manager/wcfm-view-products-manage.php:387
 #: views/products-popup/wcfm-view-product-popup.php:55
@@ -2744,23 +2757,23 @@ msgstr ""
 msgid "Same as parent"
 msgstr "La fel ca parintele"
 
-#: core/class-wcfm-integrations.php:1732
+#: core/class-wcfm-integrations.php:1724
 #: views/integrations/wcfm-view-wc-german-market-products-manage.php:137
 msgid "Price per Unit"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:1739
+#: core/class-wcfm-integrations.php:1731
 #, fuzzy
 msgid "Shipping Information"
 msgstr "Suma de livrari"
 
-#: core/class-wcfm-integrations.php:1817
+#: core/class-wcfm-integrations.php:1809
 #: core/class-wcfm-wcfmmarketplace.php:927
 #: core/class-wcfm-wcmarketplace.php:518 core/class-wcfm-wcmarketplace.php:687
 #: core/class-wcfm-wcpvendors.php:448 core/class-wcfm-wcpvendors.php:553
 #: core/class-wcfm-wcvendors.php:715 core/class-wcfm-wcvendors.php:728
 #: core/class-wcfm-wcvendors.php:899 core/class-wcfm-wcvendors.php:922
-#: helpers/class-wcfm-install.php:393
+#: helpers/class-wcfm-install.php:390
 #: includes/reports/class-dokan-report-sales-by-date.php:859
 #: includes/reports/class-wcfm-report-sales-by-date.php:738
 #: views/capability/wcfm-view-capability.php:343
@@ -2778,33 +2791,33 @@ msgstr "Suma de livrari"
 msgid "Shipping"
 msgstr "Livrare"
 
-#: core/class-wcfm-integrations.php:1822
+#: core/class-wcfm-integrations.php:1814
 msgid "Shipment Origin Information"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:2019
+#: core/class-wcfm-integrations.php:2011
 msgid "Type the size chart name"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:2060
+#: core/class-wcfm-integrations.php:2052
 msgid "Search/Select Size Chart"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:2153
+#: core/class-wcfm-integrations.php:2145
 #, fuzzy
 msgid "Post Expirator"
 msgstr "Exporta Produse"
 
-#: core/class-wcfm-integrations.php:2155
+#: core/class-wcfm-integrations.php:2147
 #, fuzzy
 msgid "Enable Post Expiration"
 msgstr "Permite toate Variatiile"
 
-#: core/class-wcfm-integrations.php:2158
+#: core/class-wcfm-integrations.php:2150
 msgid "The published date/time will be used as the expiration value"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:2161 core/class-wcfm-library.php:1498
+#: core/class-wcfm-integrations.php:2153 core/class-wcfm-library.php:1498
 #: core/class-wcfm-library.php:1502
 #: includes/reports/class-dokan-report-sales-by-date.php:670
 #: includes/reports/class-wcfm-report-analytics.php:141
@@ -2823,24 +2836,24 @@ msgstr ""
 msgid "Year"
 msgstr "An"
 
-#: core/class-wcfm-integrations.php:2162 core/class-wcfm-library.php:1495
+#: core/class-wcfm-integrations.php:2154 core/class-wcfm-library.php:1495
 #: core/class-wcfm-library.php:1501
 msgid "Month"
 msgstr "Luna"
 
-#: core/class-wcfm-integrations.php:2163 core/class-wcfm-library.php:1464
+#: core/class-wcfm-integrations.php:2155 core/class-wcfm-library.php:1464
 msgid "Day"
 msgstr "Zi"
 
-#: core/class-wcfm-integrations.php:2199 core/class-wcfm-library.php:1511
+#: core/class-wcfm-integrations.php:2191 core/class-wcfm-library.php:1511
 msgid "Hour"
 msgstr "Ora"
 
-#: core/class-wcfm-integrations.php:2200 core/class-wcfm-library.php:1512
+#: core/class-wcfm-integrations.php:2192 core/class-wcfm-library.php:1512
 msgid "Minute"
 msgstr "Minut"
 
-#: core/class-wcfm-integrations.php:2221
+#: core/class-wcfm-integrations.php:2213
 #, fuzzy
 msgid "How to expire"
 msgstr "Descarcare expirata"
@@ -2874,8 +2887,8 @@ msgstr ""
 msgid "Select an option&hellip;"
 msgstr "Selecteaza o optiune..."
 
-#: core/class-wcfm-library.php:696 core/class-wcfm.php:858
-#: helpers/class-wcfm-install.php:395 views/settings/wcfm-view-settings.php:131
+#: core/class-wcfm-library.php:696 core/class-wcfm.php:878
+#: helpers/class-wcfm-install.php:392 views/settings/wcfm-view-settings.php:131
 #: views/vendors/wcfm-view-vendors-manage.php:497
 #: views/vendors/wcfm-view-vendors.php:91
 #: views/vendors/wcfm-view-vendors.php:113
@@ -3328,8 +3341,8 @@ msgstr ""
 msgid "View WCFM settings"
 msgstr "Vezi setari WCFM"
 
-#: core/class-wcfm-non-ajax.php:218 core/class-wcfm-query.php:200
-#: core/class-wcfm.php:751 helpers/class-wcfm-install.php:394
+#: core/class-wcfm-non-ajax.php:218 core/class-wcfm-query.php:204
+#: core/class-wcfm.php:771 helpers/class-wcfm-install.php:391
 #: views/capability/wcfm-view-capability.php:182
 #: views/settings/wcfm-view-dokan-settings.php:132
 #: views/settings/wcfm-view-settings.php:94
@@ -3419,7 +3432,7 @@ msgid "There is no notification yet!!"
 msgstr "Nu ai primit nicio notificare inca!"
 
 #: core/class-wcfm-notification.php:816 core/class-wcfm-notification.php:870
-#: core/class-wcfm.php:873 helpers/class-wcfm-install.php:411
+#: core/class-wcfm.php:893 helpers/class-wcfm-install.php:408
 msgid "Notification"
 msgstr "Notificare"
 
@@ -3432,7 +3445,7 @@ msgstr "Ai primit o notificare noua:"
 msgid "Check more details %1$shere%2$s."
 msgstr "Vezi mai multe detalii %saici%s."
 
-#: core/class-wcfm-policy.php:76 core/class-wcfm.php:857
+#: core/class-wcfm-policy.php:76 core/class-wcfm.php:877
 msgid "Policies"
 msgstr "Politici"
 
@@ -3486,91 +3499,91 @@ msgstr ""
 msgid "Cancellation / Return / Exchange Policy"
 msgstr "Politica de anulare / returnare / schimb"
 
-#: core/class-wcfm-query.php:139
+#: core/class-wcfm-query.php:143
 msgid "Products Dashboard"
 msgstr "Dashboard Produse"
 
-#: core/class-wcfm-query.php:146
+#: core/class-wcfm-query.php:150
 msgid "Product Manager -%s"
 msgstr "Manager Produs -%s"
 
-#: core/class-wcfm-query.php:146
+#: core/class-wcfm-query.php:150
 msgid "Product Manager"
 msgstr "Manager produse"
 
-#: core/class-wcfm-query.php:149
+#: core/class-wcfm-query.php:153
 msgid "Products Stock Manager"
 msgstr "Managerul Stocurilor de Produse"
 
-#: core/class-wcfm-query.php:152
+#: core/class-wcfm-query.php:156
 #: views/products/wcfm-view-products-export.php:58
 #: views/products/wcfm-view-products.php:107
 #: views/products/wcfm-view-products.php:112
 msgid "Products Import"
 msgstr "Importa Produse"
 
-#: core/class-wcfm-query.php:155
+#: core/class-wcfm-query.php:159
 #: views/products/wcfm-view-products-export.php:33
 #: views/products/wcfm-view-products.php:98
 msgid "Products Export"
 msgstr "Exporta Produse"
 
-#: core/class-wcfm-query.php:158
+#: core/class-wcfm-query.php:162
 msgid "Coupons Dashboard"
 msgstr "Dashboard cupoane"
 
-#: core/class-wcfm-query.php:165
+#: core/class-wcfm-query.php:169
 msgid "Coupon Manager -%s"
 msgstr "Manager Cupon -%s"
 
-#: core/class-wcfm-query.php:165
+#: core/class-wcfm-query.php:169
 msgid "Coupon Manager"
 msgstr "Manager Cupon"
 
-#: core/class-wcfm-query.php:169
+#: core/class-wcfm-query.php:173
 msgid "Orders Dashboard"
 msgstr "Dashboard comenzi"
 
-#: core/class-wcfm-query.php:173
+#: core/class-wcfm-query.php:177
 msgid "Order Details #%s"
 msgstr "Detalii Comanda #%s"
 
-#: core/class-wcfm-query.php:173 views/orders/wcfm-view-orders-details.php:127
+#: core/class-wcfm-query.php:177 views/orders/wcfm-view-orders-details.php:127
 msgid "Order Details"
 msgstr "Detalii Comanda"
 
-#: core/class-wcfm-query.php:176
+#: core/class-wcfm-query.php:180
 msgid "Reports - Sales by Date"
 msgstr "Rapoarte - Vanzari dupa data"
 
-#: core/class-wcfm-query.php:179
+#: core/class-wcfm-query.php:183
 msgid "Reports - Sales by Vendor"
 msgstr "Rapoarte - Vanzari dupa Furnizor"
 
-#: core/class-wcfm-query.php:182
+#: core/class-wcfm-query.php:186
 msgid "Reports - Sales by Product"
 msgstr "Rapoarte - Vanzari dupa Produs"
 
-#: core/class-wcfm-query.php:185
+#: core/class-wcfm-query.php:189
 msgid "Reports - Coupons by Date"
 msgstr "Rapoarte - Cupoane dupa data"
 
-#: core/class-wcfm-query.php:188
+#: core/class-wcfm-query.php:192
 msgid "Reports - Out of Stock"
 msgstr "Rapoarte - Stoc epuizat"
 
-#: core/class-wcfm-query.php:191
+#: core/class-wcfm-query.php:195
 msgid "Reports - Low in Stock"
 msgstr "Rapoarte - Scazut in Stoc"
 
-#: core/class-wcfm-query.php:194 helpers/class-wcfm-install.php:412
+#: core/class-wcfm-query.php:198 helpers/class-wcfm-install.php:409
 #: views/settings/wcfm-view-settings.php:343
 #: views/settings/wcfm-view-settings.php:366
 msgid "Analytics"
 msgstr "Analistica"
 
-#: core/class-wcfm-query.php:197 core/class-wcfm.php:859
-#: helpers/class-wcfm-install.php:396 views/profile/wcfm-view-profile.php:190
+#: core/class-wcfm-query.php:201 core/class-wcfm.php:879
+#: helpers/class-wcfm-install.php:393 views/profile/wcfm-view-profile.php:190
 #: views/settings/wcfm-view-wcpvendors-settings.php:136
 #: views/vendors/wcfm-view-vendors-manage.php:429
 #: views/vendors/wcfm-view-vendors.php:89
@@ -3578,34 +3591,34 @@ msgstr "Analistica"
 msgid "Profile"
 msgstr "Profil"
 
-#: core/class-wcfm-query.php:203
+#: core/class-wcfm-query.php:207
 msgid "Capability Manager"
 msgstr "Drepturi Manager"
 
-#: core/class-wcfm-query.php:206 core/class-wcfm.php:875
+#: core/class-wcfm-query.php:210 core/class-wcfm.php:895
 #: views/knowledgebase/wcfm-view-knowledgebase-manage.php:72
 #: views/knowledgebase/wcfm-view-knowledgebase.php:26
 #: views/wcfm-view-header-panels.php:112
 msgid "Knowledgebase"
 msgstr "Baza de cunostinte"
 
-#: core/class-wcfm-query.php:209
+#: core/class-wcfm-query.php:213
 msgid "Knowledgebase Manager"
 msgstr "Manager Baza de Cunostinte"
 
-#: core/class-wcfm-query.php:212
+#: core/class-wcfm-query.php:216
 msgid "Notice Dashboard"
 msgstr "Dashboard Instiintare"
 
-#: core/class-wcfm-query.php:215
+#: core/class-wcfm-query.php:219
 msgid "Notice Manager"
 msgstr "Manager Instiintare"
 
-#: core/class-wcfm-query.php:218 helpers/class-wcfm-install.php:410
+#: core/class-wcfm-query.php:222 helpers/class-wcfm-install.php:407
 msgid "Notice"
 msgstr "Instiintare"
 
-#: core/class-wcfm-query.php:221
+#: core/class-wcfm-query.php:225
 msgid "Message Dashboard"
 msgstr "Dashboard Mesaj"
 
@@ -3625,8 +3638,8 @@ msgstr ""
 msgid "Vendors Commission"
 msgstr ""
 
-#: core/class-wcfm-vendor-support.php:207
-#: core/class-wcfm-vendor-support.php:223 core/class-wcfm.php:794
+#: core/class-wcfm-vendor-support.php:201
+#: core/class-wcfm-vendor-support.php:217 core/class-wcfm.php:814
 #: views/reports/wcfm-view-reports-wcfmmarketplace-sales-by-date.php:188
 #: views/vendors/wcfm-view-vendors-new.php:79
 #: views/vendors/wcfm-view-vendors.php:17
@@ -3635,24 +3648,24 @@ msgstr ""
 msgid "Vendors"
 msgstr "Vendori"
 
-#: core/class-wcfm-vendor-support.php:330
+#: core/class-wcfm-vendor-support.php:324
 msgid "Store Order ID"
 msgstr ""
 
-#: core/class-wcfm-vendor-support.php:333
+#: core/class-wcfm-vendor-support.php:327
 msgid "Package Qty"
 msgstr ""
 
-#: core/class-wcfm-vendor-support.php:336
+#: core/class-wcfm-vendor-support.php:330
 msgid "Shipping Method"
 msgstr ""
 
-#: core/class-wcfm-vendor-support.php:339
+#: core/class-wcfm-vendor-support.php:333
 #: views/settings/wcfm-view-dokan-settings.php:754
 msgid "Processing Time"
 msgstr ""
 
-#: core/class-wcfm-vendor-support.php:342
+#: core/class-wcfm-vendor-support.php:336
 #: views/articles/wcfm-view-articles-manage-tabs.php:109
 #: views/articles/wcfm-view-articles-manage.php:326
 #: views/articles/wcfm-view-articles-manage.php:550
@@ -3664,75 +3677,75 @@ msgstr ""
 msgid "Description"
 msgstr "Descriere"
 
-#: core/class-wcfm-vendor-support.php:345
+#: core/class-wcfm-vendor-support.php:339
 msgid "Pickup Address"
 msgstr ""
 
-#: core/class-wcfm-vendor-support.php:348
+#: core/class-wcfm-vendor-support.php:342
 msgid "Delivery Boy"
 msgstr ""
 
-#: core/class-wcfm-vendor-support.php:363
+#: core/class-wcfm-vendor-support.php:357
 msgid "Store Shipping by Country"
 msgstr ""
 
-#: core/class-wcfm-vendor-support.php:365
+#: core/class-wcfm-vendor-support.php:359
 msgid "Store Shipping by Weight"
 msgstr ""
 
-#: core/class-wcfm-vendor-support.php:367
+#: core/class-wcfm-vendor-support.php:361
 msgid "Store Shipping by Distance"
 msgstr ""
 
-#: core/class-wcfm-vendor-support.php:431
-#: core/class-wcfm-vendor-support.php:620
-#: core/class-wcfm-vendor-support.php:674
-#: core/class-wcfm-vendor-support.php:744
-#: core/class-wcfm-vendor-support.php:821 core/class-wcfm-wcmarketplace.php:511
+#: core/class-wcfm-vendor-support.php:425
+#: core/class-wcfm-vendor-support.php:614
+#: core/class-wcfm-vendor-support.php:668
+#: core/class-wcfm-vendor-support.php:738
+#: core/class-wcfm-vendor-support.php:815 core/class-wcfm-wcmarketplace.php:511
 #: core/class-wcfm-wcpvendors.php:446 core/class-wcfm-wcvendors.php:709
 #: views/settings/wcfm-view-wcpvendors-settings.php:275
 msgid "Commission"
 msgstr "Comision"
 
-#: core/class-wcfm-vendor-support.php:629
-#: core/class-wcfm-vendor-support.php:684
-#: core/class-wcfm-vendor-support.php:714
-#: core/class-wcfm-vendor-support.php:775
-#: core/class-wcfm-vendor-support.php:798
+#: core/class-wcfm-vendor-support.php:623
+#: core/class-wcfm-vendor-support.php:678
+#: core/class-wcfm-vendor-support.php:708
+#: core/class-wcfm-vendor-support.php:769
+#: core/class-wcfm-vendor-support.php:792
 msgid "Commission(%)"
 msgstr ""
 
-#: core/class-wcfm-vendor-support.php:695
-#: core/class-wcfm-vendor-support.php:785
+#: core/class-wcfm-vendor-support.php:689
+#: core/class-wcfm-vendor-support.php:779
 msgid "Fixed (per transaction)"
 msgstr ""
 
-#: core/class-wcfm-vendor-support.php:725
-#: core/class-wcfm-vendor-support.php:808
+#: core/class-wcfm-vendor-support.php:719
+#: core/class-wcfm-vendor-support.php:802
 msgid "Fixed (per unit)"
 msgstr ""
 
-#: core/class-wcfm-vendor-support.php:1187
+#: core/class-wcfm-vendor-support.php:1182
 msgid "Choose Vendor ..."
 msgstr ""
 
-#: core/class-wcfm-vendor-support.php:3068
+#: core/class-wcfm-vendor-support.php:3063
 msgid "Review Product"
 msgstr ""
 
-#: core/class-wcfm-vendor-support.php:3069 helpers/wcfm-core-functions.php:1452
+#: core/class-wcfm-vendor-support.php:3064 helpers/wcfm-core-functions.php:1452
 msgid "New Product"
 msgstr "Produs Nou"
 
-#: core/class-wcfm-vendor-support.php:3070 helpers/wcfm-core-functions.php:1453
+#: core/class-wcfm-vendor-support.php:3065 helpers/wcfm-core-functions.php:1453
 msgid "New Category"
 msgstr "Categorie Noua"
 
-#: core/class-wcfm-vendor-support.php:3077
+#: core/class-wcfm-vendor-support.php:3072
 msgid "You may manage this using WCfM Capability Controller."
 msgstr ""
 
-#: core/class-wcfm-vendor-support.php:3078
+#: core/class-wcfm-vendor-support.php:3073
 msgid ""
 "Manage vendor backend access from <a href=\"%s\">WCfM Capability Controller</"
 "a>."
@@ -3776,7 +3789,7 @@ msgstr "Detaliile rezervarii #%s"
 msgid "Bookings settings"
 msgstr "Setarile rezervarilor"
 
-#: core/class-wcfm-wcbookings.php:154 core/class-wcfm-wcbookings.php:165
+#: core/class-wcfm-wcbookings.php:148 core/class-wcfm-wcbookings.php:159
 #: views/capability/wcfm-view-capability.php:1395
 #: views/customers/wcfm-view-customers-details.php:244
 #: views/customers/wcfm-view-customers.php:89
@@ -3785,125 +3798,125 @@ msgstr "Setarile rezervarilor"
 msgid "Bookings"
 msgstr "Rezervari"
 
-#: core/class-wcfm-wcbookings.php:184
+#: core/class-wcfm-wcbookings.php:178
 #, fuzzy
 msgid "Bookable product"
 msgstr "Produse descarcabile"
 
-#: core/class-wcfm-wcbookings.php:379
+#: core/class-wcfm-wcbookings.php:373
 msgid "Booking Options"
 msgstr "Optinile Rezervarii"
 
-#: core/class-wcfm-wcbookings.php:389
+#: core/class-wcfm-wcbookings.php:383
 #, fuzzy
 msgid "Booking duration"
 msgstr "Optinile Rezervarii"
 
-#: core/class-wcfm-wcbookings.php:392
+#: core/class-wcfm-wcbookings.php:386
 msgid "Fixed blocks of"
 msgstr ""
 
-#: core/class-wcfm-wcbookings.php:393
+#: core/class-wcfm-wcbookings.php:387
 #, fuzzy
 msgid "Customer defined blocks of"
 msgstr "Detalii Client"
 
-#: core/class-wcfm-wcbookings.php:412 core/class-wcfm-wcbookings.php:493
+#: core/class-wcfm-wcbookings.php:406 core/class-wcfm-wcbookings.php:487
 #: views/products-manager/wcfm-view-wcbookings-products-manage.php:89
 #: views/products-manager/wcfm-view-wcbookings-products-manage.php:111
 #, fuzzy
 msgid "Month(s)"
 msgstr "Luna"
 
-#: core/class-wcfm-wcbookings.php:413 core/class-wcfm-wcbookings.php:494
+#: core/class-wcfm-wcbookings.php:407 core/class-wcfm-wcbookings.php:488
 #: views/products-manager/wcfm-view-wcbookings-products-manage.php:90
 #: views/products-manager/wcfm-view-wcbookings-products-manage.php:112
 msgid "Day(s)"
 msgstr ""
 
-#: core/class-wcfm-wcbookings.php:414 core/class-wcfm-wcbookings.php:495
+#: core/class-wcfm-wcbookings.php:408 core/class-wcfm-wcbookings.php:489
 #: views/products-manager/wcfm-view-wcbookings-products-manage.php:91
 #: views/products-manager/wcfm-view-wcbookings-products-manage.php:113
 #, fuzzy
 msgid "Hour(s)"
 msgstr "Ora"
 
-#: core/class-wcfm-wcbookings.php:415 core/class-wcfm-wcbookings.php:496
+#: core/class-wcfm-wcbookings.php:409 core/class-wcfm-wcbookings.php:490
 #: views/products-manager/wcfm-view-wcbookings-products-manage.php:92
 #: views/products-manager/wcfm-view-wcbookings-products-manage.php:114
 #, fuzzy
 msgid "Minute(s)"
 msgstr "Minut"
 
-#: core/class-wcfm-wcbookings.php:422
+#: core/class-wcfm-wcbookings.php:416
 #, fuzzy
 msgid "Minimum duration"
 msgstr "Cantitate Minima"
 
-#: core/class-wcfm-wcbookings.php:427
+#: core/class-wcfm-wcbookings.php:421
 msgid "The minimum allowed duration the user can input."
 msgstr ""
 
-#: core/class-wcfm-wcbookings.php:434
+#: core/class-wcfm-wcbookings.php:428
 #, fuzzy
 msgid "Maximum duration"
 msgstr "Cantitatea Maxima"
 
-#: core/class-wcfm-wcbookings.php:439
+#: core/class-wcfm-wcbookings.php:433
 msgid "The maximum allowed duration the user can input."
 msgstr ""
 
-#: core/class-wcfm-wcbookings.php:446
+#: core/class-wcfm-wcbookings.php:440
 msgid "Enable Calendar Range Picker?"
 msgstr ""
 
-#: core/class-wcfm-wcbookings.php:452
+#: core/class-wcfm-wcbookings.php:446
 msgid ""
 "Lets the user select a start and end date on the calendar - duration will be "
 "calculated automatically."
 msgstr ""
 
-#: core/class-wcfm-wcbookings.php:455
+#: core/class-wcfm-wcbookings.php:449
 #, fuzzy
 msgid "Calendar display mode"
 msgstr "Vizualizare Calendar"
 
-#: core/class-wcfm-wcbookings.php:458
+#: core/class-wcfm-wcbookings.php:452
 msgid "Display calendar on click"
 msgstr ""
 
-#: core/class-wcfm-wcbookings.php:459
+#: core/class-wcfm-wcbookings.php:453
 #, fuzzy
 msgid "Calendar always visible"
 msgstr "Vizualizare Calendar"
 
-#: core/class-wcfm-wcbookings.php:466
+#: core/class-wcfm-wcbookings.php:460
 #, fuzzy
 msgid "Requires confirmation?"
 msgstr "Asteptand confirmarea"
 
-#: core/class-wcfm-wcbookings.php:472
+#: core/class-wcfm-wcbookings.php:466
 msgid ""
 "Check this box if the booking requires admin approval/confirmation. Payment "
 "will not be taken during checkout."
 msgstr ""
 
-#: core/class-wcfm-wcbookings.php:475
+#: core/class-wcfm-wcbookings.php:469
 #, fuzzy
 msgid "Can be cancelled?"
 msgstr "Anulat"
 
-#: core/class-wcfm-wcbookings.php:481
+#: core/class-wcfm-wcbookings.php:475
 msgid ""
 "Check this box if the booking can be cancelled by the customer after it has "
 "been purchased. A refund will not be sent automatically."
 msgstr ""
 
-#: core/class-wcfm-wcbookings.php:484
+#: core/class-wcfm-wcbookings.php:478
 msgid "Booking can be cancelled until"
 msgstr ""
 
-#: core/class-wcfm-wcbookings.php:502
+#: core/class-wcfm-wcbookings.php:496
 #, fuzzy
 msgid "before the start date."
 msgstr "Status comanda actualizat."
@@ -4135,12 +4148,12 @@ msgstr "Retragere Inversa"
 msgid "Transaction Details"
 msgstr "Detalii Tranzactie"
 
-#: core/class-wcfm-withdrawal.php:131 views/settings/wcfm-view-settings.php:587
+#: core/class-wcfm-withdrawal.php:125 views/settings/wcfm-view-settings.php:587
 msgid "Payments"
 msgstr "Plati"
 
-#: core/class-wcfm-withdrawal.php:143 core/class-wcfm-withdrawal.php:157
-#: core/class-wcfm.php:860 helpers/class-wcfm-install.php:398
+#: core/class-wcfm-withdrawal.php:137 core/class-wcfm-withdrawal.php:151
+#: core/class-wcfm.php:880 helpers/class-wcfm-install.php:395
 #: includes/reports/class-dokan-report-sales-by-date.php:849
 #: includes/reports/class-wcfmmarketplace-report-sales-by-date.php:605
 #: includes/reports/class-wcmarketplace-report-sales-by-date.php:551
@@ -4176,57 +4189,57 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: core/class-wcfm.php:717 views/capability/wcfm-view-capability.php:208
+#: core/class-wcfm.php:737 views/capability/wcfm-view-capability.php:208
 #: views/listings/wcfm-view-listings.php:136
 #: views/listings/wcfm-view-listings.php:151
 #: views/products/wcfm-view-products.php:50
 msgid "Products"
 msgstr "Produse"
 
-#: core/class-wcfm.php:728 views/capability/wcfm-view-capability.php:1316
+#: core/class-wcfm.php:748 views/capability/wcfm-view-capability.php:1316
 #: views/coupons/wcfm-view-coupons.php:16
 msgid "Coupons"
 msgstr "Cupoane"
 
-#: core/class-wcfm.php:745 views/capability/wcfm-view-capability.php:1833
+#: core/class-wcfm.php:765 views/capability/wcfm-view-capability.php:1833
 msgid "Reports"
 msgstr "Rapoarte"
 
-#: core/class-wcfm.php:757 helpers/class-wcfm-setup-bak.php:87
+#: core/class-wcfm.php:777 helpers/class-wcfm-setup-bak.php:87
 #: helpers/class-wcfm-setup-bak.php:1587 helpers/class-wcfm-setup.php:100
 #: helpers/class-wcfm-setup.php:1900 views/settings/wcfm-view-settings.php:128
 #: views/settings/wcfm-view-settings.php:730
 msgid "Capability"
 msgstr "Perminisuni"
 
-#: core/class-wcfm.php:854 helpers/class-wcfm-install.php:392
+#: core/class-wcfm.php:874 helpers/class-wcfm-install.php:389
 msgid "Article"
 msgstr "Articol"
 
-#: core/class-wcfm.php:855 helpers/class-wcfm-install.php:408
+#: core/class-wcfm.php:875 helpers/class-wcfm-install.php:405
 #: views/enquiry/wcfm-view-enquiry.php:101
 #: views/enquiry/wcfm-view-enquiry.php:116
 #: views/wc_bookings/wcfm-view-wcbookings-details.php:385
 msgid "Customer"
 msgstr "Client"
 
-#: core/class-wcfm.php:856 helpers/class-wcfm-install.php:391
+#: core/class-wcfm.php:876 helpers/class-wcfm-install.php:388
 msgid "Coupon"
 msgstr "Cupon"
 
-#: core/class-wcfm.php:861 helpers/class-wcfm-install.php:399
+#: core/class-wcfm.php:881 helpers/class-wcfm-install.php:396
 msgid "Refund"
 msgstr "Retur"
 
-#: core/class-wcfm.php:862
+#: core/class-wcfm.php:882
 msgid "Enquiry"
 msgstr "Intrebare"
 
-#: core/class-wcfm.php:864
+#: core/class-wcfm.php:884
 msgid "Enquiry Tab"
 msgstr "Tab Intrebare"
 
-#: core/class-wcfm.php:865
+#: core/class-wcfm.php:885
 msgid ""
 "If you just want to hide Single Product page `Enquiry Tab`, but keep enable "
 "`Enquiry Module` for `Catalog Mode`."
@@ -4234,7 +4247,7 @@ msgstr ""
 "Dacă doriți doar să ascundeți o singură pagină de produse `Tab Intrebare`, "
 "păstrați activarea modulului de interogare pentru `Modul de catalogare`."
 
-#: core/class-wcfm.php:869
+#: core/class-wcfm.php:889
 msgid ""
 "If you disable `Enquiry Module` then `Catalog Module` will stop working "
 "automatically."
@@ -4242,91 +4255,91 @@ msgstr ""
 "Dacă dezactivați `Modul Intrebare`, atunci `Modul Catalog` va înceta să "
 "funcționeze automat."
 
-#: core/class-wcfm.php:871
+#: core/class-wcfm.php:891
 msgid "Popup Add Product"
 msgstr "Popup Adaugare Produs"
 
-#: core/class-wcfm.php:872
+#: core/class-wcfm.php:892
 msgid "Custom Field"
 msgstr "Camp custom"
 
-#: core/class-wcfm.php:874 helpers/wcfm-core-functions.php:1444
+#: core/class-wcfm.php:894 helpers/wcfm-core-functions.php:1444
 msgid "Direct Message"
 msgstr "Mesah direct"
 
-#: core/class-wcfm.php:876
+#: core/class-wcfm.php:896
 msgid "Annoncement"
 msgstr ""
 
-#: core/class-wcfm.php:882
+#: core/class-wcfm.php:902
 msgid "BuddyPress Integration"
 msgstr "Integrarea BuddyPress"
 
-#: core/class-wcfm.php:909
+#: core/class-wcfm.php:929
 msgid "Base Highlighter Color"
 msgstr ""
 
-#: core/class-wcfm.php:924
+#: core/class-wcfm.php:944
 msgid "Top Bar Background Color"
 msgstr "Culoarea de Background a barei de sus"
 
-#: core/class-wcfm.php:931
+#: core/class-wcfm.php:951
 msgid "Top Bar Text Color"
 msgstr "Culoarea Textului din bara de sus"
 
-#: core/class-wcfm.php:938
+#: core/class-wcfm.php:958
 msgid "Dashboard Background Color"
 msgstr "Culoare Background Dashboard"
 
-#: core/class-wcfm.php:947
+#: core/class-wcfm.php:967
 msgid "Container Background Color"
 msgstr ""
 
-#: core/class-wcfm.php:954
+#: core/class-wcfm.php:974
 msgid "Container Head Color"
 msgstr ""
 
-#: core/class-wcfm.php:961
+#: core/class-wcfm.php:981
 msgid "Container Head Text Color"
 msgstr ""
 
-#: core/class-wcfm.php:968
+#: core/class-wcfm.php:988
 msgid "Container Head Active Color"
 msgstr ""
 
-#: core/class-wcfm.php:975
+#: core/class-wcfm.php:995
 msgid "Container Head Active Text Color"
 msgstr ""
 
-#: core/class-wcfm.php:982
+#: core/class-wcfm.php:1002
 msgid "Menu Background Color"
 msgstr "Culoarea de Background a meniului"
 
-#: core/class-wcfm.php:989
+#: core/class-wcfm.php:1009
 msgid "Menu Item Text Color"
 msgstr "Culoarea textului unui element din meniu"
 
-#: core/class-wcfm.php:996
+#: core/class-wcfm.php:1016
 msgid "Menu Active Item Background"
 msgstr "Background Element din meniul activ"
 
-#: core/class-wcfm.php:1007
+#: core/class-wcfm.php:1027
 msgid "Menu Active Item Text Color"
 msgstr "Culoarea textului a elementelor din meniul activ"
 
-#: core/class-wcfm.php:1014
+#: core/class-wcfm.php:1034
 msgid "Button Background Color"
 msgstr "Culoare Background Buton"
 
-#: core/class-wcfm.php:1024
+#: core/class-wcfm.php:1044
 msgid "Button Text Color"
 msgstr "Culoare Text Buton"
 
-#: helpers/class-wcfm-install.php:388
+#: helpers/class-wcfm-install.php:385
 msgid "General"
 msgstr "General"
 
-#: helpers/class-wcfm-install.php:389
+#: helpers/class-wcfm-install.php:386
 #: views/customers/wcfm-view-customers-details.php:252
 #: views/customers/wcfm-view-customers-details.php:263
 #: views/customers/wcfm-view-customers-details.php:290
@@ -4342,7 +4355,7 @@ msgstr "General"
 msgid "Product"
 msgstr "Produs"
 
-#: helpers/class-wcfm-install.php:390
+#: helpers/class-wcfm-install.php:387
 #: views/customers/wcfm-view-customers-details.php:253
 #: views/customers/wcfm-view-customers-details.php:264
 #: views/customers/wcfm-view-customers-details.php:291
@@ -4355,7 +4368,7 @@ msgstr "Produs"
 msgid "Order"
 msgstr "Comanda"
 
-#: helpers/class-wcfm-install.php:397
+#: helpers/class-wcfm-install.php:394
 #: views/settings/wcfm-view-dokan-settings.php:402
 #: views/settings/wcfm-view-wcfmmarketplace-settings.php:866
 #: views/settings/wcfm-view-wcmarketplace-settings.php:440
@@ -4372,40 +4385,40 @@ msgstr "Comanda"
 msgid "Payment"
 msgstr "Plata"
 
-#: helpers/class-wcfm-install.php:400
+#: helpers/class-wcfm-install.php:397
 msgid "Review"
 msgstr ""
 
-#: helpers/class-wcfm-install.php:401
+#: helpers/class-wcfm-install.php:398
 msgid "Policy"
 msgstr ""
 
-#: helpers/class-wcfm-install.php:403
+#: helpers/class-wcfm-install.php:400
 msgid "Support Ticket"
 msgstr "Ticket pentru Support"
 
-#: helpers/class-wcfm-install.php:405
+#: helpers/class-wcfm-install.php:402
 msgid "Vacation"
 msgstr ""
 
-#: helpers/class-wcfm-install.php:406 views/vendors/wcfm-view-vendors.php:88
+#: helpers/class-wcfm-install.php:403 views/vendors/wcfm-view-vendors.php:88
 #: views/vendors/wcfm-view-vendors.php:110
 msgid "Verification"
 msgstr "Verificare"
 
-#: helpers/class-wcfm-install.php:407
+#: helpers/class-wcfm-install.php:404
 msgid "Report"
 msgstr "Raport"
 
-#: helpers/class-wcfm-install.php:409 views/settings/wcfm-view-settings.php:605
+#: helpers/class-wcfm-install.php:406 views/settings/wcfm-view-settings.php:605
 msgid "Followers"
 msgstr "Urmaritori"
 
-#: helpers/class-wcfm-install.php:413
+#: helpers/class-wcfm-install.php:410
 msgid "Marketing"
 msgstr "Marketing"
 
-#: helpers/class-wcfm-install.php:414
+#: helpers/class-wcfm-install.php:411
 #: views/articles/wcfm-view-articles-manage-tabs.php:92
 #: views/articles/wcfm-view-articles-manage-tabs.php:130
 #: views/integrations/wcfm-view-integrations-products-manage.php:165
@@ -6492,10 +6505,6 @@ msgstr ""
 #: helpers/wcfm-core-functions.php:1426
 msgid "Please select some product first!"
 msgstr ""
-
-#: helpers/wcfm-core-functions.php:1427
-msgid "Please login to the site first!"
-msgstr "Va rugam sa va autentificati pe site!"
 
 #: helpers/wcfm-core-functions.php:1428
 msgid "Please select a shipping method"
@@ -11953,12 +11962,12 @@ msgctxt "hash before order number"
 msgid "#"
 msgstr "#"
 
-#: core/class-wcfm-integrations.php:968 core/class-wcfm-integrations.php:1112
+#: core/class-wcfm-integrations.php:960 core/class-wcfm-integrations.php:1104
 msgctxt "trusted-shops"
 msgid "GTIN"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:972 core/class-wcfm-integrations.php:1116
+#: core/class-wcfm-integrations.php:964 core/class-wcfm-integrations.php:1108
 msgctxt "trusted-shops"
 msgid ""
 "ID that allows your products to be identified worldwide. If you want to "
@@ -11966,12 +11975,12 @@ msgid ""
 "Google adverts, Google needs the GTIN."
 msgstr ""
 
-#: core/class-wcfm-integrations.php:976 core/class-wcfm-integrations.php:1119
+#: core/class-wcfm-integrations.php:968 core/class-wcfm-integrations.php:1111
 msgctxt "trusted-shops"
 msgid "MPN"
 msgstr ""
 
-#: core/class-wcfm-integrations.php:980 core/class-wcfm-integrations.php:1123
+#: core/class-wcfm-integrations.php:972 core/class-wcfm-integrations.php:1115
 msgctxt "trusted-shops"
 msgid ""
 "If you don't have a GTIN for your products, you can pass the brand name and "
@@ -11983,7 +11992,7 @@ msgctxt "wc-frontend-manager"
 msgid "Archived"
 msgstr ""
 
-#: helpers/class-wcfm-install.php:109
+#: helpers/class-wcfm-install.php:106
 msgctxt "page_slug"
 msgid "store-manager"
 msgstr "store-manager"

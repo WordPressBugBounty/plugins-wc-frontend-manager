@@ -24,15 +24,15 @@ $last_name    = '&ndash;';
 $company_name = '&ndash;';
 
 if ( isset( $wp->query_vars['wcfm-customers-details'] ) && ! empty( $wp->query_vars['wcfm-customers-details'] ) ) {
-	$customer_id = $wp->query_vars['wcfm-customers-details'];
+	$customer_id = absint( $wp->query_vars['wcfm-customers-details'] );
 
-	if ( $customer_id ) {
-		$customer_user = get_userdata( $customer_id );
-		$user_name     = $customer_user->user_login;
-		$user_email    = $customer_user->user_email;
-		$first_name    = $customer_user->first_name;
-		$last_name     = $customer_user->last_name;
-		$company_name  = get_user_meta( $customer_id, 'billing_company', true );
+	$customer_user = $customer_id ? get_userdata( $customer_id ) : false;
+	if ( $customer_user ) {
+		$user_name    = $customer_user->user_login;
+		$user_email   = $customer_user->user_email;
+		$first_name   = $customer_user->first_name;
+		$last_name    = $customer_user->last_name;
+		$company_name = get_user_meta( $customer_id, 'billing_company', true );
 	} else {
 		wcfm_restriction_message_show( 'Invalid Customer' );
 		return;
@@ -122,7 +122,7 @@ if ( wcfm_is_vendor() ) {
 			echo '<a class="add_new_wcfm_ele_dashboard text_tip" href="' . get_wcfm_customers_url() . '" data-tip="' . __( 'Manage Customers', 'wc-frontend-manager' ) . '"><span class="wcfmfa fa-user-circle"></span></a>';
 
 			if ( apply_filters( 'wcfm_is_allow_edit_customer', true ) && apply_filters( 'wcfm_is_vendor_customer', true, $customer_id ) ) {
-				echo '<a class="add_new_wcfm_ele_dashboard text_tip" href="' . get_wcfm_customers_manage_url( $customer_id ) . '" data-tip="' . __( 'Edit Customer', 'wc-frontend-manager' ) . '"><span class="wcfmfa fa-edit"></span></a>';
+				echo '<a class="add_new_wcfm_ele_dashboard text_tip" href="' . esc_url( get_wcfm_customers_manage_url( $customer_id ) ) . '" data-tip="' . esc_attr__( 'Edit Customer', 'wc-frontend-manager' ) . '"><span class="wcfmfa fa-edit"></span></a>';
 			}
 
 			if ( apply_filters( 'wcfm_add_new_customer_sub_menu', true ) ) {

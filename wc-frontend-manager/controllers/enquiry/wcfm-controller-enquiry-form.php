@@ -20,6 +20,12 @@ class WCFM_Enquiry_Form_Controller {
 	public function processing() {
 		global $WCFM, $wpdb;
 
+		 
+		if ( ! is_user_logged_in() && apply_filters( 'wcfm_is_allow_enquiry_with_login', false ) ) {
+			echo '{"status": false, "message": "' . esc_html( __( 'Please login to the site first!', 'wc-frontend-manager' ) ) . '"}';
+			die;
+		}
+
 		$wcfm_enquiry_tab_form_data = array();
 		parse_str( $_POST['wcfm_enquiry_tab_form'], $wcfm_enquiry_tab_form_data );
 
@@ -66,6 +72,10 @@ class WCFM_Enquiry_Form_Controller {
 			$product_id = 0;
 			if ( isset( $wcfm_enquiry_tab_form_data['product_id'] ) && ! empty( $wcfm_enquiry_tab_form_data['product_id'] ) ) {
 				$product_id = absint( $wcfm_enquiry_tab_form_data['product_id'] );
+				 
+				if ( $product_id && ! $this->is_post_visible_to_requester( $product_id ) ) {
+					$product_id = 0;
+				}
 				if ( $product_id ) {
 					$product_post = get_post( $product_id );
 					$author_id    = $product_post->post_author;
@@ -75,8 +85,14 @@ class WCFM_Enquiry_Form_Controller {
 			$vendor_id = 0;
 			if ( isset( $wcfm_enquiry_tab_form_data['vendor_id'] ) && ! empty( $wcfm_enquiry_tab_form_data['vendor_id'] ) ) {
 				$vendor_id = absint( $wcfm_enquiry_tab_form_data['vendor_id'] );
-				$author_id = $vendor_id;
-			} elseif ( $author_id && wcfm_is_vendor( $author_id ) ) {
+				 
+				if ( wcfm_is_vendor( $vendor_id ) ) {
+					$author_id = $vendor_id;
+				} else {
+					$vendor_id = 0;
+				}
+			}
+			if ( ! $vendor_id && $author_id && wcfm_is_vendor( $author_id ) ) {
 				$vendor_id = $author_id;
 			}
 
@@ -238,7 +254,8 @@ class WCFM_Enquiry_Form_Controller {
 
 				 
 				if ( apply_filters( 'wcfm_is_allow_notification_message', true, 'enquiry', 0 ) ) {
-					$wcfm_messages = sprintf( __( 'New Inquiry <b>%1$s</b> received for <b>%2$s</b>', 'wc-frontend-manager' ), '<a target="_blank" class="wcfm_dashboard_item_title" href="' . esc_url( get_wcfm_enquiry_manage_url( $enquiry_id ) ) . '">#' . sprintf( '%06u', $enquiry_id ) . '</a>', $enquiry_for_label );
+					 
+					$wcfm_messages = sprintf( __( 'New Inquiry <b>%1$s</b> received for <b>%2$s</b>', 'wc-frontend-manager' ), '<a target="_blank" class="wcfm_dashboard_item_title" href="' . esc_url( get_wcfm_enquiry_manage_url( $enquiry_id ) ) . '">#' . sprintf( '%06u', $enquiry_id ) . '</a>', esc_html( $enquiry_for_label ) );
 					$WCFM->wcfm_notification->wcfm_send_direct_message( -2, 0, 1, 0, $wcfm_messages, 'enquiry', false );
 				}
 
@@ -273,7 +290,8 @@ class WCFM_Enquiry_Form_Controller {
 
 							 
 							if ( apply_filters( 'wcfm_is_allow_notification_message', true, 'enquiry', $vendor_id ) ) {
-								$wcfm_messages = sprintf( __( 'New Inquiry <b>%1$s</b> received for <b>%2$s</b>', 'wc-frontend-manager' ), '<a target="_blank" class="wcfm_dashboard_item_title" href="' . esc_url( get_wcfm_enquiry_manage_url( $enquiry_id ) ) . '">#' . sprintf( '%06u', $enquiry_id ) . '</a>', $enquiry_for_label );
+								 
+								$wcfm_messages = sprintf( __( 'New Inquiry <b>%1$s</b> received for <b>%2$s</b>', 'wc-frontend-manager' ), '<a target="_blank" class="wcfm_dashboard_item_title" href="' . esc_url( get_wcfm_enquiry_manage_url( $enquiry_id ) ) . '">#' . sprintf( '%06u', $enquiry_id ) . '</a>', esc_html( $enquiry_for_label ) );
 								$WCFM->wcfm_notification->wcfm_send_direct_message( -1, $vendor_id, 1, 0, $wcfm_messages, 'enquiry', false );
 							}
 						}
@@ -297,5 +315,25 @@ class WCFM_Enquiry_Form_Controller {
 		}
 
 		die;
+	}
+
+	
+
+
+
+
+
+
+
+
+
+
+
+	private function is_post_visible_to_requester( $post_id ) {
+		if ( 'publish' === get_post_status( $post_id ) && is_post_type_viewable( get_post_type( $post_id ) ) ) {
+			return true;
+		}
+
+		return current_user_can( 'read_post', $post_id );
 	}
 }

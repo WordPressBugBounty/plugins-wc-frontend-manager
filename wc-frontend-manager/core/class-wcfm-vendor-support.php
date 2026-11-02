@@ -170,12 +170,6 @@ class WCFM_Vendor_Support {
 		 
 		$WCFM_Query->init_query_vars();
 		$WCFM_Query->add_endpoints();
-
-		if ( ! get_option( 'wcfm_updated_end_point_wcfm_vendors' ) ) {
-			 
-			flush_rewrite_rules();
-			update_option( 'wcfm_updated_end_point_wcfm_vendors', 1 );
-		}
 	}
 
 	
@@ -1027,14 +1021,15 @@ class WCFM_Vendor_Support {
 						if ( isset( $options['manage_appointment'] ) && $options['manage_appointment'] == 'yes' ) {
 							$vendor_role->remove_cap( 'manage_appointments' );
 							$vendor_role->remove_cap( 'manage_others_appointments' );
-							$vendor_role->remove_cap( 'manage_options' );
 						} else {
 							$vendor_role->add_cap( 'manage_appointments' );
 							$vendor_role->add_cap( 'manage_others_appointments' );
-							$vendor_role->add_cap( 'manage_options' );
 						}
 					}
 				}
+
+				 
+				$vendor_role->remove_cap( 'manage_options' );
 
 				 
 				if ( WCFM_Dependencies::wcfmu_plugin_active_check() ) {

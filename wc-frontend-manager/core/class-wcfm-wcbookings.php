@@ -132,12 +132,6 @@ class WCFM_WCBookings {
 		 
 		$WCFM_Query->init_query_vars();
 		$WCFM_Query->add_endpoints();
-
-		if ( ! get_option( 'wcfm_updated_end_point_wc_bookings' ) ) {
-			 
-			flush_rewrite_rules();
-			update_option( 'wcfm_updated_end_point_wc_bookings', 1 );
-		}
 	}
 
 	

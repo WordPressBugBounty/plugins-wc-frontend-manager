@@ -28,6 +28,11 @@ class WCFM_Query {
 
 	public function __construct() {
 		add_action( 'init', array( $this, 'add_endpoints' ) );
+		 
+		add_action( 'init', array( $this, 'maybe_flush_rewrite_rules' ), PHP_INT_MAX );
+		add_action( 'generate_rewrite_rules', array( $this, 'note_rewrite_rules_context' ) );
+		add_action( 'added_option', array( $this, 'reset_rewrite_endpoints' ) );
+		add_action( 'updated_option', array( $this, 'reset_rewrite_endpoints' ) );
 		if ( ! is_admin() ) {
 			 
 			add_filter( 'query_vars', array( $this, 'add_query_vars' ), 0 );
@@ -271,6 +276,69 @@ class WCFM_Query {
 			if ( ! empty( $var ) ) {
 				add_rewrite_endpoint( $var, $mask );
 			}
+		}
+	}
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public function maybe_flush_rewrite_rules() {
+		$mask      = $this->get_endpoints_mask();
+		$endpoints = array();
+		foreach ( $this->query_vars as $var ) {
+			if ( ! empty( $var ) ) {
+				$endpoints[ $var ] = $mask;
+			}
+		}
+
+		 
+		$endpoints = (array) apply_filters( 'wcfm_rewrite_endpoints', $endpoints );
+
+		$known = get_option( 'wcfm_rewrite_endpoints', array() );
+		if ( ! is_array( $known ) ) {
+			$known = array();
+		}
+
+		 
+		foreach ( array_diff_key( $known, $endpoints ) as $endpoint => $places ) {
+			add_rewrite_endpoint( $endpoint, $places );
+		}
+
+		$all = array_replace( $known, $endpoints );
+		if ( $all !== $known ) {
+			update_option( 'wcfm_rewrite_endpoints', $all );
+			flush_rewrite_rules();
+		} elseif ( ! is_admin() && 'front' !== get_option( 'wcfm_rewrite_rules_context' ) ) {
+			flush_rewrite_rules( false );
+		}
+	}
+
+	
+
+
+	public function note_rewrite_rules_context() {
+		update_option( 'wcfm_rewrite_rules_context', is_admin() ? 'admin' : 'front' );
+	}
+
+	
+
+
+
+
+	public function reset_rewrite_endpoints( $option ) {
+		if ( 0 === strpos( $option, 'wcfm_endpoints' ) || 0 === strpos( $option, 'wcfm_myac_endpoints' ) ) {
+			delete_option( 'wcfm_rewrite_endpoints' );
 		}
 	}
 

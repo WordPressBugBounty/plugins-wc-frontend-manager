@@ -24,10 +24,10 @@ $allow_reply     = 'no';
 $close_new_reply = 'no';
 
 if ( isset( $wp->query_vars['wcfm-notice-view'] ) && ! empty( $wp->query_vars['wcfm-notice-view'] ) ) {
-	$notice_post = get_post( $wp->query_vars['wcfm-notice-view'] );
+	$notice_post = get_post( absint( $wp->query_vars['wcfm-notice-view'] ) );
 	 
 	if ( $notice_post && ! empty( $notice_post ) ) {
-		$notice_id = $wp->query_vars['wcfm-notice-view'];
+		$notice_id = absint( $wp->query_vars['wcfm-notice-view'] );
 
 		$topic_title   = $notice_post->post_title;
 		$topic_content = $notice_post->post_content;

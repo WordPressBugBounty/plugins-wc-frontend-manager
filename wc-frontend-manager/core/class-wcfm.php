@@ -214,8 +214,6 @@ class WCFM {
 				$this->load_class( 'wcbookings' );
 				$this->wcfm_wcbooking = new WCFM_WCBookings();
 			}
-		} elseif ( get_option( 'wcfm_updated_end_point_wc_bookings' ) ) {
-				delete_option( 'wcfm_updated_end_point_wc_bookings' );
 		}
 
 		 
@@ -583,10 +581,29 @@ class WCFM {
 			update_option( 'wcfm_updated_6_6_8', 1 );
 		}
 
-		$wcfm_tables = $wpdb->query( "SHOW tables like '{$wpdb->prefix}wcfm_fbc_chat_rows'" );
-		if ( ! $wcfm_tables ) {
-			delete_option( 'wcfm_updated_6_4_1' );
-			delete_option( 'wcfm_table_install' );
+		 
+		 
+		if ( ! get_option( 'wcfm_updated_6_8_2' ) ) {
+			foreach ( array( 'wcfm_vendor', 'vendor', 'seller', 'dc_vendor', 'wc_product_vendors_admin_vendor', 'shop_staff' ) as $role_name ) {
+				$role = get_role( $role_name );
+				if ( $role ) {
+					$role->remove_cap( 'manage_options' );
+				}
+			}
+			update_option( 'wcfm_updated_6_8_2', 1 );
+		}
+
+		 
+		 
+		 
+		if ( (int) get_option( 'wcfm_table_check_time' ) < time() ) {
+			update_option( 'wcfm_table_check_time', time() + DAY_IN_SECONDS );
+
+			$wcfm_tables = $wpdb->get_var( $wpdb->prepare( 'SHOW TABLES LIKE %s', $wpdb->esc_like( $wpdb->prefix . 'wcfm_fbc_chat_rows' ) ) );
+			if ( ! $wcfm_tables ) {
+				delete_option( 'wcfm_updated_6_4_1' );
+				delete_option( 'wcfm_table_install' );
+			}
 		}
 		if ( ! get_option( 'wcfm_updated_6_4_1' ) ) {
 			delete_option( 'wcfm_table_install' );
@@ -707,6 +724,10 @@ class WCFM {
 		}
 		wcfm_check_php_mail( false );
 		delete_option( 'wcfm_installed' );
+
+		 
+		delete_option( 'wcfm_rewrite_endpoints' );
+		delete_option( 'wcfm_rewrite_rules_context' );
 	}
 
 	function get_wcfm_menus() {

@@ -196,8 +196,6 @@ class WCFM_Integrations {
 				}
 
 				$query_vars = array_merge( $query_vars, $query_listing_vars );
-			} elseif ( get_option( 'wcfm_updated_end_point_wc_listings' ) ) {
-				delete_option( 'wcfm_updated_end_point_wc_listings' );
 			}
 		}
 
@@ -231,12 +229,6 @@ class WCFM_Integrations {
 		 
 		$WCFM_Query->init_query_vars();
 		$WCFM_Query->add_endpoints();
-
-		if ( ! get_option( 'wcfm_updated_end_point_wc_listings' ) ) {
-			 
-			flush_rewrite_rules();
-			update_option( 'wcfm_updated_end_point_wc_listings', 1 );
-		}
 	}
 
 	

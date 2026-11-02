@@ -187,7 +187,7 @@ class WCFM_Profile_Controller {
 					);
 					$social_fields              = array();
 					foreach ( $wcfm_profile_social_fields as $wcfm_profile_social_key => $wcfm_profile_social_field ) {
-						$social_fields[ $wcfm_profile_social_key ] = $wcfm_profile_form[ $wcfm_profile_social_field ];
+						$social_fields[ $wcfm_profile_social_key ] = wcfm_clean_contact_field( $wcfm_profile_form[ $wcfm_profile_social_field ] );
 					}
 					$vendor_data           = get_user_meta( $user_id, 'dokan_profile_settings', true );
 					$vendor_data['social'] = $social_fields;
@@ -211,7 +211,7 @@ class WCFM_Profile_Controller {
 					);
 					$social_fields              = array();
 					foreach ( $wcfm_profile_social_fields as $wcfm_profile_social_key => $wcfm_profile_social_field ) {
-						$social_fields[ $wcfm_profile_social_key ] = $wcfm_profile_form[ $wcfm_profile_social_field ];
+						$social_fields[ $wcfm_profile_social_key ] = wcfm_clean_contact_field( $wcfm_profile_form[ $wcfm_profile_social_field ] );
 					}
 					$vendor_data = get_user_meta( $user_id, 'wcfmmp_profile_settings', true );
 					if ( ! is_array( $vendor_data ) ) {
@@ -256,7 +256,7 @@ class WCFM_Profile_Controller {
 				);
 			}
 			foreach ( $wcfm_profile_social_fields as $wcfm_profile_social_key => $wcfm_profile_social_field ) {
-				update_user_meta( $user_id, $wcfm_profile_social_key, $wcfm_profile_form[ $wcfm_profile_social_field ] );
+				update_user_meta( $user_id, $wcfm_profile_social_key, wcfm_clean_contact_field( $wcfm_profile_form[ $wcfm_profile_social_field ] ) );
 			}
 		}
 

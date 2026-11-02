@@ -163,7 +163,7 @@ class WCFM_Messages_Controller {
 				$wcfm_messages_json_arr[ $index ][] = $WCFM->wcfm_notification->get_wcfm_notification_icon( $wcfm_message->message_type );  
 
 				 
-				$wcfm_messages_json_arr[ $index ][] = wcfm_removeslashes( htmlspecialchars_decode( $wcfm_message->message ) );
+				$wcfm_messages_json_arr[ $index ][] = wcfm_render_notification_message( $wcfm_message->message );
 
 				 
 				if ( $wcfm_message->author_is_admin ) {

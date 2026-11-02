@@ -110,12 +110,6 @@ class WCFM_Customer {
 		 
 		$WCFM_Query->init_query_vars();
 		$WCFM_Query->add_endpoints();
-
-		if ( ! get_option( 'wcfm_updated_end_point_wcfm_customers' ) ) {
-			 
-			flush_rewrite_rules();
-			update_option( 'wcfm_updated_end_point_wcfm_customers', 1 );
-		}
 	}
 
 	

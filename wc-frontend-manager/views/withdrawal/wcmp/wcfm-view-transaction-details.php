@@ -19,7 +19,7 @@ if ( ! $wcfm_is_allow_transaction_details || ! apply_filters( 'wcfm_is_allow_pay
 
 $transaction_id = 0;
 if ( isset( $wp->query_vars['wcfm-transaction-details'] ) && ! empty( $wp->query_vars['wcfm-transaction-details'] ) ) {
-	$transaction_id = $wp->query_vars['wcfm-transaction-details'];
+	$transaction_id = absint( $wp->query_vars['wcfm-transaction-details'] );
 }
 
 if ( ! $transaction_id ) {

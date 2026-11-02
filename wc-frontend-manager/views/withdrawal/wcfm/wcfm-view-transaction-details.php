@@ -19,7 +19,7 @@ if ( ! $wcfm_is_allow_transaction_details || ! apply_filters( 'wcfm_is_allow_pay
 
 $transaction_id = 0;
 if ( isset( $wp->query_vars['wcfm-transaction-details'] ) && ! empty( $wp->query_vars['wcfm-transaction-details'] ) ) {
-	$transaction_id = $wp->query_vars['wcfm-transaction-details'];
+	$transaction_id = absint( $wp->query_vars['wcfm-transaction-details'] );
 }
 
 if ( ! $transaction_id ) {
@@ -132,7 +132,7 @@ $transaction_meta_labels = array(
 						),
 						WC()->ajax_url()
 					);
-					echo '<a class="wcfm_pdf_invoice wcfm-action-icon withdrawal_quick_action add_new_wcfm_ele_dashboard" href="' . $invoice_url . '" data-withdrawalid="' . $transaction_id . '"><span class="wcfmfa fa-file-pdf text_tip" data-tip="' . esc_attr__( 'Invoice', 'wc-frontend-manager' ) . '"></span></a>';
+					echo '<a class="wcfm_pdf_invoice wcfm-action-icon withdrawal_quick_action add_new_wcfm_ele_dashboard" href="' . esc_url( $invoice_url ) . '" data-withdrawalid="' . esc_attr( $transaction_id ) . '"><span class="wcfmfa fa-file-pdf text_tip" data-tip="' . esc_attr__( 'Invoice', 'wc-frontend-manager' ) . '"></span></a>';
 				}
 			}
 			?>

@@ -24,10 +24,10 @@ $allow_reply     = 'yes';
 $close_new_reply = 'no';
 
 if ( isset( $wp->query_vars['wcfm-notice-manage'] ) && ! empty( $wp->query_vars['wcfm-notice-manage'] ) ) {
-	$notice_post = get_post( $wp->query_vars['wcfm-notice-manage'] );
+	$notice_post = get_post( absint( $wp->query_vars['wcfm-notice-manage'] ) );
 	 
 	if ( $notice_post && ! empty( $notice_post ) ) {
-		$notice_id = $wp->query_vars['wcfm-notice-manage'];
+		$notice_id = absint( $wp->query_vars['wcfm-notice-manage'] );
 
 		$title        = $notice_post->post_title;
 		$content      = $notice_post->post_content;
@@ -71,7 +71,7 @@ do_action( 'before_wcfm_notice_manage' );
 				<?php
 				echo '<a id="add_new_notice_dashboard" class="add_new_wcfm_ele_dashboard text_tip" href="' . get_wcfm_notices_url() . '" data-tip="' . __( 'Topics', 'wc-frontend-manager' ) . '"><span class="wcfmfa fa-bullhorn"></span><span class="text">' . __( 'Topics', 'wc-frontend-manager' ) . '</span></a>';
 				if ( $notice_id ) {
-					echo '<a class="add_new_wcfm_ele_dashboard text_tip" href="' . get_wcfm_notice_view_url( $notice_id ) . '" data-tip="' . __( 'View Topic', 'wc-frontend-manager' ) . '"><span class="wcfmfa fa-eye"></span><span class="text">' . __( 'View', 'wc-frontend-manager' ) . '</span></a>'; }
+					echo '<a class="add_new_wcfm_ele_dashboard text_tip" href="' . esc_url( get_wcfm_notice_view_url( $notice_id ) ) . '" data-tip="' . esc_attr__( 'View Topic', 'wc-frontend-manager' ) . '"><span class="wcfmfa fa-eye"></span><span class="text">' . __( 'View', 'wc-frontend-manager' ) . '</span></a>'; }
 				?>
 				<div class="wcfm-clearfix"></div>
 			</div>

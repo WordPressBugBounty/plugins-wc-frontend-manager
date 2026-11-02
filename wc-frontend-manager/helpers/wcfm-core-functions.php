@@ -2323,12 +2323,120 @@ function wcfm_removeslashes( $string ) {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function wcfm_kses_notification_message( $message ) {
+	$allowed_html = array(
+		'a'          => array(
+			'href'   => true,
+			'target' => true,
+			'rel'    => true,
+			'class'  => true,
+		),
+		'abbr'       => array(),
+		'b'          => array(),
+		'bdi'        => array(),
+		'blockquote' => array(),
+		'br'         => array(),
+		'code'       => array(),
+		'dd'         => array(),
+		'del'        => array(),
+		'dl'         => array(),
+		'dt'         => array(),
+		'em'         => array(),
+		'h1'         => array(),
+		'h2'         => array(),
+		'h3'         => array(),
+		'h4'         => array(),
+		'i'          => array(),
+		'ins'        => array(),
+		'li'         => array(),
+		'ol'         => array(),
+		'p'          => array(),
+		'small'      => array(),
+		'span'       => array( 'class' => true ),
+		'strong'     => array(),
+		'sub'        => array(),
+		'sup'        => array(),
+		'table'      => array(),
+		'tbody'      => array(),
+		'td'         => array(),
+		'tfoot'      => array(),
+		'th'         => array(),
+		'thead'      => array(),
+		'tr'         => array(),
+		'u'          => array(),
+		'ul'         => array(),
+	);
+
+	$allowed_html = apply_filters( 'wcfm_notification_message_allowed_html', $allowed_html );
+
+	return wp_kses( $message, is_array( $allowed_html ) ? $allowed_html : array() );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function wcfm_render_notification_message( $message ) {
+	return wcfm_kses_notification_message( wcfm_removeslashes( $message ) );
+}
+
+
 function wcfm_strip_html( $content ) {
 	$breaks = apply_filters( 'wcfm_editor_newline_generators', array( '<br />', '<br>', '<br/>' ) );
 
 	$content = str_ireplace( $breaks, "\r\n", $content );
 	$content = strip_tags( $content );
 	return $content;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+function wcfm_clean_contact_field( $value ) {
+	if ( is_array( $value ) ) {
+		return array_map( 'wcfm_clean_contact_field', $value );
+	}
+	return is_scalar( $value ) ? str_replace( '"', '', wp_strip_all_tags( $value, true ) ) : $value;
 }
 
 function wcfm_stripe_newline( $content ) {

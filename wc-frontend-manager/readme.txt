@@ -3,11 +3,11 @@ Contributors: wclovers
 Tags: woocommerce marketplace, multivendor marketplace, multi vendor, product vendors, wp user frontend, product vendor dashboard, ecommerce, vendor shop manager, woocommerce frontend shop manager, wcvendors, woocommerce frontend manager, wc frontend manager, woocommerce frontend shop manager, shop manager, ecommerce, e-commerce, woocommerce live manager
 Donate link: https://www.paypal.me/wclovers/25usd
 Requires at least: 5.5
-Tested up to: 7.0.2
+Tested up to: 7.1.4
 WC requires at least: 7.0
-WC tested up to: 11.0
+WC tested up to: 11.2
 Requires PHP: 7.4
-Stable tag: 6.8.1
+Stable tag: 6.8.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -278,6 +278,22 @@ Explore the frontend interfaces and management screens included in WCFM.
 == Changelog ==
 
 Below is a record of updates, features, and fixes across all releases.
+
+= 6.8.2 =
+*Updated - 02/11/2026*
+
+* Security - Fixed a Stored Cross-Site Scripting (XSS) vulnerability in dashboard notifications. Reported by Sawyer and AndrewN (Patchstack).
+* Security - Fixed a Missing Authorization vulnerability in the inquiry form, which ignored the "Inquiry with login" setting and accepted any store or product ID. Reported by Intrudify (Patchstack).
+* Security - Fixed a Missing Authorization vulnerability in product saving, which let a vendor edit other vendors' products and variations or delete any post. Reported by Niv Kochan and Matan Bachar (Wordfence).
+* Security - Fixed a Missing Authorization vulnerability in the capability settings save, which let vendors and their staff change the site-wide capability settings of all vendors, shop managers and shop staff.
+* Security - Fixed a Reflected Cross-Site Scripting (XSS) vulnerability in the customer details and notice manage dashboard endpoints. Reported by neurotx.
+* Security - Hardened the store settings and profile saves against the Stored Cross-Site Scripting (XSS) vulnerability in the vendor store phone and social profile fields, which is fixed in WCFM Marketplace 3.8.4: the store phone, email, customer support details and social profile links are now saved without HTML. Reported by Jakub Herman (Wordfence).
+* Security - Hardened the store settings save against the Stored Cross-Site Scripting (XSS) vulnerability in the store video banner, which is fixed in WCFM Marketplace 3.8.4: the video banner and store list video banner are now saved as URLs, without HTML. Reported by mroccon (Patchstack).
+* Security - Fixed an Incorrect Privilege Assignment vulnerability: with WooCommerce Appointments active, vendors were given the site-wide manage_options capability, and kept it after Appointments was deactivated. Updating removes it from the vendor and shop staff roles.
+* Fix - Rewrite rules are no longer flushed on every request.
+* Fix - Product categories, tags and custom taxonomies are now saved in one step, so a deleted category no longer leaves "Uncategorized" on the product.
+* Enhance - WooCommerce 11.2+ compatibility check added
+* Enhance - WordPress 7.1+ compatibility check added
 
 = 6.8.1 =
 *Updated - 25/08/2026*
@@ -2842,10 +2858,17 @@ Removed deprecated filter wcfm_allow_setup_page_access
 
 == Upgrade Notice ==
 
-= 6.8.1 =
+= 6.8.2 =
 
-* Security - Fixed an Insecure Direct Object Reference (IDOR / CWE-639) vulnerability that allowed an authenticated vendor to submit a withdrawal request against another vendor's commission and have the payout credited to their own account, reported by Shikhali Jamalzade, Credit goes to Shikhali Jamalzade for identifying this issue.
-* Fix - Withdrawal requests now re-validate every submitted commission against the requesting vendor's own withdrawable commissions, so ineligible, already-requested or other vendors' commissions can no longer be submitted or double-spent.
-* Fix - Prevented stray backslashes from being stored in enquiry replies, enquiry submissions, and dashboard notifications.
-* Fix - Hardened output escaping and removed redundant markup in several dashboard report and manager templates.
-* Enhance - WooCommerce 11.0+ compatibility check added
+* Security - Fixed a Stored Cross-Site Scripting (XSS) vulnerability in dashboard notifications. Reported by Sawyer and AndrewN (Patchstack).
+* Security - Fixed a Missing Authorization vulnerability in the inquiry form, which ignored the "Inquiry with login" setting and accepted any store or product ID. Reported by Intrudify (Patchstack).
+* Security - Fixed a Missing Authorization vulnerability in product saving, which let a vendor edit other vendors' products and variations or delete any post. Reported by Niv Kochan and Matan Bachar (Wordfence).
+* Security - Fixed a Missing Authorization vulnerability in the capability settings save, which let vendors and their staff change the site-wide capability settings of all vendors, shop managers and shop staff.
+* Security - Fixed a Reflected Cross-Site Scripting (XSS) vulnerability in the customer details and notice manage dashboard endpoints. Reported by neurotx.
+* Security - Hardened the store settings and profile saves against the Stored Cross-Site Scripting (XSS) vulnerability in the vendor store phone and social profile fields, which is fixed in WCFM Marketplace 3.8.4: the store phone, email, customer support details and social profile links are now saved without HTML. Reported by Jakub Herman (Wordfence).
+* Security - Hardened the store settings save against the Stored Cross-Site Scripting (XSS) vulnerability in the store video banner, which is fixed in WCFM Marketplace 3.8.4: the video banner and store list video banner are now saved as URLs, without HTML. Reported by mroccon (Patchstack).
+* Security - Fixed an Incorrect Privilege Assignment vulnerability: with WooCommerce Appointments active, vendors were given the site-wide manage_options capability, and kept it after Appointments was deactivated. Updating removes it from the vendor and shop staff roles.
+* Fix - Rewrite rules are no longer flushed on every request.
+* Fix - Product categories, tags and custom taxonomies are now saved in one step, so a deleted category no longer leaves "Uncategorized" on the product.
+* Enhance - WooCommerce 11.2+ compatibility check added
+* Enhance - WordPress 7.1+ compatibility check added

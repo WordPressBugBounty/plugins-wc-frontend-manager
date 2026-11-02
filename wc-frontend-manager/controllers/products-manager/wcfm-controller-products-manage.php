@@ -339,15 +339,11 @@ class WCFM_Products_Manage_Controller {
 					 
 				if ( apply_filters( 'wcfm_is_allow_category', true ) && apply_filters( 'wcfm_is_allow_pm_category', true ) && apply_filters( 'wcfm_is_allow_product_category', true ) ) {
 					if ( isset( $wcfm_products_manage_form_data['product_cats'] ) && ! empty( $wcfm_products_manage_form_data['product_cats'] ) ) {
-						$is_first = true;
-						foreach ( $wcfm_products_manage_form_data['product_cats'] as $product_cats ) {
-							if ( $is_first ) {
-								$is_first = false;
-								wp_set_object_terms( $new_product_id, (int) $product_cats, 'product_cat' );
-							} else {
-								wp_set_object_terms( $new_product_id, (int) $product_cats, 'product_cat', true );
-							}
-						}
+						wp_set_object_terms(
+							$new_product_id,
+							array_map( 'absint', (array) $wcfm_products_manage_form_data['product_cats'] ),
+							'product_cat'
+						);
 					} elseif ( apply_filters( 'wcfm_is_allow_reset_product_cat', true ) ) {
 							wp_delete_object_term_relationships( $new_product_id, 'product_cat' );
 					}
@@ -358,15 +354,11 @@ class WCFM_Products_Manage_Controller {
 					if ( isset( $wcfm_products_manage_form_data['product_custom_taxonomies'] ) && ! empty( $wcfm_products_manage_form_data['product_custom_taxonomies'] ) ) {
 						foreach ( $wcfm_products_manage_form_data['product_custom_taxonomies'] as $taxonomy => $taxonomy_values ) {
 							if ( ! empty( $taxonomy_values ) ) {
-								$is_first = true;
-								foreach ( $taxonomy_values as $taxonomy_value ) {
-									if ( $is_first ) {
-										$is_first = false;
-										wp_set_object_terms( $new_product_id, (int) $taxonomy_value, $taxonomy );
-									} else {
-										wp_set_object_terms( $new_product_id, (int) $taxonomy_value, $taxonomy, true );
-									}
-								}
+								wp_set_object_terms(
+									$new_product_id,
+									array_map( 'absint', (array) $taxonomy_values ),
+									$taxonomy
+								);
 							} elseif ( apply_filters( 'wcfm_is_allow_reset_' . $taxonomy, true ) ) {
 									wp_delete_object_term_relationships( $new_product_id, $taxonomy );
 							}
@@ -405,15 +397,11 @@ class WCFM_Products_Manage_Controller {
 						} else {
 							$taxonomy_values = $wcfm_products_manage_form_data['product_tags'];
 							if ( ! empty( $taxonomy_values ) ) {
-								$is_first = true;
-								foreach ( $taxonomy_values as $taxonomy_value ) {
-									if ( $is_first ) {
-										$is_first = false;
-										wp_set_object_terms( $new_product_id, (int) $taxonomy_value, 'product_tag' );
-									} else {
-										wp_set_object_terms( $new_product_id, (int) $taxonomy_value, 'product_tag', true );
-									}
-								}
+								wp_set_object_terms(
+									$new_product_id,
+									array_map( 'absint', (array) $taxonomy_values ),
+									'product_tag'
+								);
 							}
 						}
 					} elseif ( apply_filters( 'wcfm_is_allow_reset_product_tag', true ) ) {
